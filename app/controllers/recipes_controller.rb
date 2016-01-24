@@ -16,7 +16,6 @@ class RecipesController < ApplicationController
   def edit
     find_recipe
     @ingredients = Ingredient.all
-    @recipe_ingredients = @recipe.ingredients
   end
 
   def update
