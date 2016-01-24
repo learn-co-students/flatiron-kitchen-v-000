@@ -1,5 +1,5 @@
 <ol>
-  <%= @ingredients.each do |ingredient| %>
-    <li><% ingredient.name %></li>
-  <% end %>
+
+  <%= render partial: "index", locals: { ingredients: @ingredients} %>
+
 </ol>

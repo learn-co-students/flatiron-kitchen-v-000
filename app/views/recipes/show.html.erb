@@ -1,4 +1,3 @@
 <%= @recipe.name %>
-<%= @recipe.ingredients.each do |ingredient| %>
-  <%= ingredient.name %>
-<% end %>
+
+<%= render partial: "ingredients/index", locals: { ingredients: @recipe.ingredients } %>
