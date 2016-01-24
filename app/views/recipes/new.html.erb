@@ -1,0 +1,4 @@
+<%= form_for @recipe do |f| %>
+  <%= render partial: "ingredients/form", locals: {f: f} %>
+  <%= render partial: "checkboxes", locals: {f: f, all_ingredients: Ingredient.all} %>
+<% end %>
