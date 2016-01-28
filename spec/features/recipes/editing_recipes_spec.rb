@@ -17,7 +17,7 @@ describe "editing recipes" do
       fill_in 'recipe_name', with: "Rice Pudding with Farmer Darryl's Frog Sauce"
       click_button('Update Recipe')
 
-      Recipe.first.name.should == "Rice Pudding with Farmer Darryl's Frog Sauce"
+      expect(Recipe.first.name).to eq("Rice Pudding with Farmer Darryl's Frog Sauce")
       expect(page).to have_content("Rice Pudding with Farmer Darryl's Frog Sauce")
     end
 

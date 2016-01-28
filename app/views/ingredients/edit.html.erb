@@ -1,4 +1,6 @@
+<h2>Edit <%= @ingredient.name %></h2>
+
 <%= form_for @ingredient do |f| %>
-  <%= f.text_field :name %>
+  <%= render 'form', f: f %>
   <%= f.submit %>
 <% end %>

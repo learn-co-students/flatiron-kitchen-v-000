@@ -1,4 +1,14 @@
+<h2>Create a New Ingredient</h2>
+
 <%= form_for @ingredient do |f| %>
-  <%= f.text_field :name %>
+  <%= render 'form', f: f %>
+
+  <h2>Add Recipe:</h2>
+  <p>
+    <%= f.fields_for :recipes, @ingredient.recipes.build do |recipe| %>
+      <%= recipe.label 'Recipe:' %>
+      <%= recipe.text_field :name %>
+    <% end %>
+  </p>
   <%= f.submit %>
 <% end %>

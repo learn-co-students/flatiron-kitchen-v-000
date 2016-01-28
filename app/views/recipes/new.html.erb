@@ -1,15 +1,18 @@
+<h2>Create a Recipe</h2>
+
 <%= form_for @recipe do |f| %>
-  <%= f.text_field :name %>
+  <%= render 'form', f: f  %>
 
-  <% @ingredients.each do |ingredient| %>
-    <div>
-      <%= f.fields_for :recipe_ingredients, RecipeIngredient.new do |ri_fields| %>
-        <%= ri_fields.label :name, ingredient.name, for: "ingredient_#{ingredient.id}" %>
-        <%= ri_fields.text_field :quantity %>
-        <%= ri_fields.check_box :ingredient_id, {id: "ingredient_#{ingredient.id}"}, ingredient.id, nil %>
-      <% end %>
-    </div>
-  <% end %>
+  <h2>Add Ingredient:</h2>
+  <p>
+    <%= f.fields_for :ingredients, @recipe.ingredients.build do |ingredient| %>
+      <%= ingredient.label 'Ingredient:' %>
+      <%= ingredient.text_field :name %>
+    <% end %>
+  </p>
 
-  <%= f.submit %>
+  <p>
+    <%= f.submit %>
+  </p>
+
 <% end %>

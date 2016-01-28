@@ -18,7 +18,7 @@ describe "creating recipes" do
       fill_in 'recipe_name', with: 'Blueberry Pancakes'
       click_button('Create Recipe')
 
-      Recipe.first.name.should == "Blueberry Pancakes"
+      expect(Recipe.first.name).to eq "Blueberry Pancakes"
       expect(page).to have_content("Blueberry Pancakes")
     end
 

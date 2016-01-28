@@ -1,0 +1,11 @@
+<p>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</p>
+
+<p>
+  <%= f.label 'Ingredients:' %>
+</p>
+<p>
+  <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
+</p>
