@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20160127224547) do
 
   create_table "ingredients", force: true do |t|
     t.string   "name"
+    t.integer  "inventory_total"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -22,6 +23,7 @@ ActiveRecord::Schema.define(version: 20160127224547) do
   create_table "recipe_ingredients", force: true do |t|
     t.integer  "recipe_id"
     t.integer  "ingredient_id"
+    t.integer  "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,9 +1,23 @@
+<% if @ingredient.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@ingredient.errors.count, "error") %> prohibited this ingredient from being saved:</h2>
+
+    <ul>
+    <% @ingredient.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <p>
   <%= f.label :name %>
   <%= f.text_field :name %>
 </p>
 
-<h3>Belongs to the following recipes:</h3>
 <p>
-  <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name %>
+  <%= f.label :inventory_total %>
+  <%= f.text_field :inventory_total %>
 </p>
+
+<p><%= f.submit %></p>

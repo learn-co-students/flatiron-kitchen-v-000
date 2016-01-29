@@ -1,18 +1,5 @@
 <h2>Create a Recipe</h2>
 
 <%= form_for @recipe do |f| %>
-  <%= render 'form', f: f  %>
-
-  <h2>Add Ingredient:</h2>
-  <p>
-    <%= f.fields_for :ingredients, @recipe.ingredients.build do |ingredient| %>
-      <%= ingredient.label 'Ingredient:' %>
-      <%= ingredient.text_field :name %>
-    <% end %>
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
-
+  <%= render 'form', f: f %>
 <% end %>

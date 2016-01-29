@@ -1,13 +1,25 @@
-<h2><%= @recipe.name %></h2>
-
-<h3>Ingredients:</h3>
+<h2>Ingredients needed to make <%= @recipe.name %>:</h2>
 
 <ul>
-<% @recipe.ingredients.each do |ingredient| %>
-  <li><%= link_to ingredient.name, ingredient %></li>
-<% end %>
+  <% @recipe.recipe_ingredients.each do |ingredient| %>
+    <% if ingredient.ingredient.present? %>
+      <li><%= "#{ingredient.ingredient.name}: #{ingredient.quantity}" %></li>
+    <% end %>
+  <% end %>
 </ul>
 
-<p>
-  <%= link_to 'Edit Recipe', edit_recipe_path(@recipe) %>
-</p>
+<h2>Ingredients Inventory: </h2>
+
+<ul>
+  <% @recipe.recipe_ingredients.each do |ingredient| %>
+    <% if ingredient.ingredient.present? %>
+      <li><%= "#{ingredient.ingredient.name}: #{ingredient.ingredient.inventory_total}" %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<h2>
+  You have enough ingredients to make this recipe <strong><%= pluralize( @recipe.number_of_dishes, 'time') %></strong>
+</h2>
+
+<p><%= link_to 'Edit Recipe', edit_recipe_path(@recipe) %></p>
