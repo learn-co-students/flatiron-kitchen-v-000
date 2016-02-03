@@ -1,0 +1,9 @@
+<h1><%=@recipe.name%> Details!</h1>
+
+<h2>Ingredients used:</h2>
+
+<ul>
+  <% @recipe.ingredients.all do |ingredient| %>
+    <li> <%=ingredient.name %> </li>
+  <% end %>
+</ul>
