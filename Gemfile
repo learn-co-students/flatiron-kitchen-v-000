@@ -5,7 +5,7 @@ gem 'rails', '4.2'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.3.11'
-
+gem 'pry'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
@@ -32,9 +32,6 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :development do
-  gem "pry", '~> 0.10.3'
-end
 
 group :test do
   gem 'rspec-collection_matchers', '~> 1.1.2'
