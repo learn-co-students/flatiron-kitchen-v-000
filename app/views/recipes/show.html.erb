@@ -1,0 +1,11 @@
+<h2><%= @recipe.name %></h2>
+
+<ul>
+	<% @recipe.ingredients.each do |ingredient| %>
+	<li><%= ingredient.name %></li>
+	<% end %>
+</ul>
+
+<div class="container">
+	Number of dishes that can be made: <%= @recipe.dish_quantity %>
+</div>
