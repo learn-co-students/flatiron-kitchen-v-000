@@ -1,0 +1,4 @@
+<h2>All Ingredients</h2>
+<% @ingredients.each do |ingredient| %>
+  <h2><%= link_to ingredient.name, ingredient_path(ingredient) %></h2>
+<% end %>
