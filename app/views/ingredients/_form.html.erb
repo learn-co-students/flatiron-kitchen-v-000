@@ -1,0 +1,7 @@
+<%= form_for ingredient do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br>
+  <p>Include in the following recipes:</p>
+  <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name %><br>
+  <%= f.submit %>
+<% end %>

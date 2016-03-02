@@ -1,0 +1,12 @@
+<h1>Listing Ingredients</h1>
+<% @ingredients.each do |ingredient| %>
+  <p><%= link_to ingredient.name, ingredient %></p>
+  <% if ingredient.recipes.any? %>
+    <p>Included in the following recipes:</p>
+     <% ingredient.recipes.each do |recipe| %>
+      <ul>
+        <li><%= recipe.name %></li>
+      </ul>
+    <% end %>
+  <% end %>
+<% end %>
