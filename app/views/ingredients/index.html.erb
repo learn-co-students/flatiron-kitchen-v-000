@@ -1,0 +1,9 @@
+<h3>Ingredients</h3>
+<% @ingredients.each do |ingredient|%>
+<%=render partial: 'ingredient', locals: {ingredient: ingredient}%>
+<%end%>
+<br />
+<br />
+
+<%= link_to 'New Ingredient', new_ingredient_path%><br />
+<%= link_to 'All Recipes', recipes_path%>
