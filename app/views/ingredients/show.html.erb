@@ -1,0 +1,9 @@
+<h1>Ingredient</h1>
+<%= @ingredient.name %>
+<br />
+<br />
+<%= @ingredient.quantity %>
+<br />
+<br />
+<%=link_to "edit", edit_ingredient_path(@ingredient) %> |
+<%= link_to "back", ingredients_path %>

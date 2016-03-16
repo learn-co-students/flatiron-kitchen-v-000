@@ -1,0 +1,16 @@
+<h1>All Recipes</h1>
+
+<%= link_to 'Add New Recipe', new_recipe_path %>
+<ul>
+  <% @recipes.each do |recipe| %>
+  <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
+  <h4>Ingredients:</h4>
+    <% recipe.ingredients.each do |ingredient| %>
+      <li>
+        <i><%= ingredient.name %> - <i><%= ingredient.quantity %><br /></i></i>
+    </li>
+    <% end %>
+
+  <% end %>
+</ul>
+<br /><br />
