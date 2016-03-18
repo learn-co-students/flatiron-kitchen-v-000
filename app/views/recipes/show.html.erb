@@ -1,0 +1,23 @@
+<!-- Recipe info -->
+<h1><%= @recipe.name %></h1>
+
+<h3>Ingredients</h3>
+<ul>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <li><%= pluralize @recipe.quantity_for(ingredient), ingredient.name %></li>
+  <% end %>
+</ul>
+<hr>
+
+<!-- Info on inventory related to recipe's ingredients -->
+<h3>Inventory</h3>
+<ul>
+<% @recipe.ingredients.each do |ingredient| %>
+  <li><%= pluralize ingredient.inventory, ingredient.name %></li>
+<% end %>
+</ul>
+
+<h3>Enough ingredients to cook: <%= pluralize @recipe.enough_for , @recipe.name %></h3>
+
+<!-- Button redirects to cook_path which runs the .cook_recipe method on the recipe. This updates the inventory for the recipe's ingredients, if there is enough to cook the recipe. -->
+<%= button_to "Cook", cook_path, method: :get %>

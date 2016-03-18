@@ -1,0 +1,10 @@
+<h1><%= @ingredient.name %></h1>
+<p>Inventory: <%= @ingredient.inventory %> units</p>
+<hr>
+
+<h2>Recipes</h2>
+<ul>
+<% @ingredient.recipes.each do |recipe| %>
+  <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+<% end %>
+</ul>
