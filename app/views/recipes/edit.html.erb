@@ -1,0 +1,5 @@
+<h2>Edit a Recipe:</h2>
+<%= form_for @recipe do |f| %>
+  <%= render partial: 'ingredients/form', locals: {f: f} %>
+  <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
+<% end %>
