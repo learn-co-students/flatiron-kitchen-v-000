@@ -171,7 +171,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails (~> 4.0.5)
-  pry (~> 0.10.3)
+  pry
   rails (= 4.2)
   rspec-collection_matchers (~> 1.1.2)
   rspec-rails (~> 3.3.3)
@@ -180,6 +180,3 @@ DEPENDENCIES
   sqlite3 (~> 1.3.11)
   turbolinks (~> 2.5.3)
   uglifier (>= 1.3.0)
-
-BUNDLED WITH
-   1.10.6

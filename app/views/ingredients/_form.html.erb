@@ -1,0 +1,17 @@
+
+<p>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</p>
+
+<h3>Belongs to the following recipes:</h3>
+<p>
+  <%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name %>
+</p>
+<!-- <h2>Add Recipe:</h2>
+<p>
+  <%= f.fields_for :recipes, @ingredient.recipes.build do |recipe| %>
+    <%= recipe.label 'Recipe:' %>
+    <%= recipe.text_field :name %>
+  <% end %>
+</p> -->
