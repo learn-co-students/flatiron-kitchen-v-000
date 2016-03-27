@@ -5,4 +5,6 @@ class Recipe < ActiveRecord::Base
   def self.search(query)
     self.all.select { |recipe| recipe.name.downcase.match(query.downcase) }
   end
+  
+  validates :name, presence: true
 end
