@@ -1,8 +1,9 @@
 <h4>Recipe Name: <%= recipe.name %></h4>
 Ingredients: 
 <ul>
-  <% recipe.ingredients.each do |ingredient| %> 
-    <li><%= ingredient.name %></li>
+  <% recipe.recipe_ingredients.each do |item| %> 
+    <li><%= item.ingredient_name %><%= ", #{item.quantity}" if item.quantity %></li>
+    
   <% end %> 
 </ul>
 <p><%= link_to "Edit Recipe", edit_recipe_path(recipe) %></p>

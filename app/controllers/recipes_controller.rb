@@ -32,6 +32,7 @@ class RecipesController < ApplicationController
   end
   
   def update 
+    # raise params.inspect
     if @recipe.update(recipe_params) 
       redirect_to recipe_path(@recipe) 
     else
@@ -47,6 +48,6 @@ class RecipesController < ApplicationController
   end 
   
   def recipe_params 
-    params.require(:recipe).permit(:name, ingredient_ids: [])
+    params.require(:recipe).permit(:name, recipe_ingredients_attributes: [:recipe_id, :quantity], ingredient_ids: [])
   end
 end
