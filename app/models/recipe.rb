@@ -28,7 +28,11 @@ class Recipe < ActiveRecord::Base
         end
       end
     end
-    dishes
+    if dishes != 9999999999999 
+      dishes
+    else
+      nil
+    end
   end
   
   def recipe_ingredients_attributes=(attributes) 

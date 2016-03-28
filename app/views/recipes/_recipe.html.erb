@@ -1,8 +1,11 @@
 <h4>Recipe Name: <%= recipe.name %></h4>
+<% if recipe.ingredients_to_dishes %> 
+<p>We have enough ingredients for <%= recipe.ingredients_to_dishes %> dishes.</p>
+<% end %>
 Ingredients: 
 <ul>
   <% recipe.recipe_ingredients.each do |item| %> 
-    <li><%= item.ingredient_name %><%= ", #{item.quantity}" if item.quantity %></li>
+    <li><%= link_to item.ingredient_name, ingredient_path(item.ingredient) %><%= ", #{item.quantity}" if item.quantity %></li>
     
   <% end %> 
 </ul>
