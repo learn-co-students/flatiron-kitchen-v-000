@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 describe "creating recipes" do
   context "on the new recipe page" do
