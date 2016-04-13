@@ -1,0 +1,6 @@
+<%= form_for @recipe do |recipe| %>
+  <%= render partial: 'recipe_form', locals: {recipe_attr: recipe} %>
+
+  <%= recipe.submit %>
+<% end %>
+<br>
