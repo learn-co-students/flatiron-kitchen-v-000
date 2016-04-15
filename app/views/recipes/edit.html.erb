@@ -1,0 +1,4 @@
+<%@recipe.ingredients.each do |ingredient|%>
+<%ingredient.name%>
+<%end%>
+<%=render partial: 'form', locals: {recipe: @recipe}%>
