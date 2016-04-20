@@ -1,0 +1,6 @@
+<h3> List All Ingredients </h3>
+<% @ingredients.each do |i| %>
+  <ul>
+    <li> <%= link_to i.name, ingredient_path(i) %> </li>
+  </ul>
+  <% end %>

@@ -1,0 +1,11 @@
+<h3> Edit a Recipe </h3>
+  <%= form_for(@recipe) do |f| %>
+  <%= render partial: 'form', locals: {f: f} %>
+    <%= f.submit %>
+  <br></br>
+  <%= f.label :new_ingredient %>:
+  <%= fields_for :ingredients, @recipe.ingredients.build do |ingredient_fields| %>
+    <%= ingredient_fields.text_field :name %>
+    <% end %>
+<% end %>
+    <br></br>
