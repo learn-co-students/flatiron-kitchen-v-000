@@ -3,9 +3,6 @@
   <%= render partial: 'form', locals: {f: f} %>
     <%= f.submit %>
   <br></br>
-  <%= f.label :new_ingredient %>:
-  <%= fields_for :ingredients, @recipe.ingredients.build do |ingredient_fields| %>
-    <%= ingredient_fields.text_field :name %>
-    <% end %>
+  <%= render partial: 'add_ingredients', locals: {f: f} %>
 <% end %>
     <br></br>

@@ -1,7 +1,8 @@
 <h3> Create a new Recipe </h3>
 <%= form_for(@recipe) do |f| %>
   <%= render partial: 'form', locals: {f: f} %>
-  <%= f.submit %>
+  <%= render partial: 'add_ingredients', locals: {f: f} %>
+      <%= f.submit %>
 <% end %>
 
 
