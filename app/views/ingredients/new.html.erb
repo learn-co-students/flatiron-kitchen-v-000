@@ -1,7 +1,2 @@
 <h1>New Ingredient Form: </h1>
-<%= form_for @ingredient do |ingredient_builder| %>
-  <%= ingredient_builder.label :name %>
-  <%= ingredient_builder.text_field :name %>
-
-  <%= ingredient_builder.submit %>
-<% end %>
+<%= render 'form' %>
