@@ -1,8 +1,13 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @recipes = Recipe.all
+  end
+
   def new
     @recipe = Recipe.new
+    @ingredients = Ingredient.all
   end
 
   def show
@@ -27,7 +32,7 @@ class RecipesController < ApplicationController
     end
 
     def recipe_params
-      params.require(:recipe).permit(:name)
+      params.require(:recipe).permit(:name, :ingredients_ids => [])
     end
 
     def save_recipe(recipe)

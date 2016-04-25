@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160425171738) do
+ActiveRecord::Schema.define(version: 20160425174711) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string   "name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20160425171738) do
     t.integer  "ingredient_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.float    "quantity"
   end
 
   add_index "recipe_ingredients", ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"

@@ -1,6 +1,12 @@
 <%= form_for(recipe) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.label :name %>: <%= f.text_field :name %>
+  <ul>
+    <% @ingredients.each do |ingredient| %>
+      <%= fields_for :recipe_ingredients, RecipeIngredient.new do |i| %>
+        <%= i.label :name, ingredient.name %>
+      <% end %><!-- fields_for :recipe_ingredients -->
+    <% end %> <!-- @ingredients.each -->
+  </ul>
   <%= f.submit %>
 
-<% end %>
+<% end %><!-- form_for(recipe) -->
