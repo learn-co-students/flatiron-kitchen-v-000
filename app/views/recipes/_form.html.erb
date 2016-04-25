@@ -3,10 +3,8 @@
   <p><%= f.label :name %>: <%= f.text_field :name %></p>
   
   <p><%= f.label :ingredients %>: </p>
-  <p><%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %></p>
-  <p><%= f.label :new_ingredient %>: <%= f.fields_for(:ingredient) do |ingredient| %>
-  <%= ingredient.text_field :name %>
-  <% end %></p>
+  <p><%= f.collection_check_boxes :ingredient_ids, @ingredients, :id, :name %></p>
+  <p><%= f.label :new_ingredient %>: <%= f.fields_for(:ingredient) do |ingredient| %><%= ingredient.text_field :name %><% end %></p>
   <p><%= f.submit %></p>
 
 <% end %><!-- form_for(recipe) -->
