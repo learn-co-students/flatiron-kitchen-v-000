@@ -1,5 +1,8 @@
 <h1><%= @recipe.name %></h1>
 <h2>Ingredients:</h2>
+<ul>
 <%= @recipe.ingredients.each do |ingredient| %>
   <%= render partial: 'ingredients/ingredient', locals: {ingredient: ingredient} %>
 <% end %>
+</ul>
+<p><%= link_to 'Edit', edit_recipe_url(@recipe) %></p>
