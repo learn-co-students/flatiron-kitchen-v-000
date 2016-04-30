@@ -1,0 +1,10 @@
+<% if recipe.errors.any? %>
+  <div id="error_explanation">
+    Recipe could not be updated because of the following errors:
+    <ul>
+    <% recipe.errors.full_messages.each do |msg|%>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
