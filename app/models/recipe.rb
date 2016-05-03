@@ -14,7 +14,9 @@ class Recipe < ActiveRecord::Base
   end
 
   def ingredients_ids
-    self.ingredients
+    self.ingredients.collect do |ingredient|
+      ingredient.id
+    end
   end
 
 end
