@@ -1,8 +1,7 @@
-<%=form_for recipe do|f|%>
+
 <%=f.label :name%>
 <%=f.text_field :name%><br>
 
 <%=f.label :ingredients_ids%>
-<%=f.collection_check_boxes :ingredients_ids, Ingredient.all, :id,:name%><br>
+<%=f.collection_check_boxes :ingredients_ids, Ingredient.all, :id,:name, :checked => (true if @recipe.ingredients_ids.any? == :id) %><br>
 <%=f.submit%>
-<%end%>

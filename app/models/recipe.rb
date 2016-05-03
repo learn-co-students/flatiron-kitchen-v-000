@@ -5,6 +5,7 @@ class Recipe < ActiveRecord::Base
   has_many :ingredients, through: :recipe_ingredients
 
   def ingredients_ids=(ingredients)
+    self.ingredients = []
     ingredients.each do |i|
       if !i.blank?
         ingredient = Ingredient.find(i)
@@ -14,9 +15,11 @@ class Recipe < ActiveRecord::Base
   end
 
   def ingredients_ids
-    self.ingredients.collect do |ingredient|
-      ingredient.id
+    ids = []
+    self.ingredients.each do |ingredient|
+      ids<< ingredient.id
     end
+    ids
   end
 
 end

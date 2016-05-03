@@ -10,7 +10,7 @@ class RecipesController < ApplicationController
     end
 
     def create
-  
+
       @recipe = Recipe.new(recipe_params)
 
       if @recipe.save
@@ -24,6 +24,7 @@ class RecipesController < ApplicationController
     end
 
     def edit
+
     end
 
     def update
