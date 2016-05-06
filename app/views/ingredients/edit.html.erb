@@ -1,0 +1,13 @@
+<% if @ingredient.errors.any? %>
+  <div id="error_explanation">
+    Ingredient could not be updated because of the following errors:
+    <ul>
+    <% @ingredient.errors.full_messages.each do |msg|%>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<h2>Edit Ingredient:</h2>
+<%= render partial: "form", locals: {ingredient: @ingredient} %>
