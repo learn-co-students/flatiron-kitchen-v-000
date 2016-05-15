@@ -4,4 +4,9 @@ class Recipe < ActiveRecord::Base
   accepts_nested_attributes_for :ingredients, reject_if: proc { |attributes| attributes['name'].blank? }
 
   validates :name, presence: true
+
+  def ingredient_ids(ingredient_ids)
+    ingredients = Ingredient.where("id in (?)", ingredient_ids)
+    self.ingredients = ingredients
+  end
 end
