@@ -1,0 +1,10 @@
+<%= form_for ingredient do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <% if controller.action_name == 'new' %>
+    <%= f.submit "Create Ingredient" %>
+  <% else %>
+    <%= f.submit "Update Ingredient" %>
+  <% end %>
+<% end %>

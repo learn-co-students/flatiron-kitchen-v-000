@@ -32,9 +32,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :development do
-  gem "pry", '~> 0.10.3'
-end
+gem "pry", '~> 0.10.3'
 
 group :test do
   gem 'rspec-collection_matchers', '~> 1.1.2'
