@@ -1,0 +1,16 @@
+<h1>Create a Recipe</h1>
+<%= form_for @recipe do |f|%>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <br>
+  <br>
+
+    <% @ingredients.each do |ingredient| %>
+      <%= label_tag "ingredient_#{ingredient.id}", ingredient.name %>
+      <%= check_box_tag "recipe[ingredient_ids][]", ingredient.id, false, id: "ingredient_#{ingredient.id}" %>
+    <% end %>
+
+    <%= f.submit %>
+  <% end %>
