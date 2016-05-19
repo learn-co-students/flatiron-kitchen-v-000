@@ -1,1 +1,19 @@
-<%= render 'form' %>
+<%= form_for @recipe do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
+  </div>
+
+  <div class="field">
+    <%= f.label :ingredients%>
+    <%= f.collection_check_boxes :ingredient_ids, Ingredient.all,  :id, :name%><br>
+     :tag_ids, Tag.all, :id, :name
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update Recipe"%>
+  </div>
+
+
+<% end %>

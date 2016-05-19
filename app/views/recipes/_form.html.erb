@@ -7,7 +7,7 @@
 
   <div class="field">
     <%= f.label :ingredients%>
-    <%= f.collection_check_boxes :ingredient_ids, RecipeIngredient.all,  :ingredient_ids, :"#{ingredient.name}"%><br>
+    <%= f.collection_check_boxes :ingredient_ids, Ingredient.all,  :id, :name%><br>
      :tag_ids, Tag.all, :id, :name
   </div>
 

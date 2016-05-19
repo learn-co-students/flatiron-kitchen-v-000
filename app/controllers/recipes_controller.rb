@@ -18,7 +18,7 @@ class RecipesController < ApplicationController
   end
 
   def update
-    binding.pry
+    
     @recipe = Recipe.find(params[:id])
     @recipe.update(recipe_params)
     redirect_to recipe_path
