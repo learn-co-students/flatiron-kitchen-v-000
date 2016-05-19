@@ -1,0 +1,9 @@
+<%= link_to "New Ingredient", new_ingredient_path %> | <%= link_to "Recipes", recipes_path %>
+
+<% @ingredients.each do |i| %>
+<div>
+  <p>
+    <%= link_to i.name, ingredient_path(i)%>
+  </p>
+</div>
+<% end %>
