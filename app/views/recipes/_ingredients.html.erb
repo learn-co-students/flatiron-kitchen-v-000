@@ -1,0 +1,5 @@
+<%= fields_for :ingredients, recipe.ingredients.build do |f| %>
+
+<%= f.collection_check_boxes :name %>
+
+<%end%>
