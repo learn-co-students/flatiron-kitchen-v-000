@@ -29,6 +29,7 @@ describe "editing recipes" do
       Ingredient.create(name: 'Ginger')
       Ingredient.create(name: 'Cider')
 
+      # save_and_open_page
       visit edit_recipe_path(@recipe)
 
       expect(page).to have_css("input[type=\"checkbox\"]", :count => 4)

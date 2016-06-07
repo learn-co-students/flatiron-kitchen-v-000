@@ -70,7 +70,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      binding.pry
-      params.require(:recipe).permit(:name)
+      params.require(:recipe).permit(:name, ingredient_ids:[])
     end
 end
