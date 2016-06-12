@@ -1,0 +1,10 @@
+<h1> <%= link_to "Recipes", recipes_path %></h1>
+
+Name: <%= @recipe.name %><br><br>
+Ingredients(<%= @recipe.ingredients.count %>):
+
+<ul>
+<% @recipe.ingredients.each do |ingredient| %>
+  <li><%= render partial: 'ingredients/ingredient', locals: {ingredient: ingredient} %></li>
+<% end %>   
+</ul>
