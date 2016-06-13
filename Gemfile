@@ -34,6 +34,7 @@ end
 
 group :development do
   gem "pry", '~> 0.10.3'
+  gem "byebug"
 end
 
 group :test do
