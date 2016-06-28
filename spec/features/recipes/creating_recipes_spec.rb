@@ -67,9 +67,10 @@ describe "creating recipes" do
       Ingredient.create(name: 'Clove')
       Ingredient.create(name: 'Ginger')
       Ingredient.create(name: 'Cider')
-
+      # require 'pry'
+      # binding.pry
       visit new_recipe_path
-
+      # save_and_open_page
       fill_in 'recipe_name', with: 'Holiday Spice Cider'
 
       check('Paprika')
