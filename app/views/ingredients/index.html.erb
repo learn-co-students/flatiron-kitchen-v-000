@@ -1,0 +1,9 @@
+<h1>All Ingredients:</h1>
+
+<% @ingredients.each do |ing| %>
+    <div class="display-box">
+        <%= link_to ingredient_path(ing) do %>
+            <%= render partial: 'ingredient', locals: {ingredient: ing} %>
+        <% end %>  
+    </div>
+<% end %>

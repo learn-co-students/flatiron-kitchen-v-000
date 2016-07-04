@@ -1,0 +1,9 @@
+<h1>All Recipes:</h1>
+
+<% @recipes.each do |recipe| %>
+    <div class="display-box">
+        <%= link_to recipe_path(recipe) do %>
+            <%= render partial: 'recipe', locals: {recipe: recipe} %>
+        <% end %>  
+    </div>
+<% end %>
