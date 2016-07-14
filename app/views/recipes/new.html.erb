@@ -1,0 +1,12 @@
+<h1>New Recipe</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', recipes_path %>
+<br></br>
+<h3>Recipes: </h3>
+<%= render :partial => "recipes", :collection => @posts %>
+
+
+
+

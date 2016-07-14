@@ -1,0 +1,8 @@
+ingredient - name:string quantity:integer
+
+
+recipe_ingredients table:
+
+ingredient_id:integer recipe_id:integer
+
+--no-test-framework
