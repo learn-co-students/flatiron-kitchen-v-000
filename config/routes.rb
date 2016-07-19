@@ -1,6 +1,4 @@
 FlatironKitchen::Application.routes.draw do
-  resources :recipe_ingredients
-
   resources :ingredients
 
   resources :recipes
@@ -45,7 +43,7 @@ FlatironKitchen::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
