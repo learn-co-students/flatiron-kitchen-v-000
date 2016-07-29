@@ -1,0 +1,10 @@
+<%= form_for model_arg do |f| %>
+  
+  <%= f.label :name %>
+  <%= f.text_field :name %><br />
+
+  <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %><br />
+
+  <%= f.submit %>
+
+<% end %>

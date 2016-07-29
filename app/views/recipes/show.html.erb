@@ -1,0 +1,14 @@
+<h1><%= @recipe.name %></h1>
+<p>Ingredients:</p>
+
+<% if @recipe.ingredients.count > 0 %>
+
+  <ul>
+    <% @recipe.ingredients.each do |i| %>
+      <li><%= i.name %></li>
+    <% end %>
+  </ul>
+
+  <% else %>
+  <p><em>Add some ingredients!</em></p>
+<% end %>
