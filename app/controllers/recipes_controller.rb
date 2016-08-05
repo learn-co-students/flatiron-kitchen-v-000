@@ -7,10 +7,14 @@ class RecipesController < ApplicationController
   def create
     @recipe = Recipe.new(recipe_params)
     if @recipe.save
-      redirect_to @recipe
+      redirect_to recipe_path(@recipe)
     else
       render 'new'
     end
+  end
+
+  def index
+    @recipes = Recipe.all
   end
 
   def edit
@@ -21,16 +25,23 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
-  def index
-    @recipe = Recipe.all
-    if params[:search]
-      @recipe = Recipe.search(params[:search]).order("created_at DESC")
+  def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update(recipe_params)
+      redirect_to recipe_path(@recipe)
     else
-      @recipe = Recipe.all.order('created_at DESC')
+      render :edit
     end
   end
 
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy
+    redirect_to recipe_path(@recipe)
+  end
+
+
   def recipe_params
-    params.require(:recipe).permit(:name)
+    params.require(:recipe).permit(:name, :ingredient_ids => [])
   end
 end

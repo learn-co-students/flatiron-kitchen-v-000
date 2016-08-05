@@ -1,15 +1,10 @@
 <h1>Recipe Info</h1>
 
-<%= form_tag(recipes_path, :method => "get", id: "search-form") do %>
-<%= text_field_tag :search, params[:search], placeholder: "Search recipes" %>
-<%= submit_tag "Search" %>
-<% end %>
-
-
-<% if @recipes.present? %>
-<% @recipes.each do |recipe| %>
-  <%= render partial: 'recipe', locals: {recipe: recipe} %>
+<ul>
+  <% @recipes.each do |recipe| %>
+    <li><%= link_to recipe.name.split.map(&:capitalize).join(' '), recipe_path(recipe) %> Number of Ingredients: <%= recipe.ingredients.count %></li>
+    <br />
   <% end %>
-<% else %>
-  <p>There are no recipes containing the term(s) <%= params[:search] %>.</p>
-<% end %>
+</ul>
+
+<p><%= link_to "Add Recipe", new_recipe_path(@recipe) %></p>

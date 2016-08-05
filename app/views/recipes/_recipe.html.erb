@@ -1,5 +1,8 @@
+<h3>Recipe Name: <%= @recipe.name.split.map(&:capitalize).join(' ') %></h3>
+<label>Ingredients:</label>
+<br />
 <ul>
-  <li>
-    Name: <%= recipe.name %>
-  </li>
+<% @recipe.ingredients.each do |ingredient| %>
+  <li><%= ingredient.name.split.map(&:capitalize).join(' ') %></li>
+<% end %>
 </ul>

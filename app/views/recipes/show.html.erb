@@ -1,3 +1,15 @@
-<h1>Recipe Info</h1>
+<h3>Recipe Name: <%= @recipe.name.split.map(&:capitalize).join(' ') %></h3>
+<label>Ingredients:</label>
+<br />
+<ul>
+<% @recipe.ingredients.each do |ingredient| %>
+  <li><%= ingredient.name.split.map(&:capitalize).join(' ') %></li>
+<% end %>
+</ul>
 
-<%= render partial: "form", locals: {recipe: @recipe} %>
+<p><%= link_to "Back to List", recipes_path(@recipe) %></p>
+
+ <p><%= link_to "Edit", edit_recipe_path(@recipe) %></p>
+
+<p><%= form_tag recipe_path(@recipe), method: "delete" %>
+      <%= submit_tag "Delete" %></p> 

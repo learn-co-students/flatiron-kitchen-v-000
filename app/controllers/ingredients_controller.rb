@@ -7,9 +7,9 @@ class IngredientsController < ApplicationController
   def create
     @ingredient = Ingredient.new(ingredient_params)
     if @ingredient.save
-      redirect_to @ingredient
+      redirect_to ingredient_path(@ingredient)
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -23,10 +23,14 @@ class IngredientsController < ApplicationController
 
   def index
     @ingredients = Ingredient.all
-    if params[:search]
-      @ingredients = Ingredient.search(params[:search]).order("created_at DESC")
+  end
+
+  def update
+    @ingredient = Ingredient.find(params[:id])
+    if @ingredient.update(ingredient_params)
+      redirect_to ingredient_path(@ingredient)
     else
-      @ingredients = Ingredient.all.order('created_at DESC')
+      render :edit
     end
   end
 
