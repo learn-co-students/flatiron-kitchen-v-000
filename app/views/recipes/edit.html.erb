@@ -1,0 +1,21 @@
+Edit Recipe:
+
+<%= form_for @recipe do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br><br>
+
+  <%= f.label "Choose from Existing Ingredients:" %>
+  <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %><br><br>
+
+  <%= f.label "Or Create New Ingredient:" %>
+  <%= f.fields_for :ingredients, @recipe.ingredients.build do |i_fields| %>
+  <%= i_fields.text_field :name %>
+  <% end %>
+ 
+<br>
+<%= f.submit %>
+<% end %>
+  
+
+<%= link_to 'Show', @recipe %> |
+<%= link_to 'Back', recipes_path %>
