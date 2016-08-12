@@ -1,0 +1,12 @@
+<%= form_for ingredient do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br />
+  <%= f.label :inventory_total %>
+  <%= f.text_field :inventory_total %>
+  <br />
+  <%= f.label :inventory_units %>
+  <%= f.text_field :inventory_units %>
+  <br />
+  <%= f.submit %>
+<% end %>

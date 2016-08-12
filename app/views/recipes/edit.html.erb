@@ -1,0 +1,7 @@
+<h1>Edit a Recipe</h1>
+
+<p>
+  There are enough ingredients to make <%= @recipe.total_makeable %> <%= @recipe.name.pluralize %>
+</p>
+
+<%= render partial: 'form', locals: {recipe: @recipe, ingredients: @all_ingredients} %>
