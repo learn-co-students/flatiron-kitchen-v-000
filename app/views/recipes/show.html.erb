@@ -1,0 +1,7 @@
+Name: <%= @recipe.name %><br>
+Ingredients:<ul><% @recipe.ingredients.each do |ingredient| %>
+	<li><%= ingredient.name %>
+<% end %></ul>
+
+<p>You now have <%= Ingredient.available_ingredients.count%> ingredients</p>
+<p>Which means you are able to cook <%= Ingredient.ingredients_to_dishes %> dishes </p>
