@@ -1,0 +1,12 @@
+<div>
+  <%= @recipe.name %>
+</div>
+
+<div>
+  <ul>
+  Ingredients:
+    <% @recipe.ingredients.each do |ingredient| %>
+      <li><%= ingredient.name %> </li>
+    <% end %>
+  </ul>
+</div>

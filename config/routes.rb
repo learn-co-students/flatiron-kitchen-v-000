@@ -1,4 +1,12 @@
 FlatironKitchen::Application.routes.draw do
+  get 'recipe/new'
+
+  get 'recipe/edit'
+
+  resources :recipes
+
+  resources :ingredients
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
