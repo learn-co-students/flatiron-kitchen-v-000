@@ -1,0 +1,7 @@
+<ol>
+<% @ingredients.each do |ingredient| %>
+  <li>
+    <%= link_to ingredient.name, ingredient %>
+  </li>
+<% end %>
+</ol>
