@@ -1,0 +1,10 @@
+<%= form_for item do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br><br>
+
+  <% if @ingredients.present? %>
+    <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %><br><br>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>

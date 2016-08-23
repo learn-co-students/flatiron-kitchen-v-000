@@ -1,0 +1,5 @@
+<h1>Ingredients</h1>
+
+<%= render partial: "shared/ingredient_list", locals: { ingredients: @ingredients } %>
+
+<%= link_to "Add new ingredient", new_ingredient_path %>
