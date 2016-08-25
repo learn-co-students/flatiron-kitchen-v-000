@@ -1,0 +1,8 @@
+<h1>Ingredients Index Here </h1>
+
+<ol><% @ingredients.each do |ingredient| %>
+<li>  <%= link_to ingredient.name, ingredient %>
+<%= link_to 'Destroy', ingredient, method: :delete, data: {confirm: 'Are you Sure?'} %>
+<%= link_to 'Edit', ingredient, method: :patch %>
+<% end %></li>
+</ol>

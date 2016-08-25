@@ -1,0 +1,10 @@
+<h1>Recipes Index Here </h1>
+<ol>
+<% @recipes.each do |recipe| %>
+<li> <%= link_to recipe.name, recipe %>
+<%= link_to 'Destroy', recipe, method: :delete, data: {confirm: 'Are you Sure?'} %>
+<%= link_to 'Edit', recipe, method: :patch %>
+
+</li>
+<% end %>
+</ol>
