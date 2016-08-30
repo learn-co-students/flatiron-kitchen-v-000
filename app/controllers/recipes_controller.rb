@@ -26,8 +26,13 @@ class RecipesController < ApplicationController
   end
 
   def update
-    set_recipe
-    #update recipe
+    set_recipe.ingredients.clear
+    @recipe.update(recipe_params)
+    if @recipe.valid?
+      redirect_to recipe_path(@recipe)
+    else
+      render 'edit'
+    end
   end
 
   private
