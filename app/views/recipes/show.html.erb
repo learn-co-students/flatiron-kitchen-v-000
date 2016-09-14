@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+<%= @recipe.name %> <br>
+<ul>
+You have: <br><br>
+<% @recipe.ingredients.each do |i| %>
+
+  <li><%= i.quantity %><%= link_to i.name, i %>(s)</li>
+<% end %>
+</ul>
+<br>
+This recipe takes: <br>
+<% @recipe.ingredients_quantities.each do |quant| %>
+  <%= quant.num %>
+  <%= quant.name %>(s)
+
+  <br>
+<% end %>
+<% @recipe.ingredients_to_dishes.each do |ing, num| %>
+  We have enough of <%= ing %>(s) to make:
+  <%= num %> <%= @recipe.name %>(s)
+<% end %>
+<br><br>
+
+We can only make <%= @recipe.max_dishes %> <%= @recipe.name %>(s) with <br>
+the ingredients on hand.
+
+<br><br>
+
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<%= link_to 'Back', recipes_path %>
