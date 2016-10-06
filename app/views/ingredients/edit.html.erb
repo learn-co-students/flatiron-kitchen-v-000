@@ -1,0 +1,7 @@
+<%=form_for @ingredient do |f| %>
+  <%=f.label :name %>
+  <%=f.text_field :name, :value => @ingredient.name %>
+
+  <%=f.submit "Update Ingredient" %>
+
+  <% end %>
