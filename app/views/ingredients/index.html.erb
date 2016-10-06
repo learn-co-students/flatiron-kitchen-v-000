@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Ingredients</h1>
+
+<ol>
+  <% @ingredients.each do |ingredient| %>
+  <li><%= render partial: "ingredient", locals: {ingredient: ingredient} %>
+      <%= link_to 'Edit', edit_ingredient_path(ingredient) %>
+  </li>
+  <% end %>
+</ol>
+<br>
+
+<%= link_to 'New Ingredient', new_ingredient_path %>

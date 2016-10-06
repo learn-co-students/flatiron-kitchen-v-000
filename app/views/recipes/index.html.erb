@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Recipes</h1>
+
+  <% @recipes.each do |recipe| %>
+    <li><%= recipe.name %> <%= link_to 'Show', recipe %>
+      <%= link_to 'Edit', edit_recipe_path(recipe) %>
+      <%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+  <% end %>
+
+<br>
+
+<%= link_to 'New Recipe', new_recipe_path %>
