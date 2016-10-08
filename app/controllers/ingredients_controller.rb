@@ -17,6 +17,15 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.find(params[:id])
   end
 
+  def update
+    @ingredient = Ingredient.find(params[:id])
+    if @ingredient.update_attributes(ingredient_params)
+      redirect_to @ingredient
+    else
+      render 'edit'
+    end
+  end
+
   def show
     @ingredient = Ingredient.find(params[:id])
   end
