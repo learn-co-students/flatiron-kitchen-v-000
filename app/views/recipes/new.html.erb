@@ -1,7 +1,5 @@
 <%= form_for @recipe, :html => {:id => 'new_recipe'} do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br />
-  <%= f.label :ingredients %>
-  <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
+  <%= render partial: "ingredients/form", locals: {f: f} %>
+  <%= render partial: "ingredients", locals: {f: f} %>
 <%= f.submit %>
 <% end %>
