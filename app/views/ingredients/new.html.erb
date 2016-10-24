@@ -1,0 +1,21 @@
+<h1>Create a New Ingredient</h1>
+
+<%= form_for @ingredient do |f| %>
+  <% if @ingredient.errors.any? %>
+    <div id="error_explanation">
+      <h2>The ingredient couldn't be saved in the database</h2>
+      <ul>
+        <% @ingredient.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field <%="field_with_errors" if @ingredient.errors[:name].any? %>">
+    <%= f.label :name %><br>
+    <%=f.text_field :name %><br>
+  </div>
+
+  <%= f.submit "Create Ingredient" %>
+<% end %>
