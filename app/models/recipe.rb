@@ -5,10 +5,10 @@ class Recipe < ActiveRecord::Base
   validates :name, presence: :true, allow_blank: false
   accepts_nested_attributes_for :ingredients
 
- def ingredient_ids=(ingredient_ids)
-    ingredients = Ingredient.where("id in (?)", ingredient_ids)
-    self.ingredients = ingredients
-  end
+ # def ingredient_ids=(ingredient_ids)
+ #    ingredients = Ingredient.where("id in (?)", ingredient_ids)
+ #    self.ingredients = ingredients
+ #  end
 
 
   def ingredients_attributes=(ingredients_attributes)
