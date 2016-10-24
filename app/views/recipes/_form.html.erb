@@ -1,0 +1,24 @@
+<%= form_for(recipe) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <p>Ingredients:</p>
+  <%= f.collection_check_boxes(:ingredient_ids, Ingredient.all, :id, :name) do |b| %>
+  <!-- <input type="checkbox" value="1" name="recipe[ingredient_ids][]" id="recipe_ingredient_ids_1"> -->
+    <p>
+      <%= b.label %>
+      <%= b.check_box %>
+    </p>
+  <% end %>
+
+  <%= f.fields_for :ingredients, recipe.ingredients.build do |ingredients_fields| %>
+    <%= ingredients_fields.label "Add your own Ingredient:" %>
+    <%= ingredients_fields.text_field :name %>
+    <!-- <input type="text" name="recipe[ingredients_attributes][0][name]" id="recipe_ingredients_attributes_0_name"> -->
+  <% end %>
+  
+  <p>
+  <%= f.submit %>
+  </p>
+
+<% end %>
