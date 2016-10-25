@@ -1,4 +1,5 @@
 class IngredientsController < ApplicationController
+  before_action :set_ingredient, only: [:show, :edit, :update]
   def new
     @ingredient = Ingredient.new
   end
@@ -13,20 +14,21 @@ class IngredientsController < ApplicationController
   end
 
   def show
-    @ingredient = Ingredient.find(params[:id])
   end
 
   def edit
-    @ingredient = Ingredient.find(params[:id])
   end
 
   def update
-    @ingredient = Ingredient.find(params[:id])
     @ingredient.update(ingredient_params)
     redirect_to @ingredient
   end
 
   def ingredient_params
     params.require(:ingredient).permit(:name)
+  end
+
+  def set_ingredient
+    @ingredient = Ingredient.find(params[:id])
   end
 end
