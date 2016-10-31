@@ -1,0 +1,10 @@
+<h1>All Ingredients</h1>
+<p>
+  <% @ingredients.each do |ingredient| %>
+<ol> 
+  <li>
+     <%= link_to ingredient.name, ingredient_path(ingredient.id) %>
+  </li>
+</ol>
+  <% end %>
+
