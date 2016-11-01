@@ -12,13 +12,12 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
   end
 
-  def create 
-    @recipe = Recipe.create(recipe_params)
-    # @recipe.save
-    # @new_ingredient = Ingredient.find_or_create_by(name: params[:ingredient][:name])
-    # @recipe.ingredients << @new_ingredient
+  def create
+    @recipe = Recipe.new(recipe_params)
     if @recipe.save
       redirect_to @recipe
+    else
+      render 'new'
     end
   end
 
@@ -43,7 +42,7 @@ class RecipesController < ApplicationController
   private 
 
   def recipe_params
-    params.require(:recipe).permit(:name, :ingredient_ids =>[], :ingredient => [:name])
+    params.require(:recipe).permit(:name, :ingredient_ids =>[], :ingredient_attributes => [:name])
   end
 
 end
