@@ -1,0 +1,10 @@
+<h1>All Recipes</h1>
+<p>
+  <% @recipes.each do |recipe| %>
+<ol> 
+  <li>
+     <%= link_to recipe.name, recipe_path(recipe.id) %>
+  </li>
+</ol>
+  <% end %>
+
