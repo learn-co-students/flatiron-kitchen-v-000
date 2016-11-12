@@ -27,6 +27,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = Recipe.find(params[:id])
+    @other_recipes = Recipe.recipe_scan(@recipe, @recipe.ingredients)  # produces a list of ingredient objects
   end
 
   def index
