@@ -8,7 +8,7 @@ class Recipe < ActiveRecord::Base
 
   def self.recipe_scan(recipe_object, ingredient_objects)
     Recipe.all.select do |recipe|
-      (ingredient_objects == recipe.ingredients) unless recipe == recipe_object
+      (ingredient_objects == recipe.ingredients) unless recipe == recipe_object  # don't want to count itself
     end
   end
 end

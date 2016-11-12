@@ -6,12 +6,9 @@ class IngredientsController < ApplicationController
   end
 
   def create
-    @ingredient = Ingredient.new(ingredient_params)
-      if @ingredient.save
-        redirect_to @ingredient
-      else
-        render 'new'
-      end
+    @ingredient = Ingredient.find_or_create_by(name: params[:ingredient][:name])
+    
+    redirect_to @ingredient
   end
 
   def edit
