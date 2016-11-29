@@ -1,8 +1,4 @@
 <h1>Recipes:</h1>
 <% @recipes.each do |recipe| %>
-  <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
-  <h4>Ingredients:</h4>
-  <% recipe.ingredients.each do |ingredient| %>
-    <p><%= ingredient.name %></p>
-  <% end %>
+  <%= render partial: 'recipe', locals: {recipe: recipe} %>
 <% end %>

@@ -3,6 +3,6 @@
 <h3>This recipe contains:</h3>
 <ul>
 <% @recipe.ingredients.each do |ingredient| %>
-    <li><%= ingredient.name %></li>
+    <%= render partial: 'ingredients/ingredient', locals: {ingredient: ingredient} %>
 <% end %>
 </ul>
