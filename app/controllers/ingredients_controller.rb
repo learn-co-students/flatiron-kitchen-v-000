@@ -3,16 +3,14 @@ class IngredientsController < ApplicationController
 	def new
 		@ingredient = Ingredient.new
 	end
-
+	
 	def create	
-		@ingredient = Ingredient.new(ingredient_params)
-		
+		 Ingredient.create(ingredient_params) 
 			redirect_to ingredients_path
 	end
 
 	def index
-		    @ingredients = Ingredient.all
-
+		    @ingredients = Ingredient.all 
 	end
 
 	def edit
