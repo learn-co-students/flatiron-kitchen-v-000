@@ -1,2 +1,11 @@
 <h1>Recipes#edit</h1>
 <p>Find me in app/views/recipes/edit.html.erb</p>
+
+<%= form_for @recipe do |f| %>
+  <%= f.text_field :name %>
+    <%@ingredients.each do |i| %>
+  	<label for="<%=i.name%>"><input id="<%=i.name%>" type="checkbox" name="recipe[ingredient_ids][]" value="<%= i.id %>"><%= i.name %> </label>
+  
+  <%end%>
+  <%= f.submit %>
+<% end %>

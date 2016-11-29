@@ -13,6 +13,8 @@ class RecipesController < ApplicationController
 
   def edit
   	@recipe = Recipe.find(params[:id])
+  	@ingredients = Ingredient.all
+    @recipe_ingredients = @recipe.ingredients
   end
 
   def update
@@ -21,13 +23,13 @@ class RecipesController < ApplicationController
   end
 
   def index  
-  	@recipes = Recipe.all 
+  	@recipes = Recipe.all
   end 
 
   private
 
   def recipe_params
-	params.require(:recipe).permit(:name, :ingredient_ids, []) 
+    params.require(:recipe).permit(:name, ingredient_ids: [])
   end
 end
  

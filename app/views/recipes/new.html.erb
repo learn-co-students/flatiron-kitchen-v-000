@@ -2,7 +2,7 @@
   <%= f.text_field :name %>
 <ol>
   <%@ingredients.each do |i| %>
-  		<li><label for="<%=i.id%>"><input id="<%=i.id%>" type="checkbox" name="recipe[ingredient_ids][]" value="<%= i.name %>"><%= i.name %> </label></li>
+  		<li><label for="<%=i.id%>"><input id="<%=i.id%>" type="checkbox" name="recipe[ingredient_ids][]" value="<%= i.id %>"><%= i.name %> </label></li>
   
   <%end%>
   </ol>
@@ -11,6 +11,4 @@
 <% end %>
 <br>
 <br>
-
-   Failure/Error: expect(page).to have_css("input[type=\"checkbox\"]", :count => 4)
-       expected to find css "input[type=\"checkbox\"]" 4 times but there were no matches
+ 
