@@ -171,7 +171,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails (~> 4.0.5)
-  pry (~> 0.10.3)
+  pry
   rails (= 4.2)
   rspec-collection_matchers (~> 1.1.2)
   rspec-rails (~> 3.3.3)
@@ -182,4 +182,4 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
 
 BUNDLED WITH
-   1.10.6
+   1.13.2
