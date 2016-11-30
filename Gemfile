@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'pry'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2'
 
@@ -32,9 +33,9 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-group :development do
-  gem "pry", '~> 0.10.3'
-end
+# group :development do
+#   gem "pry", '~> 0.10.3'
+# end
 
 group :test do
   gem 'rspec-collection_matchers', '~> 1.1.2'
