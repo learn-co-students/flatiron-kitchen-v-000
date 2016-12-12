@@ -1,0 +1,19 @@
+<h2>Let's Create a new Recipe</h2>
+<iframe src="//giphy.com/embed/bsOYANBA6gmTS" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+<%= form_tag recipes_path, method: "post" do %>
+	<%= label_tag :"recipe[name]", "Recipe Name" %>
+	<%= text_field_tag :"recipe[name]" %>
+	<br><br>
+	<%= label_tag :"recipe[ingredient_attributes][]", "Select existing ingredients" %>
+	<br>
+	<% @ingredients.each do |ingredient| %>
+		<%= check_box_tag :"recipe[ingredient_attributes][]", ingredient.name, !!@recipe.ingredients.include?(ingredient) %>
+		<%= ingredient.name %><br>
+	<% end %>
+	<br><br>
+	<%= label_tag :"recipe[ingredient_attributes][]", "Create and add another ingredient" %>
+	<%= text_field_tag :"recipe[ingredient_attributes][]" %>
+	<br><br>
+	<%= submit_tag "Create Recipe" %>
+<% end %>

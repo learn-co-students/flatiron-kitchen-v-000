@@ -1,0 +1,17 @@
+<h2>Ingredient: <%= @ingredient.name %></h2>
+
+
+<p>You can <%= link_to "edit", edit_ingredient_path(@ingredient) %> this ingredient:</p>
+<form action="/ingredients/<%= @ingredient.id %>" method="post">
+	<input type="hidden" name="_method" value="put">
+	<%= render 'form' %>
+</form>
+
+<% if @ingredients.count > 1 %>
+	<h3>Browse other ingredients</h3>
+	<ol>
+		<% @ingredients.each do |ingredient| %>
+			<li><%= link_to ingredient.name, ingredient_path(ingredient) %></li>
+		<% end %>
+	</ol>
+<% end %>

@@ -1,0 +1,5 @@
+<label for="ingredient_name">Ingredient Name</label>
+<input id="ingredient_name" type="text" name="ingredient[name]" value="<%= @ingredient.name %>"> 
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" >
+
+<input type="submit" value="Submit">
