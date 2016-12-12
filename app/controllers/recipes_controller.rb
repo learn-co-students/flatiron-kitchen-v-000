@@ -22,9 +22,22 @@ class RecipesController < ApplicationController
 		end
 	end
 
-	private
+	def edit
+		@recipe = Recipe.find(params[:id])
+		@ingredients = Ingredient.all
+	end
 
+	def update
+		@recipe = Recipe.find(params[:id])
+		if @recipe.update(recipe_params)
+			redirect_to recipe_path(@recipe)
+		else
+			render :edit
+		end
+	end
+
+	private
 		def recipe_params
-			params.require(:recipe).permit(:name, ingredient_attributes: [])
+			params.require(:recipe).permit(:name, ingredient_ids: [], ingredients_attributes: [:name])
 		end
 end
