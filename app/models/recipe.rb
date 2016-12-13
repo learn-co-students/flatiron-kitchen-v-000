@@ -3,10 +3,9 @@ class Recipe < ActiveRecord::Base
 	has_many :ingredients_recipes
 	# accepts_nested_attributes_for :ingredients, reject_if: :no_name
 
-	def ingredients_attributes=(ingredient_ids)
-		ingredient_ids.each do |ingredient_id|
-			self.ingredients << Ingredient.find_or_initialize_by(id: ingredient_id)
-			# unless ingredient.empty?
+	def ingredients_attributes=(ingredients_attributes)
+		ingredients_attributes.each do |i, ingredient_attribute|
+			self.ingredients << Ingredient.find_or_initialize_by(name: ingredient_attribute) unless ingredient_attribute.nil?
 		end
 	end
 
