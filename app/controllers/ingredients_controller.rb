@@ -1,4 +1,5 @@
 class IngredientsController < ApplicationController
+  before_action :set_ingredient, only: [:show, :update, :edit]
 
   def index
     @ingredients = Ingredient.all
@@ -18,20 +19,23 @@ class IngredientsController < ApplicationController
   end
 
   def show
-    @ingredient = Ingredient.find(params[:id])
   end
 
   def edit
-    @ingredient = Ingredient.find(params[:id])
   end
 
   def update
-    @ingredient = Ingredient.find(params[:id])
     if @ingredient.update(ingredient_params)
       redirect_to @ingredient
     else
       render 'edit'
     end
+  end
+
+  private
+
+  def set_ingredient
+    @ingredient = Ingredient.find(params[:id])
   end
 
   def ingredient_params

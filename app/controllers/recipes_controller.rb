@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  before_action :set_recipe, only: [:show, :update, :edit]
 
   def index
     @recipes = Recipe.all
@@ -19,21 +20,25 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
+
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
     @ingredients = Ingredient.all
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
       redirect_to recipes_path
     else
       redirect_to 'edit'
     end
+  end
+
+  private
+
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
   end
 
   def recipe_params
