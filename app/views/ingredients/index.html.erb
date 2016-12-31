@@ -1,0 +1,4 @@
+
+<%= @ingredients.each do |i| %>
+  <%= link_to i.name, edit_ingredient_path(i) %>
+<% end %>

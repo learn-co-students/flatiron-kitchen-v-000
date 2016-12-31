@@ -1,0 +1,3 @@
+<%= @recipes.each do |r| %>
+  <%= link_to r.name, edit_recipe_path(r) %>
+<% end %>
