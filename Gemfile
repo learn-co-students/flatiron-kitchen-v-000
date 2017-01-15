@@ -32,14 +32,17 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem "pry", '~> 0.10.3'
+
 group :development do
-  gem "pry", '~> 0.10.3'
+
+  gem "nokogiri", '~> 1.6.6.2'
 end
 
 group :test do
-  gem 'rspec-collection_matchers', '~> 1.1.2'
-  gem 'rspec-rails', '~> 3.3.3'
-  gem 'capybara', '~> 2.5.0'
+  gem 'rspec-collection_matchers'
+  gem 'rspec-rails'
+  gem 'capybara'
 end
 
 # Use ActiveModel has_secure_password
