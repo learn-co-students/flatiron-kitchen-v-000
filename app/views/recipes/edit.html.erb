@@ -1,6 +1,19 @@
 <h2>Let's Edit <%= @recipe.name %></h2>
 
-<%= form_tag recipe_path(@recipe), method: "patch" do %>
-	<%= render partial: "form", locals: {recipe: @recipe, ingredients: @ingredients} %>
+<%= form_tag recipe_path(@recipe), method: "patch", id: "edit_recipe_#{@recipe.id}" do %>
+	<%= label_tag :"recipe[name]", "Recipe Name" %>
+	<%= text_field_tag :"recipe[name]", @recipe.name %>
+	<br> <br>
+	<%= label_tag :"recipe[ingredient_ids][]", "Select existing ingredients" %>
+	<br>
+	<% @ingredients.each do |ingredient| %>
+		<%= check_box_tag :"recipe[ingredient_ids][]", ingredient.id, !!@recipe.ingredients.include?(ingredient) %>
+		<%= ingredient.name %>
+	<% end %>
+	<br> <br>
+	<%= label_tag :"recipe[ingredients_attributes][][name]", "Create and add another ingredient" %>
+	<%= text_field_tag :"recipe[ingredients_attributes][][name]" %>
+	<br>
+	<%= submit_tag "Update Recipe" %>
 <% end %>
 

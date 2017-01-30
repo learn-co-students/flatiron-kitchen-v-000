@@ -15,7 +15,7 @@ class RecipesController < ApplicationController
 
 	def create
 		@recipe = Recipe.new(recipe_params)
-		if @recipe.save!
+		if @recipe.save
 			redirect_to root_path
 		else
 			render :new
@@ -28,7 +28,7 @@ class RecipesController < ApplicationController
 	end
 
 	def update
-		raise params.inspect
+		# raise params.inspect
 		@recipe = Recipe.find(params[:id])
 		if @recipe.update(recipe_params)
 			redirect_to recipe_path(@recipe)

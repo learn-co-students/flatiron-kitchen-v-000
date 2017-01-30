@@ -4,7 +4,7 @@
 <%= label_tag :"recipe[ingredient_ids][]", "Select existing ingredients" %>
 <br>
 <% ingredients.each do |ingredient| %>
-	<%= check_box_tag :"recipe[ingredient_ids][]", ingredient.id, !!recipe.ingredients.include?(ingredient) %>
+	<%= check_box_tag :"recipe[ingredient_ids][]", ingredient.id %>
 	<%= ingredient.name %><br>
 <% end %>
 <br><br>
