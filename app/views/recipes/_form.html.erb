@@ -2,6 +2,8 @@
   <%= r.label :name %>
   <%= r.text_field :name %>
 
+  <br></br>
+  <%= r.collection_check_boxes :ingredients, Ingredient.all, :id, :name %>
 
   <br></br>
   <%= r.submit %>

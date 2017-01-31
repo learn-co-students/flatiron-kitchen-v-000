@@ -8,8 +8,20 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
 
+  def edit
+    @recipe = Recipe.find(params[:id])
+  end
+
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = Recipe.new(name: recipe_params[:name])
+
+    if !recipe_params[:ingredients].first.empty?
+      params[:recipe][:ingredients].each do |i|
+        if !i.empty?
+          @recipe.ingredients << Ingredient.find(i)
+        end
+      end
+    end
 
     if @recipe.save
       redirect_to @recipe
@@ -22,9 +34,27 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
+  def update
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(name: recipe_params[:name])
+    @recipe.ingredients.clear
+
+    if !recipe_params[:ingredients].first.empty?
+      params[:recipe][:ingredients].each do |i|
+        if !i.empty?
+          @recipe.ingredients << Ingredient.find(i)
+        end
+      end
+    end
+
+    @recipe.save
+
+    redirect_to recipe_path(@recipe)
+  end
+
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name)
+    params.require(:recipe).permit(:name, ingredients:[])
   end
 end
