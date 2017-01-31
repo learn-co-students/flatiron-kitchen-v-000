@@ -5,6 +5,14 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <p>Ingredients: 
+    <%= link_to 'Home', '/ingredients' %>
+    <%= link_to 'New', '/ingredients/new' %>
+  </p>
+  <p>Recipes: 
+    <%= link_to 'Home', '/recipes' %>
+    <%= link_to 'New', '/recipes/new' %>
+  </p>
 </head>
 <body>
 
