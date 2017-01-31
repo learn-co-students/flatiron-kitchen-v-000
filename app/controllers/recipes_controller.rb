@@ -36,18 +36,11 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
-    @recipe.update(name: recipe_params[:name])
-    @recipe.ingredients.clear
+    @recipe.update(name: recipe_params[:name], ingredient_ids: recipe_params[:ingredients])
 
-    if !recipe_params[:ingredients].first.empty?
-      params[:recipe][:ingredients].each do |i|
-        if !i.empty?
-          @recipe.ingredients << Ingredient.find(i)
-        end
-      end
-    end
 
-    @recipe.save
+
+
 
     redirect_to recipe_path(@recipe)
   end
