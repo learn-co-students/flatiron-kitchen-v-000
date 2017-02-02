@@ -21,11 +21,15 @@ class IngredientsController < ApplicationController
     end
   end
 
+  def update
+    @ingredient = Ingredient.find(ing_params)
+  end
 
   def destroy
   end
 
   def show
+    @ingredients = Ingredient.all
   end
 
 
