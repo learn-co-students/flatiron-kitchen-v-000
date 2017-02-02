@@ -1,5 +1,6 @@
 class Recipe < ActiveRecord::Base
   validates_presence_of :name
+  has_many :ingredients
 
   def create
     @recipe = Recipe.new(recipe_params)

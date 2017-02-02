@@ -1,5 +1,6 @@
 class Ingredient < ActiveRecord::Base
   validates_presence_of :name
+  belongs_to :recipe
 
   def create
     @ingredient = Ingredient.new(ingredient_params)

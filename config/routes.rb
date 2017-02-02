@@ -9,6 +9,10 @@ FlatironKitchen::Application.routes.draw do
 
   get 'ingredients/index'
 
+  get 'ingredients/update'
+
+  patch 'ingredients/:id/edit', to: 'ingredients#update'
+
   get 'ingredients/create'
 
   get 'ingredients/destroy'

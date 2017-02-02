@@ -22,7 +22,11 @@ class IngredientsController < ApplicationController
   end
 
   def update
-    @ingredient = Ingredient.find(ing_params)
+    @ingredient = Ingredient.find(params[:id])
+    @ingredient.update(ing_params)
+
+    #binding.pry
+    redirect_to @ingredient
   end
 
   def destroy
@@ -32,19 +36,16 @@ class IngredientsController < ApplicationController
     @ingredients = Ingredient.all
   end
 
+  def edit
+    @ingredient = Ingredient.find(params[:id])
+  end
+
 
   private
 
     def ing_params
       params.require(:ingredient).permit(:name)
     end
-
-
-
-
-
-
-
 
 
 end

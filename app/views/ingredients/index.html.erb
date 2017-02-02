@@ -2,7 +2,7 @@
 
 <p>
   <% @ingredients.each do |ing| %>
-    <%= ing.name %>
+    <%= link_to ing.name, ing %>
   <% end %>
 </p>
 
