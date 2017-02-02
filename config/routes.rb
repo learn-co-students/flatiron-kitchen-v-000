@@ -1,4 +1,20 @@
 FlatironKitchen::Application.routes.draw do
+  get 'recipes/index'
+
+  get 'recipes/create'
+
+  get 'recipes/destroy'
+
+  get 'recipes/show'
+
+  get 'ingredients/index'
+
+  get 'ingredients/create'
+
+  get 'ingredients/destroy'
+
+  get 'ingredients/show'
+
   resources :recipes
   resources :ingredients
 
