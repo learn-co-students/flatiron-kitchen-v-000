@@ -23,6 +23,7 @@ class IngredientsController < ApplicationController
 
   def update
     @ingredient = Ingredient.find(params[:id])
+    
     @ingredient.update(ing_params)
 
     #binding.pry
