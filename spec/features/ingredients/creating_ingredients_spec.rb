@@ -20,6 +20,7 @@ describe "creating ingredients" do
       click_button('Create Ingredient')
 
       expect(Ingredient.first.name).to eq("Parsley")
+      #binding.pry
       expect(page).to have_content("Parsley")
     end
   end

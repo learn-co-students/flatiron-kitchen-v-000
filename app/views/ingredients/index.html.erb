@@ -1,0 +1,8 @@
+<h1>Ingredients#index</h1>
+
+<p>
+  <% @ingredients.each do |ing| %>
+    <%= link_to ing.name, ing %>
+  <% end %>
+</p>
+
