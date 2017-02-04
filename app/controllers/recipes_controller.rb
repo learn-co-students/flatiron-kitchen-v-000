@@ -7,7 +7,6 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
   end
 
-
   def create
     @recipe = Recipe.new(recipe_params)
     # binding.pry
@@ -26,6 +25,18 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
    # binding.pry
+  end
+
+  def edit
+    @recipe = Recipe.find(params[:id])
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+
+    @recipe.update(recipe_params)
+    redirect_to @recipe
+
   end
 
 
