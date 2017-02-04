@@ -10,8 +10,7 @@ class IngredientsController < ApplicationController
 
   def create
     @ingredient = Ingredient.new(ing_params)
-    #@ingredients = Ingredient.all 
-
+    #binding.pry
 
     if @ingredient
       @ingredient.save
@@ -34,7 +33,8 @@ class IngredientsController < ApplicationController
   end
 
   def show
-    @ingredients = Ingredient.all
+    @ingredient = Ingredient.find(params[:id])
+  #  binding.pry
   end
 
   def edit
@@ -45,7 +45,7 @@ class IngredientsController < ApplicationController
   private
 
     def ing_params
-      params.require(:ingredient).permit(:name)
+      params.require(:ingredient).permit(:name, recipe_ids: [])
     end
 
 

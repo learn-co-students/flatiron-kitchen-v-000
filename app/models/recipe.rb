@@ -1,10 +1,15 @@
 class Recipe < ActiveRecord::Base
   validates_presence_of :name
-  has_many :ingredients
+  has_many :ingredient_recipes
+  has_many :ingredients, through: :ingredient_recipes
+  
+
+  accepts_nested_attributes_for :ingredients
+
 
   def create
     @recipe = Recipe.new(recipe_params)
-    
+    binding.pry
     if @recipe.save
       redirect_to @recipe
     else
@@ -12,38 +17,6 @@ class Recipe < ActiveRecord::Base
     end
 
   end
-
-
-# def new
-#     @student = Student.new
-#   end
-
-#   def create
-#     @student = Student.new(student_params)
-#     if @student.save
-#       redirect_to @student
-#     else
-#       render 'new'
-#     end
-#   end
-
-#   def search
-#     binding.pry
-#     @student = Student.search
-#   end
-  
-
-#   def edit
-#     @student = Student.find(params[:id])
-#   end
-
-#   def show
-#     @student = Student.find(params[:id])
-#   end
-
-#   def index
-#     @students = Student.all
-#   end
 
   private
 
