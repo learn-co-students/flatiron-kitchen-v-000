@@ -1,0 +1,10 @@
+== 20170131000210 CreateIngredients: migrating ================================
+-- create_table(:ingredients)
+   -> 0.0008s
+== 20170131000210 CreateIngredients: migrated (0.0008s) =======================
+
+== 20170131013126 CreateRecipes: migrating ====================================
+-- create_table(:recipes)
+   -> 0.0005s
+== 20170131013126 CreateRecipes: migrated (0.0005s) ===========================
+
