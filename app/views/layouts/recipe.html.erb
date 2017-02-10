@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Flatiron Kitchen Ingredients</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= link_to "Recipes", recipes_path %> <%= link_to "Ingredients", ingredients_path %> <%= link_to "New Recipe", new_recipe_path %>
+
+    <%= yield %>
+  </body>
+</html>
