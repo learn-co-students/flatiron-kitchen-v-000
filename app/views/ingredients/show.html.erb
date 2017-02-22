@@ -1,1 +1,5 @@
+<h1>Show Ingredient</h1>
 <%= @ingredient.name %>
+<%= link_to "Edit", edit_ingredient_path(@ingredient) %>
+<br>
+<%= render partial: 'layouts/footer' %>

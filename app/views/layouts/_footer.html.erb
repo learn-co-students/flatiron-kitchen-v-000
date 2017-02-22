@@ -1,0 +1,10 @@
+<br>
+<%= link_to "New Recipe", new_recipe_path %>
+<br>
+<%= link_to "New Ingredient", new_ingredient_path %>
+<br>
+<%= link_to "All Recipes", recipes_path %>
+<br>
+<%= link_to "All Ingredients", ingredients_path %>
+<br>
+Number of ingredients currently on hand: <%= Ingredient.quantity_ingredients %>

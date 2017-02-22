@@ -25,6 +25,7 @@ class IngredientsController < ApplicationController
   end
 
   def index
+    @ingredients = Ingredient.all
   end
 
   def show

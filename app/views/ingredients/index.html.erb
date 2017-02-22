@@ -1,0 +1,6 @@
+<h1>All Ingredients</h1>
+<% @ingredients.each do |i| %>
+  <%= link_to i.name, ingredient_path(i) %>
+  <br>
+<% end %>
+<%= render partial: 'layouts/footer' %>

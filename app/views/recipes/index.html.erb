@@ -1,0 +1,13 @@
+<h1>All Recipes</h1>
+<% @recipes.each do |r| %>
+  <%= link_to r.name, recipe_path(r) %>
+  <br>
+  Ingredients:
+  <br>
+  <% r.ingredients.each do |i| %>
+    <%= i.name %>
+    <br>
+  <% end %>
+  <br>
+<% end %>
+<%= render partial: 'layouts/footer' %>
