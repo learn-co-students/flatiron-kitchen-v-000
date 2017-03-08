@@ -1,0 +1,5 @@
+<h1>Edit Recipe: <%= @recipe.name %></h1>
+
+<%= render partial: "form", locals: {recipe: @recipe} %>
+
+<%= link_to 'Delete Recipe', @recipe, method: :delete, data: { confirm: 'Are you sure?' } %>
