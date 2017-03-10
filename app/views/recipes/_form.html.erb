@@ -1,0 +1,17 @@
+<fieldset>
+<%= form_for recipe do |f| %>
+  <%= f.label :name, "Name: " %>
+  <%= f.text_field :name %><br /><br />
+
+  <%= f.label :ingredient_ids, "Select Ingredients: " %>
+  <%= f.collection_check_boxes(:ingredient_ids, Ingredient.all, :id, :name)%><br /><br />
+
+  <%= f.label :ingredients, "Or, Add New Ingredients: " %>
+    <%= f.fields_for :ingredients do |ing_att| %>
+    <%= ing_att.text_field :name, :value => "", :placeholder => "New Ingredient.." %>
+  <% end %><br /><br />
+  
+  <%= f.submit %>
+
+<% end %>
+</fieldset>
