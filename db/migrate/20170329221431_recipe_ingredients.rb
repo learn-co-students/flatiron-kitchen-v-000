@@ -5,5 +5,6 @@ class RecipeIngredients < ActiveRecord::Migration
       t.integer "ingredient_id"
 
       t.timestamps null: false
+    end
   end
 end
