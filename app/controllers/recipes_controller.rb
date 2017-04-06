@@ -7,16 +7,17 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    @ingredients = Ingredients.all
+    @ingredients = Ingredient.all
   end
 
   def edit
-    
+    @all_ingredients = Ingredient.all
+    @recipe_ingredients = @recipe.ingredients
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
-    @recipe.save
+    @recipe = Recipe.create(recipe_params)
+    redirect_to recipes_path
   end
 
   def update
