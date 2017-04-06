@@ -16,15 +16,9 @@ class IngredientsController < ApplicationController
   end
 
   def create
-    @ingredient = Ingredient.new(ingredient_params)
+    @ingredient = Ingredient.create(ingredient_params)
 
-    respond_to do |format|
-      if @ingredient.save
-        format.html { redirect_to @ingredient, notice: 'Ingredient was successfully created.' }
-      else
-        format.html { render action: 'new' }
-      end
-    end
+    redirect_to ingredients_path
   end
 
   def update
@@ -34,9 +28,9 @@ class IngredientsController < ApplicationController
   end
 
   def destroy
-  @ingredient.destroy
+    @ingredient.destroy
 
-  redirect_to ingredients_path
+    redirect_to ingredients_path
   end
 
   private
