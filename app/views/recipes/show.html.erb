@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Hey Everybody, It's Time for Recipes!!!!!</h1>
+
+  <div class="recipe_name">
+    <ul>
+    <h2><%= @recipe.name %></h2>
+    <h2><% @recipe.ingredients.each do |ingredient| %></h2>
+      <li><%= ingredient.name %></li>
+    <% end %>  
+    </ul>
+  </div>
+
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<%= link_to 'Back', recipes_path %>
