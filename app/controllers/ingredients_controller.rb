@@ -1,5 +1,5 @@
 class IngredientsController < ApplicationController
-  # before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_ingredient, only: [:show, :edit, :update,]
 
 
   def new
@@ -12,18 +12,14 @@ class IngredientsController < ApplicationController
   end
 
   def show
-    @ingredient = Ingredient.find(params[:id])
+
   end
 
   def edit
-    @ingredient = Ingredient.find(params[:id])
 
   end
 
   def update
-
-    @ingredient = Ingredient.find(params[:id])
-
     @ingredient.update(ingredient_params)
 
     if @ingredient.save
