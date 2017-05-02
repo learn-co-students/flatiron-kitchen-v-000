@@ -1,0 +1,13 @@
+<%= form_for recipe do |f| %>
+  <%= f.label :recipe %>
+  <%= f.text_field :name %>
+  <h3>Ingredients to choose from:</h3>
+
+  <%= f.collection_check_boxes(:ingredient_ids, Ingredient.all, :id, :name) do |b| %> <!-- ingredient_ids adds each ingredient to params) -->
+    <%= b.label { b.check_box + b.text.capitalize } %> <br>
+  <% end %>
+
+  <br>
+
+  <%= f.submit %>
+<%end%>
