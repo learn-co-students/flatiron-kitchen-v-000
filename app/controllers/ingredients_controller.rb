@@ -10,7 +10,7 @@ class IngredientsController < ApplicationController
   end
 
   def create
-    @ingredient = Ingredient.create(ingredient_params)
+    @ingredient = Ingredient.find_or_create_by(ingredient_params)
   end
 
   def update
