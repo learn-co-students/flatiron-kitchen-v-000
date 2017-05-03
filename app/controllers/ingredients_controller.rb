@@ -11,9 +11,12 @@ class IngredientsController < ApplicationController
 
   def create
     @ingredient = Ingredient.find_or_create_by(ingredient_params)
+    redirect_to @ingredient
   end
 
   def update
+    @ingredient.update(ingredient_params)
+    redirect_to @ingredient
   end
 
   def edit
@@ -32,7 +35,7 @@ class IngredientsController < ApplicationController
   end
 
   def ingredient_params
-    params.require(:ingredient).permit([:name])
+    params.require(:ingredient).permit(:name)
   end
 
 end

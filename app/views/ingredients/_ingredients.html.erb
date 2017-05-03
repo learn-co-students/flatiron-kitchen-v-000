@@ -3,6 +3,6 @@ views/ingredients/_ingredients
 <h2>Ingredients List: </h2>
 <ul>
   <% ingredients.each do |i| %>
-    <li><%= i.name %></li>
+    <li><%= link_to i.name, i %></li>
   <% end %>
 </ul>

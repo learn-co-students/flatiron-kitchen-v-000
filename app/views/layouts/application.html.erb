@@ -10,5 +10,14 @@
 
 <%= yield %>
 
+<br/>
+<% if @ingredient && @ingredient.id %>
+  <%= link_to "Show Ingredient", @ingredient %>
+  <%= link_to "Edit Ingredient", edit_ingredient_path %>
+  <%= link_to "New Ingredient", new_ingredient_path %>
+  <%= link_to "Delete Ingredient", @ingredient %>
+<% else %>
+    <%= link_to "Cancel", ingredients_path %>
+<% end %>
 </body>
 </html>
