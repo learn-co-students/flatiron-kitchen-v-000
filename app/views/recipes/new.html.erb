@@ -1,9 +1,18 @@
 views/recipes/new <br/>
 
+<h1>New Recipe: </h1>
 <%= form_for @recipe do |f| %>
 
   <%= f.label :name %>
   <%= f.text_field :name %><br/>
+
+  <h3>Ingredients: </h3>
+  <%= f.fields_for :ingredients do |i| %>
+
+    <%= i.label :name %>
+    <%= i.text_field :name %>
+
+  <% end %>
 
 <%= f.submit %>
 <% end %>
