@@ -1,1 +1,9 @@
-views/recipes/index
+views/recipes/index <br>
+
+<% @recipes.each do |recipe| %>
+  <h4><%= recipe.name %></h4>
+  <h6>Ingredients:</h6>
+  <% recipe.ingredients.each do |ingredient| %>
+    <%= ingredient.name %><br>
+  <% end %>
+<% end %>
