@@ -14,7 +14,7 @@ class Recipe < ActiveRecord::Base
 
   def ingredient_ids=(ingredient_ids)
     ingredient_ids.each do |id|
-      if id
+      if id && !self.ingredients.include?(Ingredient.find_by(id: id))
         self.recipe_ingredients.build(ingredient_id: id)
       end
     end
