@@ -13,7 +13,6 @@ class Recipe < ActiveRecord::Base
   end
 
   def ingredient_ids=(ingredient_ids)
-    ing = ingredient_ids.pop
     ingredient_ids.each do |id|
       if id
         self.recipe_ingredients.build(ingredient_id: id)
