@@ -15,10 +15,5 @@ class Recipe < ActiveRecord::Base
   def ingredient_ids=(ingredient_ids)
     ingredients = Ingredient.where("id in (?)", ingredient_ids)
     self.ingredients = ingredients
-
-    # self.recipe_ingredients.each do |ri|
-    #   binding.pry
-    #   ri.delete if !ingredient_ids.include?(ri.ingredient_id)
-    # end
   end
 end
