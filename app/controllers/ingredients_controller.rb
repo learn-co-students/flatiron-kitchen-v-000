@@ -5,8 +5,13 @@ class IngredientsController < ApplicationController
 	end
 
 	def create
-		@ingredient = Ingredient.create(ingredient_params)
-		redirect_to @ingredient
+		@ingredient = Ingredient.new(ingredient_params)
+
+		if @ingredient.save
+			redirect_to @ingredient
+		else
+			render 'new'
+		end
 	end
 
 	def show
@@ -19,8 +24,12 @@ class IngredientsController < ApplicationController
 
 	def update
 		@ingredient = find_ingredient
-		@ingredient.update(ingredient_params)
-		redirect_to @ingredient
+
+		if @ingredient.update(ingredient_params)
+			redirect_to @ingredient
+		else
+			render 'edit'
+		end
 	end
 
 	private
