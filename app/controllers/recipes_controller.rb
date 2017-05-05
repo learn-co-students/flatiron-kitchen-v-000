@@ -5,9 +5,15 @@ class RecipesController < ApplicationController
 	end
 
 	def create
-		@recipe = Recipe.create(recipe_params)
-		binding.pry
-		redirect_to @recipe
+		@recipe = Recipe.new(recipe_params)
+
+#		@recipe.save ? redirect_to @recipe : render "new" - Why doesn't short hand work?
+
+		if @recipe.save
+			redirect_to @recipe
+		else
+			render 'new'
+		end
 	end
 
 	def show
