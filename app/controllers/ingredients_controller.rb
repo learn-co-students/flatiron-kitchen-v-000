@@ -7,11 +7,7 @@ class IngredientsController < ApplicationController
 	def create
 		@ingredient = Ingredient.new(ingredient_params)
 
-		if @ingredient.save
-			redirect_to @ingredient
-		else
-			render 'new'
-		end
+		@ingredient.save ? (redirect_to @ingredient) : (render 'new')
 	end
 
 	def show
@@ -25,11 +21,7 @@ class IngredientsController < ApplicationController
 	def update
 		@ingredient = find_ingredient
 
-		if @ingredient.update(ingredient_params)
-			redirect_to @ingredient
-		else
-			render 'edit'
-		end
+		@ingredient.update(ingredient_params) ? (redirect_to @ingredient) : (render 'edit')
 	end
 
 	private

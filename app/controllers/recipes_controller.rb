@@ -7,13 +7,7 @@ class RecipesController < ApplicationController
 	def create
 		@recipe = Recipe.new(recipe_params)
 
-#		@recipe.save ? redirect_to @recipe : render "new" - Why doesn't short hand work?
-
-		if @recipe.save
-			redirect_to @recipe
-		else
-			render 'new'
-		end
+		@recipe.save ? (redirect_to @recipe) : (render "new")
 	end
 
 	def show
@@ -26,11 +20,8 @@ class RecipesController < ApplicationController
 
 	def update
 		@recipe = find_recipe
-		if @recipe.update(recipe_params)
-			redirect_to @recipe
-		else
-			render 'edit'
-		end
+		
+		@recipe.update(recipe_params) ? (redirect_to @recipe) : (render 'edit')
 	end
 
 	private
