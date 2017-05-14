@@ -21,6 +21,7 @@ class RecipesController < ApplicationController
 
 	def show
 		set_recipe
+		# ingredient_calculator(@recipe)
 	end
 
 	def edit

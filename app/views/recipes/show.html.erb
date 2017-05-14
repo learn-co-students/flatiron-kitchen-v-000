@@ -3,7 +3,8 @@
 
 <h2>Recipe Name: <%= @recipe.name %></h2>
 
-<
+<% number_times = Recipe.ingredient_calculator(@recipe) %>
+<h3>You can cook this recipe <%= number_times %> times.</h3>
 
 <h3>Recipe Ingredients:<uL><% @recipe.ingredients.each do |ingredient| %>
 	<li><%= ingredient.name %><br></li>
