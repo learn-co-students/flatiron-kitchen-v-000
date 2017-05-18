@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "creating recipes" do
-  context "on the new recipe page" do
+  context "on the new recipes page" do
 
     # Is there a form with the given HTML ID?
     it "should have a form to create the recipes" do
@@ -10,9 +10,9 @@ describe "creating recipes" do
       expect(page).to have_css("form#new_recipe")
     end
 
-    # Does the recipe get created when the form is submitted?
-    # Is the user redirected to a page that displays the recipe name?
-    it "should create a recipe when the form is submitted" do
+    # Does the recipes get created when the form is submitted?
+    # Is the user redirected to a page that displays the recipes name?
+    it "should create a recipes when the form is submitted" do
       visit new_recipe_path
 
       fill_in 'recipe_name', with: 'Blueberry Pancakes'
@@ -23,7 +23,7 @@ describe "creating recipes" do
     end
 
     # Are there all ingredients listed in the form with
-    # the ingredient name as a label and an associated checkbox?
+    # the ingredients name as a label and an associated checkbox?
     it "should display all the existing ingredients" do
       Ingredient.create(name: 'Paprika')
       Ingredient.create(name: 'Clove')
@@ -40,11 +40,11 @@ describe "creating recipes" do
       expect(page).to have_content('Cider')
     end
 
-    # Does the recipe get successfully created with 1 ingredient?
+    # Does the recipes get successfully created with 1 ingredients?
     # HINT: You need to use checkboxes. Each checkbox should have a CORRECTLY
     #       implemented HTML label
     #       (i.e. clicking on the <label> checks/unchecks the box).
-    it "should create a recipe with one ingredient" do
+    it "should create a recipes with one ingredients" do
       Ingredient.create(name: 'Spam')
 
       visit new_recipe_path
@@ -58,11 +58,11 @@ describe "creating recipes" do
     end
 
 
-    # Does the recipe get successfully created with many ingredients?
+    # Does the recipes get successfully created with many ingredients?
     # HINT: You need to use checkboxes. Each checkbox should have a CORRECTLY
     #       implemented HTML label
     #       (i.e. clicking on the <label> checks/unchecks the box).
-    it "should create a recipe with many ingredients" do
+    it "should create a recipes with many ingredients" do
       Ingredient.create(name: 'Paprika')
       Ingredient.create(name: 'Clove')
       Ingredient.create(name: 'Ginger')
@@ -83,11 +83,11 @@ describe "creating recipes" do
     end
 
 
-    # Does the recipe get successfully created with 0 ingredients?
+    # Does the recipes get successfully created with 0 ingredients?
     # HINT: You need to use checkboxes. Each checkbox should have a CORRECTLY
     #       implemented HTML label
     #       (i.e. clicking on the <label> checks/unchecks the box).
-    it "should create a recipe with 0 ingredients" do
+    it "should create a recipes with 0 ingredients" do
       Ingredient.create(name: 'Paprika')
       Ingredient.create(name: 'Clove')
 
