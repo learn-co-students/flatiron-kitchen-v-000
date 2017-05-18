@@ -2,6 +2,7 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @ingredient = Ingredient.new
   end
 
   def create
@@ -18,10 +19,25 @@ class RecipesController < ApplicationController
     @recipe= Recipe.find_by(params[:id])
   end
 
-private
+  def edit
+    @recipe = Recipe.find(params[:id])
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(recipe_params)
+
+    redirect_to recipes_path
+  end
+
+  def index
+    @recipes = Recipe.all
+  end
+
+  private
 
 def recipe_params
-  params.require(:recipe).permit(:name)
+  params.require(:recipe).permit(:name, :ingredient_ids => [])
 end
 
 end

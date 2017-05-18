@@ -1,0 +1,3 @@
+<%= @recipes.each do |r| %>
+    <%= render partial: 'form', locals: {recipe: r} %>
+<% end %>
