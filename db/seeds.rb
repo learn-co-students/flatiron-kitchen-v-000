@@ -1,7 +1,14 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Ingredient.destroy_all
+Recipe.destroy_all
+
+ingredients_names = ['Basil', 'Chocolate Chips', 'Oats', 'Flour', 'Oregano', 'Cilantro', 'Green Onions', 'Zucchini', 'Blueberries', 'Sugar', 'Eggs']
+
+ingredients_names.each do |ingredient|
+    Ingredient.create(name: ingredient)
+end
+
+recipe_names = ['Blueberry Pie', 'Pancakes', 'Omelet', 'Chocolate Chip Cookies']
+
+recipe_names.each do |recipe|
+    Recipe.create(name: recipe)
+end
