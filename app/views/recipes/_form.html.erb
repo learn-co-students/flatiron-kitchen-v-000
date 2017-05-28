@@ -1,0 +1,7 @@
+<%= render partial: "ingredients/form", locals: {f: f} %>
+<p>Ingredients:</p>
+<%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %><br></br>
+<%= f.fields_for :ingredients do |ingredient_builder| %>
+  <%= ingredient_builder.label :name %>
+  <%= ingredient_builder.text_field :name %><br></br>
+<% end %>
