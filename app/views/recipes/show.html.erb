@@ -1,0 +1,7 @@
+<h3><%= @recipe.name %></h3>
+<ul>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <li><%= link_to ingredient.name, ingredient_path(ingredient) %></li>
+  <% end %>
+</ul>
+<%= button_to "delete", @ingredient, :method => "delete" %>
