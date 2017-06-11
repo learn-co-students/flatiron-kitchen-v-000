@@ -1,0 +1,16 @@
+<h1>New Recipe</h1>
+
+<%= form_for @recipe do |f| %>
+  <%= render partial: "form", locals: {f:f} %>
+
+  <%= render partial: "ingredients", locals: {f:f} %>
+
+  <%= f.fields_for :ingredients do |ingredients_fields| %>
+    <%= ingredients_fields.label :name,"Other Ingredient" %>
+    <%= ingredients_fields.text_field :name %>
+    <br>
+  <% end %>
+  
+  <br>
+  <%= f.submit %>
+<% end %>
