@@ -34,6 +34,7 @@ end
 
 group :development do
   gem "pry", '~> 0.10.3'
+   gem 'web-console', '~> 2.0'
 end
 
 group :test do
