@@ -1,0 +1,11 @@
+<div class="indevidual-recipe">
+    <span>Recipe name: <%= recipe.name %></span><br>
+
+	<span>Ingredients:</span> 
+	<ul>
+		<% recipe.ingredients.each do |ingredient|%>
+		<li><%= ingredient.name %></li>
+		<% end %>
+	</ul>
+    <%= link_to("Edit", edit_recipe_path(recipe.id))%> | <%= link_to("Back", recipes_path)%>
+</div>
