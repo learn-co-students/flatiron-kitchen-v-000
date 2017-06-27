@@ -42,6 +42,9 @@ group :test do
   gem 'capybara', '~> 2.5.0'
 end
 
+group :development do
+  gem 'web-console'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
