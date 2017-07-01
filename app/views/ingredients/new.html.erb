@@ -1,0 +1,7 @@
+<%= form_for @ingredient do |f| %>
+  <div id="new_ingredient">
+    <%= f.label :name, "Ingredient Name:" %>
+    <%= f.text_field :name%>
+  </div>
+  <%= f.submit "Create Ingredient" %>
+<% end %>
