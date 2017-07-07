@@ -1,0 +1,36 @@
+<h1>Create Your New Ingredient Here!</h1>
+<%= form_for(ingredient) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
+
+<!--
+  If you want to know how to customize the form_for submit message, look here:
+  https://stackoverflow.com/questions/4769483/rails-3-form-how-to-change-the-text-on-the-submit-button
+  https://apidock.com/rails/ActionView/Helpers/FormBuilder/submit
+
+  ###############################################################################################################################
+  If you want to change all create and update form submit tags, this change is easy to make. Modify config/locales/en.yml like so:
+
+    en:
+      helpers:
+        submit:
+          create: "Crear un %{model}"
+          update: "Confirmar cambios al %{model} creado"
+  ###############################################################################################################################
+
+  Building on @daniel's answer, you can also customize submit tag values on a per-model basis:
+
+    en:
+      helpers:
+        submit:
+          model_name:
+            create: "Create"
+            update: "Update"
+    And then in your form you can just use:
+
+    <%# f.submit %>
+    See here for the documentation (second example.)
+    https://apidock.com/rails/ActionView/Helpers/FormBuilder/submit
+-->
