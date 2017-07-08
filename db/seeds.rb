@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Ingredient.create(:name => "Rice", :unit => "Cups", :quantity => 10)
+Ingredient.create(:name => "Flour", :unit => "Cups", :quantity => 10)
+Ingredient.create(:name => "Sugar", :unit => "Cups", :quantity => 10)
+Ingredient.create(:name => "Salt", :unit => "Tbsp", :quantity => 10)
+Ingredient.create(:name => "Pepper", :unit => "Tbsp", :quantity => 10)
+Ingredient.create(:name => "Maple Syrup", :unit => "Cups", :quantity => 10)

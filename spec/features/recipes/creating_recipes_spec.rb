@@ -1,5 +1,5 @@
 require 'spec_helper'
-
+require 'pry'
 describe "creating recipes" do
   context "on the new recipe page" do
 
@@ -53,7 +53,6 @@ describe "creating recipes" do
 
       check('Spam')
       click_button('Create Recipe')
-
       expect(Recipe.first.ingredients.where(name: 'Spam').count).to eq(1)
     end
 
