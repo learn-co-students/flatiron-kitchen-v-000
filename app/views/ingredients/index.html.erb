@@ -1,0 +1,9 @@
+<h1>Ingredients</h1>
+
+<ul>
+  <% @ingredients.each do |ingredient| %>
+    <li><%= link_to ingredient.name.titleize, edit_ingredient_path(ingredient) %></li>
+  <% end %>
+</ul>
+
+<p><%= link_to "Add a new ingredient", new_ingredient_path %> or click on ingredient in list to update.</p>
