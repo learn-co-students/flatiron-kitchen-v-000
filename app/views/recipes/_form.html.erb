@@ -1,0 +1,10 @@
+<%= form_for(@recipe) do |rec| %>
+  <%= rec.label :name %>
+  <%= rec.text_field :name %><br>
+  <%= rec.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
+  <%= rec.fields_for :ingredients, @recipe.ingredients.build do |ing| %>
+    <%= ing.label :name %>
+    <%= ing.text_field :name %>
+  <% end %><br>
+  <%= rec.submit %>
+<% end %>
