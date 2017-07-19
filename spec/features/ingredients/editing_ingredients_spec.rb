@@ -17,11 +17,11 @@ describe "editing ingredients" do
     # Does the user get redirected to a page that displays the
     # ingredient name?
     it "should update an ingredient when the form is submitted" do
-      fill_in 'ingredient_name', with: 'Rochester Pollywog Eggs'
+      fill_in 'ingredient_name', with: 'All-purpose flour'
       click_button('Update Ingredient')
 
-      expect(Ingredient.first.name).to eq("Rochester Pollywog Eggs")
-      expect(page).to have_content("Rochester Pollywog Eggs")
+      expect(Ingredient.first.name).to eq("All-purpose flour")
+      expect(page).to have_content("All-purpose flour")
     end
   end
 end
