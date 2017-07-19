@@ -1,0 +1,14 @@
+<%= form_for @recipe do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br />
+
+  <h3>Ingredients</h3>
+  <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
+  <%= f.fields_for :ingredients do |ingredients_fields| %><br />
+    <%= f.label "Or add new ingredient " %>
+    <%= ingredients_fields.text_field :name %>
+  <% end %>
+
+  <br />
+  <%= f.submit%>
+<% end %>
