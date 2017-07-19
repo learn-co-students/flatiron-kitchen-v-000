@@ -1,7 +1,7 @@
 class IngredientsController < ApplicationController
 
   def index
-    @recipes = Recipe.all
+    @ingredients = Ingredient.all
   end
 
   def new
@@ -9,8 +9,13 @@ class IngredientsController < ApplicationController
   end
 
   def create
+
     @ingredient = Ingredient.create(ingredient_params)
-    redirect_to @ingredient
+    if @ingredient.save
+      redirect_to @ingredient
+    else
+      render :edit
+    end
   end
 
   def edit
@@ -18,6 +23,7 @@ class IngredientsController < ApplicationController
   end
 
   def update
+
     @ingredient = Ingredient.find(params[:id])
 
     @ingredient.update(ingredient_params)
