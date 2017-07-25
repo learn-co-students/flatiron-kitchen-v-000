@@ -1,0 +1,21 @@
+<%= form_for @ingredient do |f| %>
+  <% if @ingredient.errors.any? %>
+    <div id="error_explanation">
+      <h3>There were some errors:</h3>
+      <ul>
+        <% @ingredient.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="action">
+    <%= f.submit%>
+  </div>
+<% end %>

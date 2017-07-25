@@ -1,0 +1,32 @@
+<%= form_for @recipe do |f| %>
+  <% if @recipe.errors.any? %>
+  <div id="error_explanation">
+    <h3>There were some errors:</h3>
+    <ul>
+      <% @recipe.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ingredients, 'New Ingredient' %>
+    <%= f.fields_for :ingredients, @recipe.ingredients.build do |ingredients_attributes| %>
+    <%= ingredients_attributes.text_field :name %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit%>
+  </div>
+<% end %>
