@@ -1,20 +1,28 @@
 class RecipesController < ApplicationController
-
-  def new
-    @recipe = Recipe.new
+  def index
+    @recipes = Recipe.all
   end
 
   def show
     @recipe = Recipe.find_by(params[:id])
   end
 
+  def new
+    @recipe = Recipe.new
+  end
+
   def create
-    @recipe = Recipe.new(recipe_params)
-    @recipe.save
-    redirect_to recipe_path(@recipe)
+  @recipe = Recipe.new(recipe_params)
+
+    if @recipe.save
+      redirect_to @recipe
+    else
+      render :new
+    end
   end
 
   def edit
+    @recipe = Recipe.find_by(params[:id])
   end
 
   def update

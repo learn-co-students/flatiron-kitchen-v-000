@@ -4,28 +4,31 @@ class IngredientsController < ApplicationController
   end
 
   def show
-    @ingredients = Ingredient.find(params[:id])
+    @ingredient = Ingredient.find_by(params[:id])
   end
 
   def new
-    @ingredients = Ingredient.new
+    @ingredient = Ingredient.new
   end
 
   def create
-    ingredients = Ingredient.create(ingredient_params)
-    redirect_to post_path(ingredients)
+  @ingredient = Ingredient.new(recipe_params)
+
+    if @ingredient.save
+      redirect_to @ingredient
+    else
+      render :new
+    end
   end
 
   def edit
-    @ingredients = Ingredient.find(params[:id])
+    @ingredient = Ingredient.find_by(params[:id])
   end
 
- def update
-    ingredients = Ingredient.find(params[:id])
-    ingredients.update(ingredient_params)
-    redirect_to post_path(ingredients)
+  def update
+    @ingredient.update(ingredient_params)
+    redirect_to recipe_path(@ingredient)
   end
-
 private
 
   def ingredient_params
