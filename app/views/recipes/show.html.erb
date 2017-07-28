@@ -1,0 +1,12 @@
+<h1><%= @recipe.name %></h1>
+
+<h3>Ingredients:</h3>
+<ul>
+<% @recipe.ingredients.each do |ingredient| %>
+	<li><%= ingredient.name %></li>
+<% end -%>
+</ul>
+
+<h4><%= link_to "Delete", recipe_path(@recipe.id), :method => :delete, data: {confirm: "Seriously? But it's so delicious."}  %></h4>
+
+<h4><%= link_to "Edit", recipe_path(@recipe.id), :method => :patch %></h4>
