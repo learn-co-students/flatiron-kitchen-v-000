@@ -1,11 +1,9 @@
-<h1>Create A Recipe</h1>
+<h1>Create Recipe</h1>
 
 <%= form_for recipe do |f|%> <!-- dont't use instance v in partial -->
   <p><%= f.label :name %>
     <%= f.text_field :name %>
   </p>
-  <p>Ingredients
-  </P>
   <p>
     <% if !ingredients.blank? %>
       <%= f.label :ingredients, 'Ingredients:' %>
