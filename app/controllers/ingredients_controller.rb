@@ -27,7 +27,7 @@ class IngredientsController < ApplicationController
 
   def update
     @ingredient = Ingredient.find(params[:id])
-    
+
     @ingredient.update(ingredient_params)
 
     if @ingredient.save
@@ -39,6 +39,6 @@ class IngredientsController < ApplicationController
 private
 
   def ingredient_params
-    params.require(:ingredient).permit(:name)
+    params.require(:ingredient).permit(:name, :recipe_ids => [])
   end
 end
