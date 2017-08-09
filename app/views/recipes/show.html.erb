@@ -1,0 +1,8 @@
+<h1><%= @recipe.name %></h1>
+<h3>Available to be Made: <%= @recipe.recipes_available %></h3>
+<ul>
+  <% @recipe.ingredients.each do |ingredient| %>
+  <li><%= link_to "#{ingredient.name} : #{ingredient.inventory}", ingredient %></li>
+  <li>Quantity Required: <%= ingredient.quantity %></li><br>
+  <% end %>
+</ul>
