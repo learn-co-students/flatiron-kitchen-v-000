@@ -54,6 +54,7 @@ describe "creating recipes" do
       check('Spam')
       click_button('Create Recipe')
 
+
       expect(Recipe.first.ingredients.where(name: 'Spam').count).to eq(1)
     end
 

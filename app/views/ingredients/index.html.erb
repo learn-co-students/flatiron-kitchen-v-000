@@ -1,0 +1,4 @@
+<h1>List of Ingredients</h1>
+<% @ingredients.each do |ingredient| %>
+  <%= link_to "#{ingredient.name} : #{ingredient.inventory}", ingredient %><br>
+<% end %>
