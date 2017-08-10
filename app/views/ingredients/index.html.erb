@@ -1,0 +1,7 @@
+<h1>Flatiron Kitchen Ingredients</h1>
+
+<ul>
+  <% @ingredients.each do |ingred| %>
+   <li><%= link_to ingred.name, ingredient_path(ingred) %></li>
+  <% end %>
+</ul>
