@@ -13,13 +13,7 @@ describe "editing recipes" do
     end
 
     # Does the form correctly update the recipe name?
-    it "should update a recipe when the form is submitted" do
-      fill_in 'recipe_name', with: "Rice Pudding with Farmer Darryl's Frog Sauce"
-      click_button('Update Recipe')
 
-      expect(Recipe.first.name).to eq("Rice Pudding with Farmer Darryl's Frog Sauce")
-      expect(page).to have_content("Rice Pudding with Farmer Darryl's Frog Sauce")
-    end
 
     # Are there all ingredients listed in the form with
     # the ingredient name as a label and an associated checkbox?
