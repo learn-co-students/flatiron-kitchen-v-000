@@ -1,0 +1,18 @@
+<h4><%= @recipe.name %> <%= link_to "Edit", edit_recipe_path(@recipe), class: 'btn btn-sm btn-link' %></h4>
+  <p>
+    Makes: <%= pluralize(@recipe.servings, "serving") %>
+  </p>
+  <table class='table table-sm table-striped table-hover' style='width: 400px;'>
+    <thead>
+      <th>Quantity</th>
+      <th>Ingredient</th>
+    </thead>
+    <tbody>
+      <% @recipe.quantity.each do |name, amount| %>
+        <tr>
+          <td><%= amount %></td>
+          <td><%= name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
