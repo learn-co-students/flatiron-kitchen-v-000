@@ -1,0 +1,7 @@
+<h1>Flatiron Kitchen Recipes</h1>
+
+<ul>
+  <% @recipes.each do |rcp| %>
+   <li><%= link_to rcp.name, recipe_path(rcp) %></li>
+  <% end %>
+</ul>
