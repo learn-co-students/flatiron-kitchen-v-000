@@ -1,6 +1,9 @@
-<h4><%= @recipe.name %> <%= link_to "Edit", edit_recipe_path(@recipe), class: 'btn btn-sm btn-link' %></h4>
+<h4><%= @recipe.name %> <%= link_to "Edit", edit_recipe_path(@recipe), class: 'btn btn-sm btn-link' %> <%= link_to "Delete", @recipe, class: 'btn btn-sm btn-link', method: :delete, data: { confirm: "Are you sure you want to delete this recipe?" } %> <%= link_to "Edit Quantities", add_recipe_path(@recipe), class: 'btn btn-sm btn-link' %></h4>
   <p>
     Makes: <%= pluralize(@recipe.servings, "serving") %>
+  </p>
+  <p>
+    You have ingredients for <%= pluralize(@recipe.total_recipes, "full recipe") %>
   </p>
   <table class='table table-sm table-striped table-hover' style='width: 400px;'>
     <thead>
@@ -8,10 +11,10 @@
       <th>Ingredient</th>
     </thead>
     <tbody>
-      <% @recipe.quantity.each do |name, amount| %>
+      <% @recipe.ingredients.each do |ingredient| %>
         <tr>
-          <td><%= amount %></td>
-          <td><%= name %></td>
+          <td><%= quantity(@recipe, ingredient) %></td>
+          <td><%= ingredient.name %></td>
         </tr>
       <% end %>
     </tbody>

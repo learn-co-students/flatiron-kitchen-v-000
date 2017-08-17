@@ -3,7 +3,7 @@
 
 blueberry_pancakes = Recipe.new(name: 'Blueberry Pancakes', servings: 6)
 blueberry_pancakes_ingredients = ['All-purpose flour', 'Sugar', 'Baking powder', 'Baking soda', 'Salt', 'Large eggs', 'Milk', 'Sour cream', 'Butter', 'Vanilla extract', 'Blueberries', 'Lemon zest']
-blueberry_pancakes_ingredients.each{|i| blueberry_pancakes.ingredients.build(name: i, stock: 500)}
+blueberry_pancakes_ingredients.each{|i| blueberry_pancakes.ingredients.build(name: i)}
 blueberry_pancakes.save
 
 # Jake the Dog's Bacon Pancakes Recipe
@@ -11,5 +11,5 @@ blueberry_pancakes.save
 
 bacon_pancakes = Recipe.new(name: 'Bacon Pancakes', servings: 6)
 bacon_pancakes_ingredients = ['Some bacon', 'Pancake']
-bacon_pancakes_ingredients.each{|i| bacon_pancakes.ingredients.build(name: i, stock: 500)}
+bacon_pancakes_ingredients.each{|i| bacon_pancakes.ingredients.build(name: i)}
 bacon_pancakes.save

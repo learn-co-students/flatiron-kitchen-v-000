@@ -1,0 +1,11 @@
+<h4>Edit Quantities of <strong><u><%= @recipe.name %></u></strong></h4>
+<p><em>Servings: <%= @recipe.servings %></em></p>
+  <%= form_for @recipe, url: recipe_path(@recipe), method: :patch do |f| %>
+    <%= f.hidden_field :name %>
+    <%= f.hidden_field :servings %>
+    <%= f.fields_for :recipe_ingredients do |i| %>
+      <%= i.number_field :quantity, min: 0, max: 999 %>
+      <%= i.object.ingredient.name %><br>
+    <% end %>
+    <%= f.submit %>
+  <% end %>

@@ -8,7 +8,7 @@
     </thead>
     <tbody>
       <% @ingredients.each do |ingredient| %>
-        <tr>
+        <tr class=''>
           <td><%= ingredient.stock %></td>
           <td><%= link_to ingredient.name, ingredient %></td>
         </tr>

@@ -1,6 +1,7 @@
 class CreateRecipeIngredients < ActiveRecord::Migration
   def change
     create_table :recipe_ingredients do |t|
+      t.integer :quantity
       t.integer :recipe_id
       t.integer :ingredient_id
 

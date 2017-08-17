@@ -35,6 +35,8 @@ class IngredientsController < ApplicationController
     end
   end
 
+private
+
   def set_ingredient
     @ingredient = Ingredient.find_by(id: params[:id])
   end

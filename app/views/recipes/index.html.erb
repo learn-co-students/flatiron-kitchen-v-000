@@ -2,7 +2,7 @@
   <table class='table table-sm table-hover' style='width: 300px;'>
     <tbody>
       <% @recipes.each do |recipe| %>
-        <tr>
+        <tr class=''>
           <td><%= link_to recipe.name, recipe, class: 'btn btn-sm btn-link' %></td>
         </tr>
       <% end %>
