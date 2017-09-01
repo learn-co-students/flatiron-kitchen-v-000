@@ -1,0 +1,10 @@
+<!--
+  return list of ingredients for recipe
+  use partial form for creation
+-->
+<h1> <%= @recipe.name %> </h1>
+
+<h2>Ingredients:</h2>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <%= ingredient.name %> <br>
+  <% end %>
