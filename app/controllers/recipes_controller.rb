@@ -21,6 +21,20 @@ class RecipesController < ApplicationController
     end
 
     def edit
+        @recipe = Recipe.find(params[:id])
         @ingredients = Ingredient.all
     end
+
+    def update
+        @recipe = Recipe.find(params[:id])
+
+        if @recipe.update(recipe_params)
+            render 'show'
+        end
+    end
+
+    private
+        def recipe_params
+            params.require(:recipe).permit(:name, ingredient_ids:[])
+        end
 end
