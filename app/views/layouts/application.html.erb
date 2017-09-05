@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>FlatironKitchen</title>
+  <title>Flatiron Kitchen</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+  <nav>
+    <li><%= link_to "Add Ingredient", new_ingredient_path %></li>
+    <li><%= link_to "Add Recipe", new_recipe_path %></li>
+  </nav>
 
 <%= yield %>
 
