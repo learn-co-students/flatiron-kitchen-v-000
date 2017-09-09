@@ -8,9 +8,8 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
   end
   def create
-    @recipe = Recipe.new(recipe_params)
-    
-    render "show"
+    @recipe = Recipe.create(recipe_params)
+         render "show"
   end
   def show
     @recipe = Recipe.find(params[:id])
