@@ -6,8 +6,9 @@
 <% end %>
 
 <h2>Exisiting Ingredients </h2>
-<%= form_for @recipe do |f|%>
-  <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name%>
+<%= form_for @ingredients do |f|%>
+  <%= f.label :name%>
+  <%= f.text_field :name%>
   <%= f.submit%>
 
 <% end %>
