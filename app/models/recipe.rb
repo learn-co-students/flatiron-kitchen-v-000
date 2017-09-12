@@ -4,6 +4,7 @@ class Recipe < ActiveRecord::Base
   
 
   def ingredient_ids=(ingredient_ids)
+    binding.pry
     self.ingredients.build(ingredient_ids)
   end
 
