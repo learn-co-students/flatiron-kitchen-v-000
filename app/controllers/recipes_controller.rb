@@ -5,12 +5,20 @@ class RecipesController < ApplicationController
   end
 
   def new
+    # binding.pry
     @recipe = Recipe.new
-    @ingredients = Ingredient.all
+    @ingredient = Ingredient.new
+    
   end
   def create
+    raise params.inspect
+
     @recipe = Recipe.create(recipe_params)
-         render "show"
+      if @user.save
+         redirect_to @recipe
+      else
+        render "new"
+      end
   end
   def show
     @recipe = Recipe.find(params[:id])
@@ -26,13 +34,10 @@ class RecipesController < ApplicationController
     @recipe.update(recipe_params)
   end
 
-  # def ingredient_ids=(ingredient_ids)
-
-  # end
 
   private
 
-    def recipe_params
-      params.require(:recipe).permit(:name, :ingredient_ids)
-    end
+    # def recipe_params
+    #   params.require(:recipe).permit(:name)
+    # end
 end

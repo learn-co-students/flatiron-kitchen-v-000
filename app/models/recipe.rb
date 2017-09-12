@@ -1,10 +1,14 @@
 class Recipe < ActiveRecord::Base
-  has_many :ingredient_recipes
-  has_many :ingredients, through: :ingredient_recipes
+  has_many :recipe_ingredients
+  has_many :ingredients, through: :recipe_ingredients
+  
 
+  def ingredient_ids=(ingredient_ids)
+    self.ingredients.build(ingredient_ids)
+  end
 
-  # def ingredient_ids=(ingredient_ids)
-    
+  # def ingredients_attributes
+
   # end
     
 end
