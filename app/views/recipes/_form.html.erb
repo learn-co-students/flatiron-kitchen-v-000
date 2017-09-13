@@ -1,0 +1,14 @@
+<%= form_for recipe do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <!-- fields_for will create a params hash -->
+  <%= f.fields_for :ingredients do |fields| %>
+    <%= fields.label :name %>
+    <%=fields.text_field :name %>
+    <%= fields.label :quantity %>
+    <%=fields.text_field :quantity %>
+    <br>
+  <% end %>
+<%binding.pry%>
+<%=f.submit%>
+<% end %>
