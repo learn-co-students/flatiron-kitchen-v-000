@@ -9,12 +9,5 @@
 
 	<br>
 
-	<%= f.fields_for @recipe.ingredients do |ingredient_builder| %>
-		<%= ingredient_builder.label :name, "Create New Ingredient" %><br>
-		<%= ingredient_builder.text_field :name, {value: ""} %><br>
-	<% end %>
-
-	<br>
-
 	<%= f.submit %>
 <% end %>

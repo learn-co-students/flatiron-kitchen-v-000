@@ -14,7 +14,7 @@ class IngredientsController < ApplicationController
 	def create
 		@ingredient = Ingredient.new(ingredient_params)
 
-		if ingredient.save
+		if @ingredient.save
 			redirect_to ingredient_path(@ingredient)
 		else
 			render :new
@@ -28,7 +28,7 @@ class IngredientsController < ApplicationController
 	def update
 		@ingredient = Ingredient.find(params[:id])
 
-		if ingredient.save
+		if @ingredient.update(ingredient_params)
 			redirect_to ingredient_path(@ingredient)
 		else
 			render :edit

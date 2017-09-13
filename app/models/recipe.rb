@@ -4,6 +4,4 @@ class Recipe < ActiveRecord::Base
 
 	validates :name, presence: true
 
-	accepts_nested_attributes_for :ingredients, reject_if: proc{ |attributes| attributes[:name].blank? == false}
-
 end
