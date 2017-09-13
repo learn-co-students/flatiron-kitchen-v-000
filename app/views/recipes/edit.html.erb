@@ -1,0 +1,22 @@
+<h1>Edit Recipe Below</h1>
+
+<%= form_for(@recipe) do |f| %>
+	<%= f.label :name %><br>
+	<%= f.text_field :name %><br>
+
+	<br>
+
+	Ingredients <br>
+	<%= f.collection_check_boxes :ingredient_ids, @ingredients, :id, :name %><br>
+
+	<br>
+
+	<%= f.fields_for :ingredients do |ingredient_builder| %>
+		<%= ingredient_builder.label :name, "Create New Ingredient" %><br>
+		<%= ingredient_builder.text_field :name %><br>
+	<% end %>
+
+	<br>
+
+	<%= f.submit %>
+<% end %>
