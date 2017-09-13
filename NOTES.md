@@ -1,6 +1,6 @@
 Need 3 tables:
 
--recipes  
+  recipes  
     title  
 
 -recipe_ingredients  
