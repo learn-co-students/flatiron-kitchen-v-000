@@ -1,6 +1,10 @@
 <%= form_for recipe do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %><br>
+
+  <h3>Ingredients</h3>
+  <%binding.pry%>
+  <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %><br><br>
   <!-- fields_for will create a params hash -->
   <%= f.fields_for :ingredients do |fields| %>
     <%= fields.label :name %>
