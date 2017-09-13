@@ -1,7 +1,7 @@
 Need 3 tables:
 
-  recipes  
-    title  
+    recipes  
+      title  
 
 -recipe_ingredients  
       recipe_id  
