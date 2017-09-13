@@ -3,16 +3,15 @@
   <%= f.text_field :name %><br>
 
   <h3>Ingredients</h3>
-  <%binding.pry%>
   <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %><br><br>
   <!-- fields_for will create a params hash -->
+  <h3>New Ingredients</h3>
   <%= f.fields_for :ingredients do |fields| %>
     <%= fields.label :name %>
     <%=fields.text_field :name %>
     <%= fields.label :quantity %>
     <%=fields.text_field :quantity %>
-    <br>
+    <br><br>
   <% end %>
-<%binding.pry%>
 <%=f.submit%>
 <% end %>

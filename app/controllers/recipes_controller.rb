@@ -10,18 +10,35 @@ before_action :set_recipe, only: [:show, :update, :edit, :destroy]
 
   def new
     @recipe = Recipe.new
-    # add two empty ingredients to fill out
+    # add empty ingredients to fill out
     4.times do
-     @recipe.ingredients.build
+     @ingredient = @recipe.ingredients.build
     end
   end
 
   def create
-    binding.pry
-    @recipe = Recipe.create(recipe_params)
-    binding.pry
-    redirect_to recipe_path(@recipe)
+    @recipe = Recipe.new(recipe_params)
+    if @recipe.save
+      redirect_to @recipe
+    else
+      render 'new'
+    end
   end
+
+  def edit
+    # add empty ingredients to fill out
+    4.times do
+     @ingredient = @recipe.ingredients.build
+    end
+  end
+
+  def update
+	  if @recipe.update(recipe_params)
+	     redirect_to @recipe
+     else
+       render :edit
+     end
+	end
 
   private
 

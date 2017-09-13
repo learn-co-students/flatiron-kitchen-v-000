@@ -18,7 +18,6 @@ before_action :set_ingredient, only: [:show, :update, :edit, :destroy]
   end
 
   def edit
-    @ingredient = Ingredient.find(params[:id])
   end
 
   def update
