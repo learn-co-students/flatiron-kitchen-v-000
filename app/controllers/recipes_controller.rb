@@ -12,7 +12,7 @@ before_action :set_recipe, only: [:show, :update, :edit, :destroy]
     @recipe = Recipe.new
     # add empty ingredients to fill out
     4.times do
-     @ingredient = @recipe.ingredients.build
+     @recipe.ingredients.build
     end
   end
 
@@ -28,7 +28,7 @@ before_action :set_recipe, only: [:show, :update, :edit, :destroy]
   def edit
     # add empty ingredients to fill out
     4.times do
-     @ingredient = @recipe.ingredients.build
+     @recipe.ingredients.build
     end
   end
 
