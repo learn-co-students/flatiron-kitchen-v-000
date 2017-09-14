@@ -2,5 +2,10 @@
 
 <h2> <%= @recipe.name %></h2>
 
+<h3>Ingredients:</h3>
+<% @ingredients.each do |ingredient| %>
+  <p><%= ingredient.name %></p>
+<% end %>
+
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
 <%= link_to 'Back', recipes_path %>

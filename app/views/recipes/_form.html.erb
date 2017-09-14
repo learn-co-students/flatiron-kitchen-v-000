@@ -3,7 +3,7 @@
   <%= f.text_field :name %><br>
 
   <h3>Ingredients</h3>
-  <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %><br><br>
+  <%= f.collection_check_boxes :ingredient_ids, Ingredient.order(:name), :id, :name %><br><br>
   <!-- fields_for will create a params hash with blank fields -->
   <h3>New Ingredient</h3>
   <%= f.fields_for :ingredients, @recipe.ingredients.build do |fields| %>

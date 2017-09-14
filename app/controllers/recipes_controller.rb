@@ -2,18 +2,19 @@ class RecipesController < ApplicationController
 before_action :set_recipe, only: [:show, :update, :edit, :destroy]
 
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.order(:name)
   end
 
   def show
+    @ingredients = @recipe.ingredients.order(:name)
   end
 
   def new
     @recipe = Recipe.new
     # add empty ingredients to fill out
-    # 4.times do
-    #  @recipe.ingredients.build
-    # end
+    4.times do
+     @recipe.ingredients.build
+    end
   end
 
   def create
@@ -27,9 +28,9 @@ before_action :set_recipe, only: [:show, :update, :edit, :destroy]
 
   def edit
     # add empty ingredients to fill out
-    # 4.times do
-    #  @recipe.ingredients.build
-    # end
+    4.times do
+     @recipe.ingredients.build
+    end
   end
 
   def update

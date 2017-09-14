@@ -21,8 +21,11 @@ before_action :set_ingredient, only: [:show, :update, :edit, :destroy]
   end
 
   def update
-	  @ingredient.update(ingredient_params)
-	  redirect_to @ingredient
+	  if @ingredient.update(ingredient_params)
+      redirect_to @ingredient
+    else
+      render :edit
+    end
 	end
 
   def set_ingredient
