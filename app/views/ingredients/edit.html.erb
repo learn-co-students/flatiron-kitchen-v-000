@@ -1,3 +1,6 @@
 <h1>Ingredient Edit Form</h1>
 
-<%= render partial: "form", locals: {ingredient: @ingredient} %>
+<%= render partial: "form", locals: {ingredient: @ingredient} %><br>
+
+<%= link_to 'Show', @ingredient %> |
+<%= link_to 'Back', ingredients_path %>
