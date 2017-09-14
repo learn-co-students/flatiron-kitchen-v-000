@@ -9,15 +9,28 @@ class Recipe < ActiveRecord::Base
 	end
 
 	def ingredients_recipe_count
-		recipes = []
+		recipes_found = []
+		recipes_eliminated = []
 		self.ingredients.each do |ingredient|
+			#find every recipe with this ingredient
 			ingredient.recipes.each do |recipe|
-				next if recipes.include?(recipe.id)
-				if recipe.ingredients.all?{|ingred| self.ingredients.any?{|iv| iv == ingred}}
-					recipes.push(recipe.id)
+				#see if recipe has been found or eliminated
+				unless (recipes_found.include? recipe.id) || (recipes_eliminated.include? recipe.id)	
+					#see if recipe has an ingredient not included in self.ingredients
+					recipeList = recipe.ingredients.pluck(:name)
+					origRecipeList = self.ingredients.pluck(:name)
+
+					if recipeList.all?{|innergredient| origRecipeList.include? innergredient}
+						recipes_found.push recipe.id
+					else
+						recipes_eliminated.push recipe.id 
+					end
 				end
 			end
 		end
-		recipes.count
+
+		recipes_found.count
 	end
 end
+
+
