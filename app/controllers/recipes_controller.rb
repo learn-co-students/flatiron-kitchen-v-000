@@ -31,6 +31,8 @@ class RecipesController < ApplicationController
   def update
     @recipe = Recipe.find(params[:id])
     @recipe.update(recipe_params)
+    @recipe.save
+    render 'show'
   end
 
 

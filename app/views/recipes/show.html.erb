@@ -1,2 +1,8 @@
-Created Recipe
-Name: <%= @recipe.name %>
+Created Recipe: 
+
+<%= @recipe.name%>
+<ul>
+<%@recipe.ingredients.each do |ingredients|%>
+  <%=ingredients.name%>
+  <% end %>
+</ul>
