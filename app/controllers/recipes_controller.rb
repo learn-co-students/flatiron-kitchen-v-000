@@ -1,17 +1,21 @@
 class RecipesController < ApplicationController
   before_action :find_recipe, only: [:show, :edit, :update]
 
+  def index
+    @recipes = Recipe.all
+  end
+  
  def new
    @recipe = Recipe.new
+   @ingredients = Ingredient.all
  end
 
  def create
    @recipe = Recipe.new(recipe_params)
-
    if @recipe.save
      redirect_to @recipe
    else
-     render 'new'
+     render :new
    end
  end
 
@@ -22,12 +26,13 @@ class RecipesController < ApplicationController
  end
 
  def update
-   if @recipe.update(recipe_params)
-     redirect_to recipe_path(@recipe)
-   else
-     render 'edit'
-   end
- end
+    @recipe.update(recipe_params)
+    if @recipe.save
+      redirect_to @recipe
+    else
+      render :edit
+    end
+  end
 
  private
 
@@ -36,6 +41,6 @@ class RecipesController < ApplicationController
  end
 
  def recipe_params
-   params.require(:recipe).permit(:name, ingredient_ids: [])
+   params.require(:recipe).permit(:name, ingredient_ids: [], ingredients_attributes: [:name])
  end
 end

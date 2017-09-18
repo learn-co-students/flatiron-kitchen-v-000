@@ -1,6 +1,10 @@
 class IngredientsController < ApplicationController
   before_action :find_ingredient, only: [:show, :edit, :update]
 
+  def index
+    @ingredients = Ingredient.all
+  end
+
  def new
    @ingredient = Ingredient.new
  end
@@ -13,7 +17,7 @@ class IngredientsController < ApplicationController
    if @ingredient.save
      redirect_to @ingredient
    else
-     render 'new'
+     render :new
    end
  end
 
@@ -21,12 +25,13 @@ class IngredientsController < ApplicationController
  end
 
  def update
-   if @ingredient.update(ingredient_params)
-     redirect_to ingredient_path(@ingredient)
+   @ingredient.update(ingredient_params)
+   if @ingredient.save
+     redirect_to @ingredient
    else
-     render 'edit'
+     render :edit
    end
- end
+end
 
 
  private
