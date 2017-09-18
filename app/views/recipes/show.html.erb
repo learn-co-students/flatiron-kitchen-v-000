@@ -1,0 +1,8 @@
+<h2><%= @recipe.name %></h2>
+<% @recipe.ingredients.each do |ingredient| %>
+  <% if ingredient.quantity != nil%>
+    <%= render partial: 'ingredients/ingredient', locals: {ingredient: ingredient} %>
+  <% else %>
+    <h3>You don't have enough <%= link_to ingredient.name, ingredient_path(ingredient) %> to make <%= @recipe.name %></h3>
+  <% end %>
+<% end %>
