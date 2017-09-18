@@ -23,6 +23,7 @@ class IngredientsController < ApplicationController
 
 
   def edit
+    @ingredient = Ingredient.find(params[:id])
   end
 
   def update
