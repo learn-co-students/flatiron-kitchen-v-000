@@ -10,23 +10,24 @@ class IngredientsController < ApplicationController
 
   def create
     @ingredient = Ingredient.new(ingredient_params)
-    respond_to do |format|
-      if @ingredient.save
-        format.html { redirect_to @ingredient, notice: 'Ingredient was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @ingredient }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @ingredient.errors, status: :unprocessable_entity }
-      end
+    if @ingredient.save
+      redirect_to ingredient_path(@ingredient)
+    else
+      render :new
     end
   end
+
+    def show
+      @ingredient = Ingredient.find(params[:id])
+    end
+
 
   def edit
   end
 
   def update
+    @ingredient = Ingredient.find(params[:id])
     respond_to do |format|
-      binding.pry
      if @ingredient.update(ingredient_params)
        format.html { redirect_to @ingredient, notice: 'Ingredient was successfully updated.' }
        format.json { head :no_content }
