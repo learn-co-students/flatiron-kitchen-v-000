@@ -6,14 +6,8 @@
   </fieldset>
 
   <fieldset>
-    <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %><br>
+      <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %><br>
   </fieldset>
 
-  <fieldset>
-    <%= f.fields_for(:ingredients) do |ingredient_form| %>
-      <%= ingredient_form.label :name %>
-      <%= ingredient_form.text_field :name %>
-    <% end %>
-  </fieldset>
 <%= f.submit 'Create Recipe' %>
 <% end %>
