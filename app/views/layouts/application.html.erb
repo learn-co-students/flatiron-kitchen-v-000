@@ -7,7 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <nav>
+    <%= link_to "Recipe Index", recipes_path %>
+    <%= link_to "New Recipe", new_recipe_path %>
+    <%= link_to "Ingredient Index", ingredients_path %>
+    <%= link_to "New Ingredient", new_ingredient_path %>
+  </nav>
 <%= yield %>
 
 </body>
