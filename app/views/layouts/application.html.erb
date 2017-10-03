@@ -7,8 +7,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+  <ul>
+    <li><%= link_to "Create A New Recipe", new_recipe_path %></li>
+    <li><%= link_to "Make A New Ingredient", new_ingredient_path %></li>
+  </ul>
+  <%= yield %>
 
 </body>
 </html>
