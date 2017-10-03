@@ -1,0 +1,26 @@
+<%= form_for(@ingredient) do |f| %>
+  <% if @ingredient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ingredient.errors.count, "error") %> prohibited this ingredient from being saved:</h2>
+
+      <ul>
+      <% @ingredient.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div id="new_ingredient" class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <% if controller.action_name == 'new'
+        button_label = 'Create Ingredient'
+      else
+        button_label = 'Update Ingredient'
+      end %>
+    <%= f.submit button_label %>
+  </div>
+<% end %>
