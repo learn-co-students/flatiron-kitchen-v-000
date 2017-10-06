@@ -29,5 +29,11 @@ class IngredientsController < ApplicationController
       render :edit
     end
   end
-  
+
+
+  private
+
+    def ingredient_params
+      params.require(:ingredient).permit(:name)
+    end
 end
