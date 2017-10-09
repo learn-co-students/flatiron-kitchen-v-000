@@ -1,0 +1,9 @@
+<%= form_for ingredient do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :quantity %>
+    <%= f.text_field :quantity %><br>
+    <%= link_to 'add ingredient', ingredient %>
+  <%= f.submit %>
+<% end %>
