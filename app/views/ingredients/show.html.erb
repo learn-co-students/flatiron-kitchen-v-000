@@ -1,0 +1,13 @@
+<h1>Ingredients Show Here </h1>
+<ol>
+<li><%= @ingredient.name %></li>
+<li><%= @ingredient.total_on_hand%></li>
+</ol>
+
+
+<h1>Recipes</h1>
+<ul>
+  <% @ingredient.recipes.each do |recipe| %>
+    <li><%= link_to recipe.name, recipe_path(recipe) %>
+  <% end %></li>
+</ul>
