@@ -1,0 +1,23 @@
+<div>
+  <h1><%= @ingredient.name %></h1>
+</div>
+
+<div>
+  <h2>Recipes that use <%= @ingredient.name %>:</h2>
+</div>
+
+<ul>
+  <%= @ingredient.recipes.each do |recipe| %>
+    <li>
+      <%= link_to recipe.name, recipe %>
+    </li>
+  <% end %>
+</ul>
+
+<div>
+  <%= link_to 'Edit', edit_ingredient_path(@ingredient) %>
+</div>
+
+<div>
+  <%= link_to 'Add an Ingredient', new_ingredient_path %>
+</div>

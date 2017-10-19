@@ -1,0 +1,27 @@
+<%= form_for(recipe) do |f| %>
+  <div>
+    <% if recipe.errors.any? %>
+      <ul>
+        <% recipe.errors.full_messages.each do |msg| %>
+          <li<%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <%= f.collection_check_boxes(:ingredient_ids, Ingredient.all, :id, :name, checked: recipe.ingredients.ids) do |b| %>
+    <p>
+      <%= b.check_box %>
+      <%= b.label %>
+    </p>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit%>
+  </div>
+<% end %>
