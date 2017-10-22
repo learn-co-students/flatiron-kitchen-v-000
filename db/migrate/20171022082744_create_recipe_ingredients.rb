@@ -1,6 +1,6 @@
-class CreateRecipeIngretients < ActiveRecord::Migration
+class CreateRecipeIngredients < ActiveRecord::Migration
   def change
-    create_table :recipe_ingretients do |t|
+    create_table :recipe_ingredients do |t|
       t.integer :recipe_id
       t.integer :ingredient_id
 
