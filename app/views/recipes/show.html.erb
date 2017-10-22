@@ -1,0 +1,10 @@
+<%= render 'recipe', recipe: @recipe %>
+
+<p><strong>Ingredients:</strong></p>
+<ul>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <li>
+      <%= render 'ingredients/ingredient', ingredient: ingredient %>
+    </li>
+  <% end %>
+</ul>
