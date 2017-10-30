@@ -1,4 +1,6 @@
 FlatironKitchen::Application.routes.draw do
+  resources :recipes_ingredients
+
   resources :recipes
 
   resources :ingredients
