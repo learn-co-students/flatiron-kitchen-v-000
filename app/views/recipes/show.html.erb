@@ -1,0 +1,5 @@
+<h1><%= @recipe.name %></h1>
+<h2>Ingredients</h2>
+<% @recipe.ingredients.sort_by{|i| i.name}.each do |ingredient| %>
+  <%= link_to ingredient.name, ingredient_path(ingredient) %><br>
+<% end %>
