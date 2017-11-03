@@ -1,4 +1,5 @@
 class IngredientsController < ApplicationController
+<<<<<<< HEAD
   def new
     @ingredient = Ingredient.new
   end
@@ -39,4 +40,6 @@ class IngredientsController < ApplicationController
   def ingredient_params
     params.require(:ingredient).permit(:name, :quantity)
   end
+=======
+>>>>>>> 1f7182da6f3edfa71386dbc2b7870e2f52922318
 end

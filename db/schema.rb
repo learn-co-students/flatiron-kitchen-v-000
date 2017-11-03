@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20171031205947) do
+=======
+ActiveRecord::Schema.define(version: 20171031174553) do
+>>>>>>> 1f7182da6f3edfa71386dbc2b7870e2f52922318
 
   create_table "ingredients", force: :cascade do |t|
     t.string   "name"
