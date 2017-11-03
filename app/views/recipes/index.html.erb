@@ -1,0 +1,11 @@
+<<<<<<< HEAD
+<ul>
+<% @recipes.each do |recipe| %>
+  <li><%= render :partial => 'recipe', locals: {recipe: recipe} %></li>
+<% end %>
+</ul>
+=======
+<% @recipes.each do |recipe| %>
+  <%= render :partial => 'recipe', locals: {recipe: recipe} %>
+<% end %>
+>>>>>>> 1f7182da6f3edfa71386dbc2b7870e2f52922318
