@@ -12,7 +12,10 @@ class IngredientsController < ApplicationController
   def show
     @ingredient = Ingredient.find(params[:id])
   end
-  
+  def edit
+    @ingredient = Ingredient.find(params[:id])
+  end
+
   private
   def ingredient_params
     params.require(:ingredient).permit(:name)
