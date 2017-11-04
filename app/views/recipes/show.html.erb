@@ -1,0 +1,6 @@
+<h1>recipe name</h1>
+<p><%=@recipe.name%></p>
+<p><%= @recipe.ingredients do |ingredient|%>
+  <%= ingredient.name%>
+  <% end %>
+</p>
