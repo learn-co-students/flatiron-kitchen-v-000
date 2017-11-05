@@ -8,7 +8,9 @@ class RecipesController < ApplicationController
     @recipe.save
     redirect_to recipe_path(@recipe)
   end
-
+  def index
+    @recipes = Recipe.all
+  end
   def show
     #binding.pry
     @recipe = Recipe.find(params[:id])
@@ -27,7 +29,7 @@ class RecipesController < ApplicationController
       self.ingredients << ingredient
     end
   end
-
+  #https://learn.co/tracks/full-stack-web-development-v3/rails/associations-and-rails/has-many-through-in-forms-lab?batch_id=306&track_id=28005
   private
   def recipe_params
     params.require(:recipe).permit(:name, ingredient_ids:[], ingredients_attributes:[:name])

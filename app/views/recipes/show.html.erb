@@ -1,6 +1,8 @@
 <h1>recipe name</h1>
-<p><%=@recipe.name%></p>
-<p><%= @recipe.ingredients do |ingredient|%>
-  <%= ingredient.name%>
+  <%# binding.pry %>
+<%= @recipe.name %>
+<%= @recipe.ingredients.each do |ingredient| %>
+  <%# binding.pry %>
+  <li><%= ingredient.name %></li>
   <% end %>
-</p>
+  

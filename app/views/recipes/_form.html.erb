@@ -2,12 +2,15 @@
 <p>
  <%= f.label :name%>
  <%= f.text_field :name%>
-
- <%= f.label :ingredients %>
- <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
-<%#= f.fields_for :ingredients, recipe.ingredients.build do |ingredients_fields|%>
-<%#= ingredients_fields.text_field :name %>
-<%# end %>
- <%= f.submit %>
+</p>
+<%= f.label "exist'g ingredients" %>
+<%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
+<p>
+<%= f.label "new ingredients" %>
+<%= f.fields_for :ingredients, @recipe.ingredients.build do |ingredients_fields|%>
+<li><%= ingredients_fields.text_field :name %></li>
+<%#https://learn.co/tracks/full-stack-web-development-v3/rails/associations-and-rails/has-many-through-in-forms %>
 <% end %>
 </p>
+ <%= f.submit %>
+<% end %>
