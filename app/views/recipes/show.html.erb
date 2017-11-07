@@ -1,0 +1,9 @@
+<h2><%= @recipe.name %></h2>
+
+<ul>
+  <% @recipe.ingredients.each do |ingredient| %>
+  <li><%= ingredient.name %></li>
+  <% end %>
+</ul>
+
+<%= button_to "Edit", edit_recipe_path(@recipe), method: :get%>
