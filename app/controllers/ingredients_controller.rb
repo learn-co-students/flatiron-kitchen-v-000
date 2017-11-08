@@ -4,7 +4,7 @@ class IngredientsController < ApplicationController
   end
 
   def show
-
+    @ingredient = Ingredient.find(params[:id])
   end
 
   def new
@@ -12,7 +12,12 @@ class IngredientsController < ApplicationController
   end
 
   def create
-
+    @ingredient = Ingredient.create(ingredient_params)
+    if @ingredient.save
+      redirect_to ingredient_path(@ingredient)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -21,5 +26,11 @@ class IngredientsController < ApplicationController
 
   def update
 
+  end
+
+  private
+
+  def ingredient_params
+    params.require(:ingredient).permit(:name)
   end
 end
