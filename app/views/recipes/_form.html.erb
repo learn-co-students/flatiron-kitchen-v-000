@@ -8,7 +8,7 @@
     </p>
   <% end %>
 
- <%= f.fields_for :ingredients, Ingredient.new do |ingr| %>
+ <%= f.fields_for :ingredients, recipe.ingredients.build do |ingr| %>
       <%= ingr.label :ingredient %>
       <%= ingr.text_field :name %>
   <% end %>
