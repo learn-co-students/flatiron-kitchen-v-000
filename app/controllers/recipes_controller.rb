@@ -8,18 +8,29 @@ class RecipesController < ApplicationController
   end
 
   def new
-
+    @recipe = Recipe.new
   end
 
   def create
-
+    @recipe = Recipe.new(recipe_params)
+    if @recipe.save
+      redirect_to recipe_path(@recipe)
+    else
+      render :new
+    end
   end
 
   def edit
 
   end
 
-  def update 
+  def update
 
+  end
+
+  private
+
+  def recipe_params
+    params.require(:recipe).permit(:name)
   end
 end
