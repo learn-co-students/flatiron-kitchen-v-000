@@ -3,6 +3,7 @@
   <%= f.text_field :name %><br />
   <%= f.collection_check_boxes :ingredients, Ingredient.all, :id, :name %>
 
+<!-- added in the #fields_for section and it broke!-->
   <%= f.fields_for :ingredients do |ingr| %>
     <%= ingr.label :ingredient %>
     <%= ingr.text_field :name %>
