@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "editing ingredients" do
   context "on the edit ingredient page" do
     before do
-      @ingredient = Ingredient.create(name: "Salmon Flanks")
+      @ingredient = Ingredient.create(name: "Salmon Flanks", unit: "piece")
       visit edit_ingredient_path(@ingredient)
     end
 

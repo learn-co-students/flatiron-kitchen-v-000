@@ -11,7 +11,7 @@ describe 'Ingredient' do
 
   it 'tracks the amount of each unit in stock, and defaults to zero' do
     ingredient1 = Ingredient.new(name: "Choc Chips", unit: "tbsp")
-    ingredient2 = Ingredeint.new(name: "Green Tea", unit: "cup", stock: "12")
+    ingredient2 = Ingredient.new(name: "Green Tea", unit: "cup", stock: "12")
 
     expect(ingredient1.stock).to equal(0)
     expect(ingredient2.stock).to equal(12)
