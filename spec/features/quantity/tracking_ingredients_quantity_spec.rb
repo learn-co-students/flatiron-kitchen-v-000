@@ -1,3 +1,23 @@
+require 'spec_helper'
+
+describe 'Ingredient' do
+  it 'is invalid without a unit' do
+    ingredient1 = Ingredient.new(name: "Sugar", unit: "")
+    ingredient2 = Ingredient.new(name: "Flour", unit: nil)
+
+    expect(ingredient1).to have(1).errors_on(:unit)
+    expect(ingredient2).to have(1).errors_on(:unit)
+  end
+
+  it 'tracks the amount of each unit in stock, and defaults to zero' do
+    ingredient1 = Ingredient.new(name: "Choc Chips", unit: "tbsp")
+    ingredient2 = Ingredeint.new(name: "Green Tea", unit: "cup", stock: "12")
+
+    expect(ingredient1.stock).to equal(0)
+    expect(ingredient2.stock).to equal(12)
+  end
+end
+
 # 1. test for column in recipe_ingredients for quantity of ingredient
 # 2. add column into ingredients table for unit
 # 3. add to Recipe show page "You can make x batches of this recipe with the current amount of ingredients"
