@@ -4,7 +4,7 @@
 <ul>
   <% @recipe.ingredients.each do |ingr| %>
     <li>
-      <%= ingr.name %>
+      <%= ingr.unit %> of <%= ingr.name %>
     </li>
   <% end %>
 </ul>
