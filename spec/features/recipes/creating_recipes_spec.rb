@@ -25,7 +25,7 @@ describe "creating recipes" do
     # Are there all ingredients listed in the form with
     # the ingredient name as a label and an associated checkbox?
     it "should display all the existing ingredients" do
-      Ingredient.create(name: 'Paprika', unit: "tsp")
+      Ingredient.create(name: 'Paprika', unit: "pinch")
       Ingredient.create(name: 'Clove', unit: "tsp")
       Ingredient.create(name: 'Ginger', unit: "tbsp")
       Ingredient.create(name: 'Cider', unit: "cup")
@@ -35,9 +35,13 @@ describe "creating recipes" do
       expect(page).to have_css("input[type=\"checkbox\"]", :count => 4)
 
       expect(page).to have_content('Paprika')
+      expect(page).to have_content('pinch')
       expect(page).to have_content('Clove')
+      expect(page).to have_content('tsp')
       expect(page).to have_content('Ginger')
+      expect(page).to have_content('tbsp')
       expect(page).to have_content('Cider')
+      expect(page).to have_content('cup')
     end
 
     # Does the recipe get successfully created with 1 ingredient?
@@ -63,7 +67,7 @@ describe "creating recipes" do
     #       implemented HTML label
     #       (i.e. clicking on the <label> checks/unchecks the box).
     it "should create a recipe with many ingredients" do
-      Ingredient.create(name: 'Paprika', unit: "tsp")
+      Ingredient.create(name: 'Paprika', unit: "pinch")
       Ingredient.create(name: 'Clove', unit: "tsp")
       Ingredient.create(name: 'Ginger', unit: "tbsp")
       Ingredient.create(name: 'Cider', unit: "cup")
@@ -88,8 +92,8 @@ describe "creating recipes" do
     #       implemented HTML label
     #       (i.e. clicking on the <label> checks/unchecks the box).
     it "should create a recipe with 0 ingredients" do
-      Ingredient.create(name: 'Paprika')
-      Ingredient.create(name: 'Clove')
+      Ingredient.create(name: 'Paprika', unit: "pinch")
+      Ingredient.create(name: 'Clove', unit: "tsp")
 
       visit new_recipe_path
 

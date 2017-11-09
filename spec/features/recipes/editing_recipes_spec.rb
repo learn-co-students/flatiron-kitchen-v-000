@@ -24,7 +24,7 @@ describe "editing recipes" do
     # Are there all ingredients listed in the form with
     # the ingredient name as a label and an associated checkbox?
     it "should display all the existing ingredients" do
-      Ingredient.create(name: 'Paprika', unit: "tsp")
+      Ingredient.create(name: 'Paprika', unit: "pinch")
       Ingredient.create(name: 'Clove', unit: "tsp")
       Ingredient.create(name: 'Ginger', unit: "tbsp")
       Ingredient.create(name: 'Cider', unit: "cup")
@@ -34,9 +34,13 @@ describe "editing recipes" do
       expect(page).to have_css("input[type=\"checkbox\"]", :count => 4)
 
       expect(page).to have_content('Paprika')
+      expect(page).to have_content('pinch')
       expect(page).to have_content('Clove')
+      expect(page).to have_content('tsp')
       expect(page).to have_content('Ginger')
+      expect(page).to have_content('tbsp')
       expect(page).to have_content('Cider')
+      expect(page).to have_content('cup')
     end
 
     # Are all the ingredients added to the recipe?
@@ -44,7 +48,7 @@ describe "editing recipes" do
     #       implemented HTML label
     #       (i.e. clicking on the <label> checks/unchecks the box).
     it "should be able to add ingredients" do
-      Ingredient.create(name: 'Paprika', unit: "tsp")
+      Ingredient.create(name: 'Paprika', unit: "pinch")
       Ingredient.create(name: 'Clove', unit: "tsp")
       Ingredient.create(name: 'Ginger', unit: "tbsp")
       Ingredient.create(name: 'Cider', unit: "cup")
@@ -67,7 +71,7 @@ describe "editing recipes" do
     #       implemented HTML label
     #       (i.e. clicking on the <label> checks/unchecks the box).
     it "should be able to remove ingredients" do
-      @recipe.ingredients.create(name: 'Paprika', unit: "tsp")
+      @recipe.ingredients.create(name: 'Paprika', unit: "pinch")
       @recipe.ingredients.create(name: 'Clove', unit: "tsp")
       @recipe.ingredients.create(name: 'Ginger', unit: "tbsp")
       @recipe.ingredients.create(name: 'Cider', unit: "cup")
