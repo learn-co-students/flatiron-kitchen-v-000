@@ -18,7 +18,7 @@ describe "creating ingredients" do
     it "should create an ingredient when the form is submitted" do
       fill_in 'ingredient_name', with: 'Parsley'
       fill_in 'ingredient_unit', with: 'tablespoon'
-      fill_in 'ingredient_stock' with: 20
+      fill_in 'ingredient_stock', with: 20
       click_button('Create Ingredient')
 
       expect(Ingredient.first.name).to eq("Parsley")
