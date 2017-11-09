@@ -22,6 +22,9 @@ describe "creating ingredients" do
 
       expect(Ingredient.first.name).to eq("Parsley")
       expect(page).to have_content("Parsley")
+
+      expect(Ingredient.first.unit).to eq("tbsp")
+      expect(page).to have_content("tbsp")
     end
   end
 end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'Ingredient' do
+describe 'Ingredient - unit and stock attributes' do
   it 'is invalid without a unit' do
     ingredient1 = Ingredient.new(name: "Sugar", unit: "")
     ingredient2 = Ingredient.new(name: "Flour", unit: nil)
@@ -18,7 +18,7 @@ describe 'Ingredient' do
   end
 end
 
-# 1. test for column in recipe_ingredients for quantity of ingredient
+# 1. test for column in recipe_ingredients for quantity of ingredient required for recipe
 # 2. add column into ingredients table for unit
 # 3. add to Recipe show page "You can make x batches of this recipe with the current amount of ingredients"
 # 4. update ingredients add/edit form to include unit
