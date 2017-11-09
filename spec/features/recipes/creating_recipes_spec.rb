@@ -35,13 +35,9 @@ describe "creating recipes" do
       expect(page).to have_css("input[type=\"checkbox\"]", :count => 4)
 
       expect(page).to have_content('Paprika')
-      expect(page).to have_content('pinch')
       expect(page).to have_content('Clove')
-      expect(page).to have_content('tsp')
       expect(page).to have_content('Ginger')
-      expect(page).to have_content('tbsp')
       expect(page).to have_content('Cider')
-      expect(page).to have_content('cup')
     end
 
     # Does the recipe get successfully created with 1 ingredient?

@@ -18,7 +18,6 @@ describe "creating ingredients" do
     it "should create an ingredient when the form is submitted" do
       fill_in 'ingredient_name', with: 'Parsley'
       fill_in 'ingredient_unit', with: 'tablespoon'
-      fill_in 'ingredient_stock', with: 20
       click_button('Create Ingredient')
 
       expect(Ingredient.first.name).to eq("Parsley")
@@ -26,9 +25,6 @@ describe "creating ingredients" do
 
       expect(Ingredient.first.unit).to eq("tablespoon")
       expect(page).to have_content("tablespoons")
-
-      expect(Ingredient.first.stock).to eq(20)
-      expect(page).to have_content("20")
     end
   end
 end

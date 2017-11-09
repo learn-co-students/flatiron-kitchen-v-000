@@ -19,7 +19,6 @@ describe "editing ingredients" do
     it "should update an ingredient when the form is submitted" do
       fill_in 'ingredient_name', with: 'Rochester Pollywog Eggs'
       fill_in 'ingredient_unit', with: 'whole egg'
-      fill_in 'ingredient_stock', with: 12
       click_button('Update Ingredient')
 
       expect(Ingredient.first.name).to eq("Rochester Pollywog Eggs")
@@ -27,9 +26,6 @@ describe "editing ingredients" do
 
       expect(Ingredient.first.unit).to eq("whole egg")
       expect(page).to have_content("whole eggs")
-
-      expect(Ingredient.first.stock).to eq(12)
-      expect(page).to have_content("12")
     end
   end
 end
