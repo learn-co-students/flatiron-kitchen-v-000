@@ -42,6 +42,7 @@ group :test do
   gem 'capybara', '~> 2.5.0'
 end
 
+gem 'rake', '~> 11.3'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
