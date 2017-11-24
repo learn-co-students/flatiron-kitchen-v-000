@@ -1,0 +1,8 @@
+<% if error %>
+  <h3><%= error %></h3>
+<% end %>
+<%= form_for ingredient do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
