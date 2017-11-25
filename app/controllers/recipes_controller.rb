@@ -19,6 +19,15 @@ class RecipesController < ApplicationController
     end
   end
 
+  def update
+    @recipe.attributes = recipe_params
+    if @recipe.save
+      redirect_to recipe_path(@recipe)
+    else
+      render "recipes/edit.html.erb"
+    end
+  end
+
   private
 
   def recipe_params
