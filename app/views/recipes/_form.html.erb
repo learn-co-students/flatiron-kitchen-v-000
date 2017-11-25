@@ -1,7 +1,5 @@
 <%= form_for recipe do |f| %>
   <%= f.text_field :name %><br>
-  <%= f.fields_for recipe.ingredients.build do |ing| %>
-    <%= ing.collection_check_boxes :id, Ingredient.all, :id, :name %>
-    <% end %>
+  <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
   <%= f.submit %>
 <% end %>

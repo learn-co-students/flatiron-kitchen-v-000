@@ -10,14 +10,19 @@ class RecipesController < ApplicationController
   end
 
   def create
-    binding.pry
-    # @recipe = Recipe.new(recipe_params)
+    @recipe = Recipe.new(recipe_params)
+    if @recipe.save
+      # binding.pry
+      redirect_to recipe_path(@recipe)
+    else
+      render 'recipe/new.html.erb'
+    end
   end
 
   private
 
   def recipe_params
-    params.require(:recipe).permit()
+    params.require(:recipe).permit(:name, :ingredient_ids => [])
   end
 
   def set_recipe
@@ -28,4 +33,4 @@ end
 # touch app/views/recipes/new.html.erb
 # touch app/views/recipes/show.html.erb
 # touch app/views/recipes/edit.html.erb
-# touch app/views/recipes/_form.html.erb
+# touch app/views/recipes/_recipe.html.erb
