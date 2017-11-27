@@ -7,7 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <%= link_to :Ingredients_Index, ingredients_path unless current_page?(ingredients_path) %> <br>
+  <%= link_to :Recipes, recipes_path unless current_page?(recipes_path) %> <br>
+  <br>
 <%= yield %>
 
 </body>
