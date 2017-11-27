@@ -1,0 +1,7 @@
+recipes show page
+
+<%= @recipe.name %>
+
+<% @recipe.ingredients.each do |i| %>
+  <%= i.name %>
+<% end %>
