@@ -10,19 +10,21 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    3.times do
-      @ingredients = @recipe.ingredients.build
-    end
+  end
+
+  def edit
   end
 
   def create
     @recipe = Recipe.new(recipe_params)
-    @ingredient = @recipe.ingredients.new(params[:ingredients])
     if @recipe.save
-      redirect_to action: "show"
+      redirect_to(@recipe)
     else
-      redirect_to action: "new"
+      render action: 'new'
     end
+  end
+
+  def update
   end
 
   private
