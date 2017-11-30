@@ -1,0 +1,8 @@
+<h2> Add a new ingredient to the kitchen: </h2>
+
+<%= form_for(@ingredient) do |f| %>
+  <%= f.label :name, "Name:", id: "new_ingredient" %><br>
+  <%= f.text_field :name %><br>
+  <br>
+  <%= f.submit %>
+  <% end %>
