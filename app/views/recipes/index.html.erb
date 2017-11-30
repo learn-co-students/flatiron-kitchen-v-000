@@ -1,0 +1,11 @@
+<h2> All recipes </h2>
+
+
+<h3><% @recipes.each do |recipe| %>
+      <%= recipe.name %>
+      <ol>
+      <% recipe.ingredients.each do |i| %>
+          <li><%= i.name %></li>
+          <% end %>
+      </ol>
+    <% end %>
