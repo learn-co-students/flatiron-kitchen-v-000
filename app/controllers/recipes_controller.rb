@@ -13,6 +13,7 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    @recipe = Recipe.find(params[:id])
   end
 
   def create
@@ -25,6 +26,13 @@ class RecipesController < ApplicationController
   end
 
   def update
+    @recipe = Recipe.find(params[:id])
+
+    if @recipe.update(recipe_params)
+      render action: 'show'
+    else
+      render action: 'edit'
+    end
   end
 
   private
