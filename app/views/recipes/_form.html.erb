@@ -1,0 +1,17 @@
+<%= form_for @recipe do |f|%>
+  <%= f.label :recipe_name %>
+  <%= f.text_field :name %><br />
+  <%= f.fields_for :ingredients_attributes, @recipe.ingredients.build do |ingredient| %>
+
+  <%= ingredient.label :create_new_ingredient %>
+    <%= ingredient.text_field :name %>
+  <% end %><br />
+
+  <%= f.collection_check_boxes(:ingredient_ids, Ingredient.all, :id, :name) do |ingredient| %>
+    <%= ingredient.label(:"data-value" => ingredient.value) { ingredient.check_box + ingredient.text }%><br> 
+  <% end %>
+
+  <%= f.submit %>
+  
+<% end %>
+  
