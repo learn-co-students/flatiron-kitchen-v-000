@@ -9,9 +9,9 @@ class Recipe < ActiveRecord::Base
   def ingredients_attributes=(ingredients_attributes)
     # binding.pry
       if ingredients_attributes[:name].present?
-      ingredient = Ingredient.find_by(name: ingredients_attributes[:name])
-      if self.ingredients.include?(ingredient)
-        self.recipe_ingredients.build(:ingredient => ingredient)
+        ingredient = Ingredient.find_or_create_by(name: ingredients_attributes[:name])
+        if !self.ingredients.include?(ingredient)
+          self.recipe_ingredients.build(:ingredient => ingredient)
       end
     end
   end
