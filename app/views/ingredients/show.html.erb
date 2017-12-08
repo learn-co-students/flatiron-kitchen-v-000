@@ -1,0 +1,13 @@
+<h1>Spotlight on <%= @ingredient.name %></h1>
+
+<h3>Recipes that use <%= @ingredient.name %></h3>
+
+<ul>
+  <% @ingredient.recipes.each do |recipe| %>
+    <li>
+      <%= link_to recipe.name, recipe_path(recipe) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Edit this Ingredient", edit_ingredient_path(@ingredient) %>

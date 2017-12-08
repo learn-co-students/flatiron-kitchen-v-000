@@ -1,5 +1,5 @@
 FlatironKitchen::Application.routes.draw do
-  root 'recipes#index'
+  # root 'recipes#index'
 
   resources :ingredients
 

@@ -1,13 +1,9 @@
-<h1>Create a Recipe</h1>
-
-<%= form_for @recipe do |f| %>
+<%= form_for recipe do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %><br></br>
 
-    <p>Choose from current ingredients:</p>
     <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %><br></br>
 
-    <p>Add new ingredients:</p>
     <%= f.fields_for :ingredients do |ingredient_fields| %>
       <%= ingredient_fields.label :name %>
       <%= ingredient_fields.text_field :name %><br></br>
