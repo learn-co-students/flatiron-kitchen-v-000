@@ -1,0 +1,14 @@
+<ul>
+  <% @recipes.each do |recipe| %>
+  <li><%= link_to recipe.name, recipe %></li>
+  <li>
+  <ol>
+    <%recipe.ingredients.each do |ingrd| %>
+      <li><%= ingrd.name %></li>
+      <%end%>
+  </ol>
+</li>
+<%end%>
+</ul>
+
+<%= link_to "ingredients", ingredients_path %>
