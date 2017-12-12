@@ -1,6 +1,6 @@
 <h1>Ingredients</h1>
-<ol>
+<ul>
   <% @ingredients.each do |ingred| %>
-    <li><%= link_to ingred.name, ingredient_path(ingred) %></li>
+    <li><%= link_to ingred.name, edit_ingredient_path(ingred) %></li>
   <% end %>
-</ol>
+</ul>
