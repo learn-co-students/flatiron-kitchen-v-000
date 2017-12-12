@@ -1,0 +1,12 @@
+<h1>Edit the Recipe</h1>
+<%= render "layouts/errors", :object => @recipe %>
+<%= form_for @recipe do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br><br>
+  <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name, include_blank: true %>
+  <br><br>
+  <%= f.submit %>
+<% end %>
+
+<p><%= link_to "Delete recipe", recipe_path(@recipe), :data => {:confirm => "You sure?", :method => "delete"} %></p>

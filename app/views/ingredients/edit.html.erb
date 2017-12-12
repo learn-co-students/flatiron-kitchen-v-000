@@ -1,0 +1,9 @@
+<h1>Edit Ingredient</h1>
+<%= render "layouts/errors", :object => @ingredient %>
+<%= form_for @ingredient do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
+
+<p><%= link_to "Delete", ingredient_path(@ingredient), :data => {:confirm => "You sure?", :method => "delete"} %></p>

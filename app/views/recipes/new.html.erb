@@ -1,0 +1,17 @@
+<h1>Create Recipe</h1>
+<%= render "layouts/errors", :object => @recipe %>
+<%= form_for @recipe do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br><br>
+  <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name, include_blank: true %>
+  <br><br>
+  Add Ingredient:
+  <br>
+  <%= f.fields_for :ingredients do |ingred_fields| %>
+    <%= ingred_fields.label :name %>
+    <%= ingred_fields.text_field :name %>
+  <% end %>
+  <br><br>
+  <%= f.submit %>
+<% end %>
