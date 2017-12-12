@@ -1,0 +1,16 @@
+Here is the Recipe:
+<%=  @recipe.name %>
+<br/>
+<br/>
+Ingredient List
+<br/>
+<ul>
+<% if @recipe.ingredients != [] %>
+<% @recipe.ingredients.each do |ing| %>
+
+    <li><%= ing.name %> </li>
+
+
+<% end %>
+</ul>
+<% end %>
