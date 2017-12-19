@@ -1,0 +1,8 @@
+<h1>All Recipes</h1>
+
+<% @recipes.each do |recipe| %>
+  <div class="recipe">
+    <span><%= link_to recipe.name, recipe_path(recipe) %></span> | 
+    <%= link_to "Delete", recipe, method: :delete, data: { confirm: "Are you sure you want to delete this recipe?" } %>
+  </div>
+<% end %>
