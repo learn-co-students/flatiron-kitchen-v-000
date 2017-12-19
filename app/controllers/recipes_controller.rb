@@ -1,4 +1,7 @@
 class RecipesController < ApplicationController
+  before_action :set_recipe, only: [:show, :edit, :update]
+  before_action :get_ingredients, only: [:new, :edit]
+
   def new
     @recipe = Recipe.new
   end
@@ -7,7 +10,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     # instantiate new recipe instance with its name attribute value mass assigned from strong params
     if @recipe.save # instance is saved to DB if validations pass (i.e. name attribute is NOT blank)
-      redirect_to @recipe # redirect to show page to display the recipe just created (same as saying redirect_to recipe_path(@recipe) or redirect_to "/recipes/#{@recipe.id}")
+      redirect_to recipe_path(@recipe) # redirect to show page to display the recipe just created (same as saying redirect_to @recipe)
     else
       render :new
     end
@@ -18,16 +21,12 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
-
     if @recipe.update(recipe_params)
       redirect_to @recipe
     else
@@ -41,6 +40,14 @@ class RecipesController < ApplicationController
   end
 
   private
+
+    def set_recipe
+      @recipe = Recipe.find(params[:id])
+    end
+
+    def get_ingredients
+      @ingredients = Ingredient.all
+    end
 
     def recipe_params # calling this private method returns sanitized, strong params
       params.require(:recipe).permit(:name, ingredient_ids: [])
