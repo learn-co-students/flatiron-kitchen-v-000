@@ -1,5 +1,9 @@
 <h1><%= @ingredient.name %></h1>
 
+<% if @ingredient.total_inventory %>
+  <p><strong>Amount Available: <%= @ingredient.total_inventory %></strong></p>
+<% end %>
+
 <%= link_to "Edit Ingredient", edit_ingredient_path(@ingredient) %>
 
 <br><br>

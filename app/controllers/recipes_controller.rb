@@ -50,9 +50,13 @@ class RecipesController < ApplicationController
     end
 
     def recipe_params # calling this private method returns sanitized, strong params
-      params.require(:recipe).permit(:name, ingredient_ids: [])
+      params.require(:recipe).permit(:name, recipe_ingredients_attributes: [:ingredient_id, :quantity])
     end
 end
+
+# def recipe_params # calling this private method returns sanitized, strong params
+#  params.require(:recipe).permit(:name, ingredient_ids: [])
+# end
 
 # params must have top-level "recipe" key, which points to (and stores) recipe hash
 # Within the recipe hash, which is nested inside of the params hash, we permit the "name" key
