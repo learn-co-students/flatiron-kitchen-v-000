@@ -3,10 +3,24 @@
 <head>
   <title>FlatironKitchen</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"%>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+    <nav class="navbar navbar-default navbar-fixed-top" id="nav">
+        <div class="container-fluid" >
+            <div class="navbar-header" >
+                <ul class="nav navbar-nav">
+                    <li><a href="/ingredients/new">Add a New Ingredient</a></li>
+                    <li><a href="/ingredients">View Ingredients</a></li>
+                    <li><a href="/recipes/new">Add a New Recipe</a></li>
+                    <li><a href="/recipes">View Recipes</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
 <%= yield %>
 
