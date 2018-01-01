@@ -19,10 +19,19 @@ class IngredientsController < ApplicationController
     end 
     
     def edit
-        
+        # binding.pry
+        @ingredient = Ingredient.find(params[:id])
     end 
     
     def update 
+         @ingredient = Ingredient.find(params[:id])
+         
+         if @ingredient.update(ingredient_params)
+             redirect_to @ingredient
+         else 
+             render 'edit'
+         end 
+         
     end 
     
     def ingredient_params
