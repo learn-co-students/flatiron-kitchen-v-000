@@ -1,0 +1,10 @@
+<h1>Edit Recipe</h1>
+<%= form_for @recipe do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
+  <%= f.fields_for :ingredients, @recipe.ingredients.build do |ingredients_fields| %>
+    <%= ingredients_fields.text_field :name %>
+  <% end %>
+  <%= f.submit 'Update Recipe' %>
+<% end %>
