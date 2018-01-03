@@ -1,0 +1,14 @@
+<h1>Flatiron Kitchen Recipes:</h1>
+
+<%= form_tag recipes_path, method: "get" do %>
+<p>
+  <%= text_field_tag :search, nil, placeholder: 'Find a specific recipe' %>
+  <%= submit_tag "Search"%>
+</p>
+<% end %>
+
+<ul>
+<% @recipes.each do |recipe| %>
+  <li><%= link_to recipe.name, recipe %></li>
+<% end %>
+</ul>
