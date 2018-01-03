@@ -1,0 +1,10 @@
+<h1><%= @recipe.name %></h1>
+
+<h3> With the ingredients in the kitchen, you can make <%= pluralize(@recipe.num_of_dishes, @recipe.name) %></h3>
+
+<h4>Ingredients</h4>
+<ul>
+<% @recipe.ingredients.order(:name).each do |ingredient| %>
+  <li><%= link_to ingredient.name, ingredient %></li>
+<% end %>
+</ul>

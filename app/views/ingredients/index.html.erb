@@ -1,0 +1,14 @@
+<h1>Ingredients in the Kitchen:</h1>
+
+<%= form_tag ingredients_path, method: "get" do %>
+<p>
+  <%= text_field_tag :search, nil, placeholder: 'Find a specific ingredient' %>
+  <%= submit_tag "Search"%>
+</p>
+<% end %>
+
+<ul>
+<% @ingredients.each do |ingredient| %>
+  <li><%= link_to ingredient.name, ingredient %></li>
+<% end %>
+</ul>
