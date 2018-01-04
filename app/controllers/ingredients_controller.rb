@@ -1,14 +1,18 @@
 class IngredientsController < ApplicationController
   def index
+    @ingredients = Ingredient.all
   end
 
   def new
+    @ingredient = Ingredient.new
   end
 
   def edit
+    @ingredient = set_ingred
   end
 
   def show
+    @ingredient = set_ingred
   end
 
   def create
@@ -22,11 +26,11 @@ class IngredientsController < ApplicationController
 
   def update
     @ingredient = set_ingred
-    @ingredient.name = params[:name]
+    @ingredient.name = ingred_params[:name]
     if @ingredient.save
       redirect_to ingredient_path(@ingredient)
     else
-      redirect :edit
+      render :edit
     end
   end
 
@@ -37,6 +41,6 @@ class IngredientsController < ApplicationController
   end
 
   def set_ingred
-    @ingredient = ingredient.find(params[:id])
+    @ingredient = Ingredient.find(params[:id])
   end
 end
