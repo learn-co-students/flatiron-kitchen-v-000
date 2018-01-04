@@ -12,7 +12,12 @@ class IngredientsController < ApplicationController
   end
 
   def create
-    @ingredient = Ingredient.find_or_create_by(ingred_params)
+    @ingredient = Ingredient.new(ingred_params)
+    if @ingredient.save
+      redirect_to ingredient_path(@ingredient)
+    else
+      render :new
+    end
   end
 
   def update
