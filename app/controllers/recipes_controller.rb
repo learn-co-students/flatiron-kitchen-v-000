@@ -12,9 +12,22 @@ class RecipesController < ApplicationController
   end
 
   def create
+    @recipe = Recipe.new(recipe_params)
+    if @recipe.save
+      redirect_to recipe_path(@recipe)
+    else
+      render :new
+    end
   end
 
   def update
+    @recipe = set_recipe
+    @recipe.name = params[:name]
+    if @recipe.save
+      redirect_to recipe_path(@recipe)
+    else
+      redirect :edit
+    end
   end
 
   private
@@ -24,6 +37,6 @@ class RecipesController < ApplicationController
   end
 
   def set_recipe
-    @recipe = recipe.find(params[:id])
+    @recipe = Recipe.find(params[:id])
   end
 end
