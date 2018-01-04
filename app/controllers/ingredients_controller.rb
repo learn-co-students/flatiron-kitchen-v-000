@@ -21,6 +21,13 @@ class IngredientsController < ApplicationController
   end
 
   def update
+    @ingredient = set_ingred
+    @ingredient.name = params[:name]
+    if @ingredient.save
+      redirect_to ingredient_path(@ingredient)
+    else
+      redirect :edit
+    end
   end
 
   private
