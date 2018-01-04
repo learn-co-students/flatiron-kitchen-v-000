@@ -16,4 +16,10 @@ class RecipesController < ApplicationController
 
   def update
   end
+
+  private
+
+  def ingred_params
+    params.require(:recipe).permit(:name)
+  end
 end

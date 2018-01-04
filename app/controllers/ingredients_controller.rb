@@ -12,8 +12,15 @@ class IngredientsController < ApplicationController
   end
 
   def create
+    @ingredient = Ingredient.find_or_create_by(ingred_params)
   end
 
   def update
+  end
+
+  private
+
+  def ingred_params
+    params.require(:ingredient).permit(:name)
   end
 end

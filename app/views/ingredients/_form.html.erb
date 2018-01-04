@@ -1,1 +1,9 @@
-<%= form_for ingredient %>
+<%= form_for ingredient do |f|%>
+  <p>
+    <b>Ingredient</b>
+    <%= f.text_feild :name %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<%end%>
