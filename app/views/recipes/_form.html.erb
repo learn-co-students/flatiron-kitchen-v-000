@@ -3,6 +3,7 @@
     <b>Recipe Name</b>
     <%= f.text_field :name %>
   </p>
+  <%= f.collection_check_boxes(:ingredient_ids, Ingredient.all, :id, :name) %>
   <p>
     <%= f.submit %>
   </p>

@@ -26,7 +26,7 @@ class IngredientsController < ApplicationController
 
   def update
     @ingredient = set_ingred
-    @ingredient.name = ingred_params[:name]
+    @ingredient.update(ingred_params)
     if @ingredient.save
       redirect_to ingredient_path(@ingredient)
     else

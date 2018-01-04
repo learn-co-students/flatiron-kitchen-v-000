@@ -177,7 +177,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails (~> 4.0.5)
-  pry (~> 0.10.3)
+  pry
   rails (= 4.2)
   rake (< 11.0)
   rspec-collection_matchers (~> 1.1.2)
