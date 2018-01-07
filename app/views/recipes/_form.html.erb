@@ -1,0 +1,20 @@
+<%= form_for recipe do |f| %>
+
+  <div class="field">
+    <%= f.label :name, "Name:" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <br>
+
+  <div class="field">
+    <% if !ingredients.blank? %>
+      <%= f.label :ingredients, "Ingredients:" %><br>
+      <%= f.collection_check_boxes :ingredient_ids, ingredients, :id, :name %>
+    <% end %>
+  </div>
+
+  <br>
+
+  <%= f.submit %>
+<% end %>
