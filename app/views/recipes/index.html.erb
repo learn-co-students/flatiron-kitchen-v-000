@@ -1,0 +1,10 @@
+<h1>Recipes</h1>
+
+<ul>
+  <% @recipes.each do |recipe| %>
+  <li><%= link_to recipe.name, edit_recipe_path(recipe) %></li>
+  <% end %>
+</ul>
+
+<h3>this will be where a list of recipe links will be</h3>
+<p>delete a recipe can be put here</p>
