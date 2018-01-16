@@ -1,0 +1,9 @@
+<h1><%= @recipe.name %></h1>
+
+<ul>
+  <% @recipe.ingredients.each do |ingredient| %>
+    <li> <%= ingredient.name %></li>
+  <% end %>
+</ul>
+
+<h3>Number of Ingredients: <%= @recipe.ingredient_count %> <%= "ingredients".pluralize(@recipe.ingredient_count) %></h3>
