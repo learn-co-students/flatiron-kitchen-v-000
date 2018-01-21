@@ -24,10 +24,10 @@ describe "editing recipes" do
     # Are there all ingredients listed in the form with
     # the ingredient name as a label and an associated checkbox?
     it "should display all the existing ingredients" do
-      Ingredient.create(name: 'Paprika')
-      Ingredient.create(name: 'Clove')
-      Ingredient.create(name: 'Ginger')
-      Ingredient.create(name: 'Cider')
+      Ingredient.create(name: 'Paprika', unit: "pinch")
+      Ingredient.create(name: 'Clove', unit: "tsp")
+      Ingredient.create(name: 'Ginger', unit: "tbsp")
+      Ingredient.create(name: 'Cider', unit: "cup")
 
       visit edit_recipe_path(@recipe)
 
@@ -44,10 +44,10 @@ describe "editing recipes" do
     #       implemented HTML label
     #       (i.e. clicking on the <label> checks/unchecks the box).
     it "should be able to add ingredients" do
-      Ingredient.create(name: 'Paprika')
-      Ingredient.create(name: 'Clove')
-      Ingredient.create(name: 'Ginger')
-      Ingredient.create(name: 'Cider')
+      Ingredient.create(name: 'Paprika', unit: "pinch")
+      Ingredient.create(name: 'Clove', unit: "tsp")
+      Ingredient.create(name: 'Ginger', unit: "tbsp")
+      Ingredient.create(name: 'Cider', unit: "cup")
 
       visit edit_recipe_path(@recipe)
 
@@ -67,10 +67,10 @@ describe "editing recipes" do
     #       implemented HTML label
     #       (i.e. clicking on the <label> checks/unchecks the box).
     it "should be able to remove ingredients" do
-      @recipe.ingredients.create(name: 'Paprika')
-      @recipe.ingredients.create(name: 'Clove')
-      @recipe.ingredients.create(name: 'Ginger')
-      @recipe.ingredients.create(name: 'Cider')
+      @recipe.ingredients.create(name: 'Paprika', unit: "pinch")
+      @recipe.ingredients.create(name: 'Clove', unit: "tsp")
+      @recipe.ingredients.create(name: 'Ginger', unit: "tbsp")
+      @recipe.ingredients.create(name: 'Cider', unit: "cup")
 
       expect(@recipe.ingredients.count).to eq(4)
 
