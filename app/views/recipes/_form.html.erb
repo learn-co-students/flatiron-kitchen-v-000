@@ -1,0 +1,13 @@
+<%= form_for recipe do |f| %>
+<div class="field">
+<%= f.label :name %>
+<%= f.text_field :name%>
+
+</div>
+Select from Any Existing Ingredients That are In Your Recipe
+<div class="field">
+    <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %><br>
+  </div>
+
+<%= f.submit %>
+<% end %>
