@@ -1,0 +1,15 @@
+<%= form_for ingredient do |f| %>
+  <div class="field">
+    <%= f.label :name, "Ingredient Name:" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :total_inventory, "Amount Available:" %>
+    <%= f.text_field :total_inventory %>
+  </div>
+
+  <br>
+
+  <%= f.submit %>
+<% end %>

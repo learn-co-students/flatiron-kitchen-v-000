@@ -1,0 +1,25 @@
+<h1>Editing <%= @recipe.name %></h1>
+
+<%= form_for @recipe do |f| %>
+  <div class="field">
+    <%= f.label :name, "Recipe Name:" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <p><em>You have enough ingredients to prepare <%= pluralize(@recipe.num_dishes_preparable, "dish") %>.</em></p>
+
+  <% @ingredients.each do |ingredient| %>
+    <div>
+      <%= f.fields_for :recipe_ingredients, @recipe.new_or_existing_recipe_ingredient(ingredient) do |ri_builder| %>
+        <%= ri_builder.label ingredient.name, for: "ingredient_#{ingredient.id}" %>
+        <%= ri_builder.check_box :ingredient_id, { checked: @recipe.contains_ingredient?(ingredient), id: "ingredient_#{ingredient.id}" }, ingredient.id, "0" %>
+        <br>
+        <%= ri_builder.label :quantity, "Quantity:" %>
+        <%= ri_builder.text_field :quantity %>
+      <% end %>
+    </div>
+    <br>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>
