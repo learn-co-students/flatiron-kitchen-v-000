@@ -1,0 +1,5 @@
+<h1>Edit Ingredient</h1>
+<%= render "layouts/errors", :object => @ingredient %>
+<%= render partial: "form", locals: {ingredient: @ingredient} %>
+
+<p><%= link_to "Delete", ingredient_path(@ingredient), :data => {:confirm => "You sure?", :method => "delete"} %></p>
