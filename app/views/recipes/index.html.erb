@@ -1,0 +1,7 @@
+<h1>All Recipes at the Flatiron Kitchen!</h1>
+<h2><%= link_to 'Click here to add a new recipe', new_recipe_path %></h2>
+<ol>
+<% @recipes.each do |recipe| %>
+  <li> <%= link_to recipe.name, recipe_path(recipe) %> </li>
+<% end %>
+</ol>
