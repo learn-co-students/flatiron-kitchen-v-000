@@ -4,9 +4,13 @@
   <%= f.text_field :name %>
 </p>
   <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %><br></br>
-  Or create new ingredient:
+  Or create new ingredient and quantity required in recipe:
   <%= f.fields_for :ingredients, recipe.ingredients.build do |ingredient_fields| %>
-    <%= ingredient_fields.text_field :name %><br></br>
+  <br><%=f.label :name %>:<%= ingredient_fields.text_field :name %><br>
+      <%=f.label :recipe_quantity %>:<%= ingredient_fields.text_field :recipe_quantity %>
+
   <% end %>
+  <br></br>
   <%= f.submit %>
+
 <% end %>

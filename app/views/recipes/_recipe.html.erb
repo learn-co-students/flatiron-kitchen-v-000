@@ -1,5 +1,14 @@
 <%= @recipe.name %>
 <ul><% @recipe.ingredients.each do |ing| %>
-  <li><%=ing.name%></li>
+  <li><%=ing.name%>, <%=ing.recipe_quantity%></li>
+  <%end%>
+</ul>
+</p>
+<h4>How many servings of <%=@recipe.name%> can I make?</h4>
+<%= @recipe.recipe_count%>
+
+<h4>Quantity Left</h4>
+<ul><% @recipe.ingredients.each do |ing| %>
+  <li><%=ing.name%>, <%=ing.total_quantity%></li>
   <%end%>
 </ul>

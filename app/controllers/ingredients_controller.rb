@@ -20,7 +20,7 @@ before_action :set_ingredient, only: [:show, :edit, :update]
   end
 
   def ingredient_params
-    params.require(:ingredient).permit(:name)
+    params.require(:ingredient).permit(:name, :total_quantity)
   end
 
   def set_ingredient
