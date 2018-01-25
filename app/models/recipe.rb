@@ -5,7 +5,7 @@ class Recipe < ActiveRecord::Base
   accepts_nested_attributes_for :ingredients
 
 
-  def recipe_count
+  def recipe_count #recipe form NOT working with this! 
     @count = nil
     totals = []
     self.ingredients.each do |ingredient|
