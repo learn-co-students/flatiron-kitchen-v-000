@@ -1,0 +1,11 @@
+views/recipes/index <br>
+
+<% @recipes.each do |recipe| %>
+  <h2><%= link_to recipe.name, recipe %></h2>
+  <h4>Ingredients:</h4>
+  <ul>
+  <% recipe.ingredients.each do |ingredient| %>
+    <li><%= ingredient.name %><br></li>
+  <% end %>
+</ul>
+<% end %>

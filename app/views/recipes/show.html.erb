@@ -1,0 +1,4 @@
+views/recipes/show
+
+<h1>Recipe: <%= @recipe.name %></h1>
+<%= render partial: 'ingredients/ingredients', locals: {ingredients: @ingredients} %>

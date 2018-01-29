@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>FlatironKitchen</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>FlatironKitchen</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<%= yield %>
+  <%= yield %>
 
-</body>
+  <br/>
+  <br/>
+    <%= link_to "All Ingredients", '/ingredients' %>
+    <%= link_to "New Ingredient", '/ingredients/new' %>
+    <% if @ingredient && @ingredient.id %>
+      <%= link_to "Show Ingredient", ingredient_path %>
+      <%= link_to "Edit Ingredient", edit_ingredient_path %>
+    <% end %>
+    <br>
+    <%= link_to "All Recipes", '/recipes' %>
+    <%= link_to "New Recipe", '/recipes/new' %>
+    <% if @recipe && @recipe.id %>
+      <%= link_to "Show Recipe", recipe_path %>
+      <%= link_to "Edit Recipes", edit_recipe_path %>
+    <% end %>
+
+  </body>
 </html>
