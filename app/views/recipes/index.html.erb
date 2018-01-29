@@ -1,0 +1,7 @@
+<h1>Recipes Index Page</h1>
+
+ <% @recipes.each do |r| %>
+     <%= link_to r.name, recipe_path(r) %>
+
+     <br>
+ <% end %>
