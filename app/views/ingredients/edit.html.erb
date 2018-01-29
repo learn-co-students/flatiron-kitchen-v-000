@@ -1,0 +1,8 @@
+<h2>Edit the ingredient</h2>
+
+<%= form_for @ingredient do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit "Update Ingredient"%>
+<% end %>
