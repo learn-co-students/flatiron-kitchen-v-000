@@ -1,0 +1,6 @@
+<h1>Recipes (<%= @recipes.count %>)</h1>
+<ol>
+<% @recipes.each do |recipe| %>
+  <li><%= link_to recipe.name, recipe_path(recipe) %> - Ingredient count: <%= recipe.ingredients.count %></li>
+<% end %>
+</ol>
