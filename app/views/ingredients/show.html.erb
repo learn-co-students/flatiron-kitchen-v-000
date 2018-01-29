@@ -1,0 +1,3 @@
+<h2><%= @ingredient.name.split.map(&:capitalize).join(' ') %></h2>
+
+<p><%= link_to "Back to List", ingredients_path(@ingredient) %></p>

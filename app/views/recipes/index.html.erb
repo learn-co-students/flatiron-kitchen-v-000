@@ -1,0 +1,10 @@
+<h1>Recipe Info</h1>
+
+<ul>
+  <% @recipes.each do |recipe| %>
+    <li><%= link_to recipe.name.split.map(&:capitalize).join(' '), recipe_path(recipe) %> Number of Ingredients: <%= recipe.ingredients.count %></li>
+    <br />
+  <% end %>
+</ul>
+
+<p><%= link_to "Add Recipe", new_recipe_path(@recipe) %></p>
