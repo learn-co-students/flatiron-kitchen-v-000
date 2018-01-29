@@ -1,0 +1,4 @@
+<h1>New Recipe</h1>
+<%= form_for @recipe, html: {id: :new_recipe} do |f| %>
+  <%= render partial: 'form', locals: {f: f} %>
+<% end %>
