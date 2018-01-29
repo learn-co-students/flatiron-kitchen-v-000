@@ -1,0 +1,6 @@
+Name: <%= @recipe.name %>
+
+
+<% @recipe.ingredients.each do |ingredient| %>
+Ingredients: <%= ingredient.name unless ingredient == nil %>
+<% end %>
