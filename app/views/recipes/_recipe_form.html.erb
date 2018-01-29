@@ -1,0 +1,7 @@
+<p>
+  <%= recipe_attr.label :name %>
+  <%= recipe_attr.text_field :name %>
+</p>
+<p>
+  <%= recipe_attr.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
+</p>
