@@ -1,0 +1,4 @@
+<% @ingredients.each do |ingredient| %>
+ <p>Name: <%= link_to ingredient.name, ingredient_path(ingredient) %></p>
+ <p>Quantity: <%= ingredient.quantity %></p>
+<% end %> 
