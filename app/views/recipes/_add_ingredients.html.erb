@@ -1,0 +1,4 @@
+   <%= f.label :new_ingredient %>:
+  <%= fields_for :ingredients, @recipe.ingredients.build do |ingredient_fields| %>
+    <%= ingredient_fields.text_field :name %>
+    <% end %>
