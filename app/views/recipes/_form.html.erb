@@ -1,0 +1,8 @@
+<p>
+  <%= builder.label :name %>
+  <%= builder.text_field :name %>
+</p>
+
+<p>
+<%= builder.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
+</p>

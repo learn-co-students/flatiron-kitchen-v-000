@@ -1,0 +1,6 @@
+<h1>Edit Ingredient</h1>
+
+<%= form_for @ingredient, {id: "edit_ingredient_#{@ingredient.id}"} do |f| %>
+  <%= render partial: 'form', locals:{builder: f} %>
+  <%= f.submit 'Update Ingredient' %>
+<% end %>
