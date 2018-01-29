@@ -1,0 +1,6 @@
+<h1>Ingredient Info.</h1>
+
+<%= render partial: 'ingredient', locals: {ingredient: @ingredient} %>
+
+<%= link_to "back", ingredients_path %>
+<%= link_to "edit this ingredient", edit_ingredient_path(@ingredient) %>
