@@ -5,10 +5,24 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+
+  <%= link_to "All Ingredients", '/ingredients' %><br>
+  <%= link_to "New Ingredient", '/ingredients/new' %><br>
+  <%= link_to "All Recipes", '/recipes' %><br>
+  <%= link_to "New Recipe", '/recipes/new' %><br>
+
 </head>
 <body>
 
 <%= yield %>
+
+  <% if @ingredient && @ingredient.id %>
+    <%= link_to "Edit Ingredient", edit_ingredient_path %>
+  <% end %>
+
+  <% if @recipe && @recipe.id %>
+    <%= link_to "Edit Recipe", edit_recipe_path %>
+  <% end %>
 
 </body>
 </html>
