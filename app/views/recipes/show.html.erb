@@ -1,0 +1,4 @@
+<h1>Recipe: <%= @recipe.name %></h1>
+<% @recipe.ingredients.each do |ingredient| %>
+  <%= render partial: "ingredients/ingredient", locals: {ingredient: ingredient} %>
+<% end %>
