@@ -1,0 +1,19 @@
+<%= form_for element do |f| %>
+  <% if element.errors.any? %>
+    <div id="error_explanation">
+      <h2>The ingredient couldn't be saved in the database</h2>
+      <ul>
+        <% element.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field <%="field_with_errors" if element.errors[:name].any? %>">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
+  </div>
+
+  <%= f.submit "#{if element.id == nil then "Create " + element.class.to_s else "Update " + element.class.to_s end}" %>
+<% end %>

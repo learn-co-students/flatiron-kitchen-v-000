@@ -1,0 +1,22 @@
+<%= form_for recipe do |f|%>
+  <div id="error_explanation">
+    <% if recipe.errors.any? %>
+      <h2>This recipe could not be updated</h2>
+      <ul>
+        <% recipe.errors.full_messages.each do |message|%>
+          <li><%=message%></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <div class="field <%= "field_with_errors" if recipe.errors[:name].any? %>">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <h3>Update the ingredients for your recipe</h3>
+  <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
+  <br>
+  <%= f.submit "#{if recipe.id == nil then "Create " + recipe.class.to_s else "Update " + recipe.class.to_s end}" %>
+<% end %>
