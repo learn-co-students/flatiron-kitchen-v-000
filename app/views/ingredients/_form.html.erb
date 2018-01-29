@@ -1,0 +1,9 @@
+<%= form_for @ingredient do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %> <br>
+  <%= f.label "In pantry" %>
+  <%= f.select :in_pantry, (0..10)%> <br>
+
+  <%= f.submit %>
+
+  <% end %>
