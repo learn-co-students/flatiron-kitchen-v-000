@@ -1,0 +1,5 @@
+<ul>
+  <h2><%= @ingredient.name %></h2>
+  <%= render partial: "quantity", locals: {ingredient: @ingredient } %>
+  <%= link_to "Edit Ingredient", edit_ingredient_path(@ingredient) %> 
+</ul>

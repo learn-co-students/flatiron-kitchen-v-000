@@ -1,0 +1,7 @@
+<h2>Available Ingredients</h2>
+<ul>
+  <% @ingredients.each do |i| %>
+    <li><%= link_to i.name, ingredient_path(i) %></li>
+    <% render partial: "quantity", locals: {ingredient: i } %>
+  <% end %>
+</ul>
