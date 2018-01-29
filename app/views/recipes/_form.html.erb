@@ -1,0 +1,20 @@
+<%= form_for(recipe) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+
+  <h3>Ingredients</h3>
+  <% @ingredients.each do |ingredient| %>
+    <%= label_tag "#{ingredient.name}" %>
+
+    <!-- Ingredient checkbox. Value is the ingredient's id. Id is the ingredient's name. -->
+    <%= check_box_tag "recipe[ingredients_attributes][][ingredient_id]",
+     ingredient.id, recipe.recipe_ingredient_ids.include?(ingredient.id), :id => "#{ingredient.name}" %>
+
+    <!-- Ingredient quantity -->
+    <%= text_field_tag "recipe[ingredients_attributes][][quantity]", recipe.quantity_for(ingredient) %>
+    <br>
+  <% end %>
+  <hr>
+
+  <%= f.submit %>
+<% end %>
