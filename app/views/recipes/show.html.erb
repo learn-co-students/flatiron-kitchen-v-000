@@ -1,0 +1,19 @@
+<h2><%= @recipe.name %></h2><br />
+<table>
+  <tr>
+    <th>
+      Ingredient
+    </th>
+    <th>
+      Quantity
+    </th>
+  </tr>
+  <% @recipe.ingredients.each do |ingredient| %>
+  <tr>
+    <td><%= ingredient.name %></td>
+    <td align="center"> <%= ingredient.quantity %></td>
+    <% end %>
+  </tr>
+</table>
+<br />
+You have enough ingredients to make <%= @recipe.dishes %> dishes
