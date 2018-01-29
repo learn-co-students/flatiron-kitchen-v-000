@@ -1,0 +1,16 @@
+<h1>Recipe Info</h1>
+
+<%= render partial: "recipe", locals: {recipe: @recipe} %>
+
+<h3> Other Recipes you can make with these ingredients </h3>
+
+  <% @other_recipes.each do |recipe| %>
+    <%= recipe.name %><br>
+  <% end %>
+
+
+
+<br>
+<%= link_to "Create a Recipe", new_recipe_path %> <br>
+<%= link_to "Create an Ingredient", new_ingredient_path %>
+
