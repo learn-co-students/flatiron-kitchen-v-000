@@ -1,0 +1,14 @@
+<%= form_for recipe do |f| %>
+  <p><%= f.text_field :name %></p>
+
+  <% ingredients.each_with_index do |ingredient| %>
+    <div>
+      <%= f.fields_for :recipe_ingredients, recipe.find_or_create(ingredient) do |ri_field| %>
+        <%= ri_field.label "#{ingredient.name}", ingredient.name %>
+        <%= ri_field.check_box :ingredient_id, { checked: recipe.has_ingredient?(ingredient), id: "#{ingredient.name}" }, ingredient.id, "0" %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <p><%= f.submit %></p>
+<% end %>
