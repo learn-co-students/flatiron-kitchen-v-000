@@ -1,0 +1,12 @@
+<h1>Recipes Index</h1>
+
+<% @recipes.each do |recipe| %>
+  <fieldset>
+    <legend><h3> <%= link_to recipe.name, recipe_path(recipe) %> </h3></legend>
+    <p> <%= link_to "Edit", edit_recipe_path(recipe) %> </p>
+    <p><%= link_to "Destroy", recipe, method: :delete, data: { confirm: "Are you sure?" } %> </p>
+    </fieldset>
+  <% end %>
+
+  <br />
+  <%= link_to "Make a New Recipe!", new_recipe_path %>
