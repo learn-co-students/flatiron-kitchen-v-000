@@ -1,0 +1,17 @@
+<%= form_for recipe do |f| %> 
+  <p><%= f.label :name %> <%= f.text_field :name %></p>
+  <p>Ingredients:</p>
+  <% if recipe.ingredients.any? %>
+    <% recipe.recipe_ingredients.each do |ingredient| %> 
+      <p><%= ingredient.ingredient_name %>,
+      <%= f.fields_for :recipe_ingredients, ingredient do |ingredient_fields| %> 
+        <%= ingredient_fields.text_field :recipe_id, value: "#{recipe.id}", style: "display: none" %>
+        Quantity: <%= ingredient_fields.text_field :quantity %>
+        <%= f.submit "Submit", style: "display: none" %>
+      <% end %></p>
+    <% end %>
+    
+  <% end %>
+  <p><%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %></p>
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,7 @@
+<h4><%= ingredient.name %>, Quantity: <%= ingredient.quantity %> -- <%= link_to "Edit Ingredient", edit_ingredient_path(ingredient) %></h4>
+Appears in the following recipes: 
+<ul class="comma-list">
+  <% ingredient.recipes.each do |recipe| %> 
+    <li><%= link_to recipe.name, recipe_path(recipe) %></li>
+  <% end %> 
+</ul>
