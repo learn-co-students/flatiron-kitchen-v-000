@@ -1,0 +1,17 @@
+<h4><u>Ingredients</u> <%= link_to "New", new_ingredient_path, class:'btn btn-sm btn-link' %></h4>
+  <table class='table table-sm table-hover' style='width: 400px;'>
+    <thead>
+      <tr>
+        <th>Stock</th>
+        <th>Ingredient</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @ingredients.each do |ingredient| %>
+        <tr class=''>
+          <td><%= ingredient.stock %></td>
+          <td><%= link_to ingredient.name, ingredient %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

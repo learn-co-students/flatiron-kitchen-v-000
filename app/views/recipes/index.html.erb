@@ -1,0 +1,10 @@
+<h4><u>Recipes</u> <%= link_to "New", new_recipe_path, class: 'btn btn-sm btn-link' %></h4>
+  <table class='table table-sm table-hover' style='width: 300px;'>
+    <tbody>
+      <% @recipes.each do |recipe| %>
+        <tr class=''>
+          <td><%= link_to recipe.name, recipe, class: 'btn btn-sm btn-link' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
