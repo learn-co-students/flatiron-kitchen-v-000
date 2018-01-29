@@ -1,0 +1,7 @@
+<h1>Recipes</h1>
+
+<ul>
+  <% @recipes.each do |recipe| %>
+  <li><%= render partial: 'recipe', locals: { recipe: recipe } %></li>
+  <% end %>
+</ul>
