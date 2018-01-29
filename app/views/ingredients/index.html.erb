@@ -1,0 +1,5 @@
+<h1>The Pantry</h1>
+
+<%= render partial: 'ingredient', locals: {ingredients: @ingredients} %>
+
+<%= link_to "Add Ingredient", new_ingredient_path %>

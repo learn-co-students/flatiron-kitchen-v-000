@@ -1,0 +1,8 @@
+<h2><%= @recipe.name %></h2>
+
+<h4>Ingredient(s):</h4>
+
+<%= render partial: 'ingredients/ingredient', locals: {ingredients: @recipe.ingredients} %>
+
+<%= link_to "Edit", edit_recipe_path(@recipe) %> |
+<%= link_to "All Recipes", recipes_path %>
