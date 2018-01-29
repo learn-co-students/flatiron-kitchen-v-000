@@ -1,0 +1,5 @@
+<h1>Every Ingredient Needed:</h1>
+
+<% @ingredients.each do |ing| %>
+  <%= link_to ing.name, ingredient_path(ing) %>
+  <% end %>
