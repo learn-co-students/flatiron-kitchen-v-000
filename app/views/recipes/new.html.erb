@@ -1,0 +1,14 @@
+<%= form_for @recipe, {:id => "new_recipe" } do  |f| %>
+  <%= f.text_field :name %>
+<ol>
+  <%@ingredients.each do |i| %>
+  		<li><label for="<%=i.id%>"><input id="<%=i.id%>" type="checkbox" name="recipe[ingredient_ids][]" value="<%= i.id %>"><%= i.name %> </label></li>
+  
+  <%end%>
+  </ol>
+  <br>
+  <%= f.submit %>
+<% end %>
+<br>
+<br>
+ 
