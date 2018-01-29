@@ -1,0 +1,15 @@
+<h1>Show Recipe</h1>
+<%= @recipe.name %>
+<%= link_to "Edit", edit_recipe_path(@recipe) %>
+<br>
+<br>
+<strong>Ingredients:</strong>
+<br>
+<% @recipe.ingredients.each do |i| %>
+  <%= i.name %>
+  <br>
+<% end %>
+<br>
+Number of recipes that can be cooked with those ingredients: <%= Recipe.quantity_cookable(@recipe) %>
+<br>
+<%= render partial: 'layouts/footer' %>
