@@ -1,0 +1,31 @@
+<%= form_for(@recipe) do |f| %>
+  <% if @recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+      <% @recipe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div id="new_recipe" class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
+  </div>
+
+  <div class="actions">
+    <% if controller.action_name == 'new'
+        button_label = 'Create Recipe'
+      else
+        button_label = 'Update Recipe'
+      end %>
+    <%= f.submit button_label %>
+  </div>
+<% end %>
