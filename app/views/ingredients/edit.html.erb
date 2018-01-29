@@ -1,0 +1,6 @@
+<h1>Edit Ingredient</h1>
+<%= form_for @ingredient do |f| %>
+  <%= render partial: "recipes/form", locals: {f:f}%>
+
+  <%= f.submit %>
+<% end %>
