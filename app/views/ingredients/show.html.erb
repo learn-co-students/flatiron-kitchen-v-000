@@ -1,0 +1,10 @@
+<h1><%= @ingredient.name %></h1>
+
+<h3>Recipes:</h3>
+<ul>
+<% @ingredient.recipes.each do |recipe| %>
+	<li><%= recipe.name %></li>
+<% end -%>
+</ul>
+
+<h4><%= link_to "Edit", ingredient_path(@ingredient), :method => :patch %></h4>
