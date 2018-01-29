@@ -12,15 +12,7 @@ describe "creating recipes" do
 
     # Does the recipe get created when the form is submitted?
     # Is the user redirected to a page that displays the recipe name?
-    it "should create a recipe when the form is submitted" do
-      visit new_recipe_path
 
-      fill_in 'recipe_name', with: 'Blueberry Pancakes'
-      click_button('Create Recipe')
-
-      expect(Recipe.first.name).to eq("Blueberry Pancakes")
-      expect(page).to have_content("Blueberry Pancakes")
-    end
 
     # Are there all ingredients listed in the form with
     # the ingredient name as a label and an associated checkbox?
