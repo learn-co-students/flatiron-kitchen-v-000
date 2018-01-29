@@ -1,0 +1,6 @@
+<h2><%= recipe.name %></h2>
+<ul>
+    <% recipe.ingredients.each do |ingredient| %>
+        <li><%= render partial: 'ingredients/ingredient', locals: {ingredient: ingredient} %></li>
+    <% end %>
+</ul>
