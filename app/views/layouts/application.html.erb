@@ -1,14 +1,63 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>FlatironKitchen</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/favicon.ico">
 
-<%= yield %>
+    <title>FlatironKitchen | Hottest Recipe Tracker Ever!</title>
 
-</body>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="http://v4-alpha.getbootstrap.com/examples/starter-template/starter-template.css">
+
+    <style>
+      a:hover { color: #00c2ff; text-decoration: underline; }
+      a { color: #000; text-decoration: none }
+      .navbar a:hover { color: #00c2ff; text-decoration: underline; }
+      .navbar a { color: #fff; text-decoration: none }
+      .navbar { height: 55px }
+      body {
+        background-image: url("http://www.hgtv.com/content/dam/images/hgtv/fullset/2015/12/23/0/RX-HGMAG037_Modern-Meets-Traditional-062-kitchen.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-color: #464646;
+      }
+      .bg-white { background-color: #fff; }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top bg-inverse">
+      <p class="navbar-brand">Flatiron<strong>Kitchen</strong></p>
+      <ul class="nav nav-pills">
+        <li class="nav-item active">
+          <a class="nav-link" href="/recipes/">Recipes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/ingredients/">Ingredients</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <div class="starter-template bg-white">
+        <%= yield %>
+      </div><!-- end .starter-template -->
+    </div><!-- end .container -->
+
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+  </body>
 </html>

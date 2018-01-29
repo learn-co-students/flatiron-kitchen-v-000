@@ -1,0 +1,9 @@
+<ol>
+<% @recipes.each do |recipe| %>
+  <li>
+    <%= link_to recipe.name, edit_recipe_path(recipe) %>
+  </li>
+<% end %>
+</ol>
+
+<%= link_to "New", new_recipe_path %>
