@@ -1,0 +1,10 @@
+<h1><%= @recipe.name %></h1>
+
+<h2>Ingredients:</h2>
+<% if !@recipe.ingredients.empty? %>
+  <% @recipe.ingredients.each do |ingredient| %>
+      <ul>
+        <li><%= ingredient.name %></li>
+      </ul>
+  <% end %>
+<% end %>
