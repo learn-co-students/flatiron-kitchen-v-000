@@ -1,0 +1,6 @@
+Recipe: <br>
+<%= @recipe.name %><br>
+Ingredients: <br>
+<% @recipe.ingredients.each do |i| %>
+  <%= i.name %><br>
+<% end %>

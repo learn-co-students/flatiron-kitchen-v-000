@@ -1,0 +1,14 @@
+<%= form_for(ingredient) do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, html: {id: "Name"} %><br>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
+
+
