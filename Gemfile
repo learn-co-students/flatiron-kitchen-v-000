@@ -37,6 +37,7 @@ group :development do
 end
 
 group :test do
+  gem "pry", '~> 0.10.3'
   gem 'rspec-collection_matchers', '~> 1.1.2'
   gem 'rspec-rails', '~> 3.7'
   gem 'capybara', '~> 2.5.0'

@@ -1,0 +1,10 @@
+<h1><%=@ingredient.name%> Details!</h1>
+
+<h2>Recipes that use <%=@ingredient.name%>:</h2>
+
+<ul>
+  <% @ingredient.recipes.all do |recipe| %>
+    <li><%=recipe.name%></li>
+  <% end %>
+</ul>
+
