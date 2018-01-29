@@ -1,0 +1,21 @@
+<% if ingredient.errors.any?%>
+<ul>
+<% ingredient.errors.full_messages.each do |message|%>
+<li><%= message %></li>
+<%end%>
+</ul>
+<%end%>
+
+
+
+<%= form_for ingredient do |f|%>
+<%= f.label "Ingredient Name:"%>
+<%= f.text_field :name%><br>
+<%= f.label "Select Recipes:"%><br>
+<%= f.collection_check_boxes :recipe_ids, Recipe.all, :id, :name.downcase %><br>
+<%= f.label "New Recipe:"%>
+<%= f.fields_for :recipe, ingredient.recipes.build do |fields|%>
+<%= fields.text_field :name%><br>
+<%end%>
+<%= f.submit %>
+<%end%>
