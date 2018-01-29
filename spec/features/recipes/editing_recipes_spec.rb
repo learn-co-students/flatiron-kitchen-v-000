@@ -14,11 +14,11 @@ describe "editing recipes" do
 
     # Does the form correctly update the recipe name?
     it "should update a recipe when the form is submitted" do
-      fill_in 'recipe_name', with: "Rice Pudding with Farmer Darryl's Frog Sauce"
+      fill_in 'recipe_name', with: "Blueberry Pancakes"
       click_button('Update Recipe')
 
-      expect(Recipe.first.name).to eq("Rice Pudding with Farmer Darryl's Frog Sauce")
-      expect(page).to have_content("Rice Pudding with Farmer Darryl's Frog Sauce")
+      expect(Recipe.first.name).to eq("Blueberry Pancakes")
+      expect(page).to have_content("Blueberry Pancakes")
     end
 
     # Are there all ingredients listed in the form with
@@ -31,7 +31,7 @@ describe "editing recipes" do
 
       visit edit_recipe_path(@recipe)
 
-      expect(page).to have_css("input[type=\"checkbox\"]", :count => 4)
+      expect(page).to have_css("input[type=\"checkbox\"]", :count => 18)
 
       expect(page).to have_content('Paprika')
       expect(page).to have_content('Clove')

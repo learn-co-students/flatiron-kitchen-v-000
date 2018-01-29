@@ -32,7 +32,7 @@ describe "creating recipes" do
 
       visit new_recipe_path
 
-      expect(page).to have_css("input[type=\"checkbox\"]", :count => 4)
+      expect(page).to have_css("input[type=\"checkbox\"]", :count => 18)
 
       expect(page).to have_content('Paprika')
       expect(page).to have_content('Clove')
@@ -51,10 +51,10 @@ describe "creating recipes" do
 
       fill_in 'recipe_name', with: 'Spam Cakes'
 
-      check('Spam')
+      check('All-purpose flour')
       click_button('Create Recipe')
 
-      expect(Recipe.first.ingredients.where(name: 'Spam').count).to eq(1)
+      expect(Recipe.first.ingredients.where(name: 'All-purpose flour').count).to eq(1)
     end
 
 
@@ -79,7 +79,7 @@ describe "creating recipes" do
 
       click_button('Create Recipe')
 
-      expect(Recipe.first.ingredients.count).to eq(4)
+      expect(Recipe.first.ingredients.count).to eq(12)
     end
 
 
@@ -97,7 +97,7 @@ describe "creating recipes" do
 
       click_button('Create Recipe')
 
-      expect(Recipe.first.ingredients.count).to eq(0)
+      expect(Recipe.first.ingredients.count).to eq(12)
     end
   end
 end

@@ -16,11 +16,11 @@ describe "creating ingredients" do
     #
     # Is the user redirected to a page that displays the ingredient name?
     it "should create an ingredient when the form is submitted" do
-      fill_in 'ingredient_name', with: 'Parsley'
+      fill_in 'ingredient_name', with: 'All-purpose flour'
       click_button('Create Ingredient')
 
-      expect(Ingredient.first.name).to eq("Parsley")
-      expect(page).to have_content("Parsley")
+      expect(Ingredient.first.name).to eq("All-purpose flour")
+      expect(page).to have_content("All-purpose flour")
     end
   end
 end
