@@ -1,0 +1,16 @@
+<%= form_for recipe do |f| %>
+
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+
+	<%= f.fields_for :ingredients do |ingredient| %>
+		<% if ingredient == recipe.ingredients.last %>
+			<%= ingredient.label :name %>
+			<%= ingredient.text_field :name %>
+		<% end %>
+	<% end %>
+
+	<%= f.collection_check_boxes(:ingredient_ids, Ingredient.all, :id, :name) %>
+
+	<%= f.submit %>
+<% end %>
