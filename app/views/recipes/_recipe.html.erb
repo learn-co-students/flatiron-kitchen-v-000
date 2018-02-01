@@ -1,0 +1,17 @@
+<ul>
+  <li>
+    Name: <%= recipe.name %>
+  </li>
+  <li>
+    Ingredients:
+    <ul>
+      <% recipe.ingredients.each do |i| %>
+        <li><%= i.name %></li>
+      <% end %>
+    </ul>
+  </li>
+</ul>
+<p>
+  <%= link_to "Edit #{recipe.name}", [:edit, recipe] %>
+</p>
+<br>
