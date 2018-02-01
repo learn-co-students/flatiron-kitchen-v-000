@@ -1,0 +1,3 @@
+<% @recipes.each do |i| %>
+  <%= render :partial => "recipe", locals: {recipe: i} %>
+<% end %>
