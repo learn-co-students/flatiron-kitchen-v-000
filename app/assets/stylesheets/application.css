@@ -11,3 +11,7 @@
  *= require_self
  *= require_tree .
  */
+
+body {
+	background-color: #898E8C; /*neutral gray pair with gold lime #898E8C and marina #4F84C4
+}
