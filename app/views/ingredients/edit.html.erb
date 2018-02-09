@@ -1,0 +1,4 @@
+<%= form_for @ingredient, html: {id: "edit_ingredient_#{@ingredient.id}"} do |ingredient_builder| %>
+  <%= render partial: "form", locals: {ingredient: ingredient_builder} %>
+
+<% end %>
