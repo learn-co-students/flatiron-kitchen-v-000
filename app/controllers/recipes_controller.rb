@@ -13,9 +13,9 @@ class RecipesController < ApplicationController
 		# ask TC about process - set up all of this, or do it  line by line? 
 	end 
 	 def create
-	 	recipe = Recipe.new(recipe_params)
+	 	@recipe = Recipe.new(recipe_params)
 	 	if @recipe.save
-		 	redirect_to recipe
+		 	redirect_to recipe_path(@recipe)
 		else 
 			render :new
 		end 
@@ -34,7 +34,7 @@ class RecipesController < ApplicationController
 		@recipe.update(recipe_params)
 
 		if @recipe.save 
-			redirect_to recipes
+			redirect_to recipes_path
 		else
 			render :edit
 		end 
@@ -46,13 +46,12 @@ class RecipesController < ApplicationController
 	private
 
 	def recipe_params
-		params.require(:recipe).permit(
-			:name, 
-			ingredients_attributes: [
-				:name,
-				:quantity
-				]
-			)
+		params.require(:recipe).permit(:name) 
+			# ingredients_attributes: [
+			# 	:name,
+			# 	:quantity
+			# 	]
+			
 	end 
 
 	def set_recipe

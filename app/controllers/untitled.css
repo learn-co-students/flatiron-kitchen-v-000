@@ -7,3 +7,10 @@ _form  next
 show last 
 
 step by step and test as I go 
+
+1. Ingredients for each recipe
+  =? recipe.ingredient1
+  		recipe.ingredient2, etc, etc. 
+
+ 2. Track which ingredients are available
+ 	-> add quantity? 
