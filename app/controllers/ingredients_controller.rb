@@ -1,5 +1,7 @@
 class IngredientsController < ApplicationController
- 
+  before_action :set_ingredient, only: [:show, :edit, :update]
+
+
   def index 
   	@ingredients = Ingredient.all
     # @ingredients = Ingredient.search(params[:search])
@@ -20,14 +22,15 @@ class IngredientsController < ApplicationController
   end 
 
   def show
-    @ingredient = Ingredient.find(params[:id])
+   
   end 
 
   def edit 
-    @ingredient = Ingredient.find(params[:id])
+   
   end 
 
   def update
+   
   	@ingredient.update(ingredient_params)
   	
     if @ingredient.save
@@ -45,8 +48,11 @@ class IngredientsController < ApplicationController
 
   def ingredient_params
   	params.require(:ingredient).permit(:name)
-  	# add recipe_attributes: {:name}
   end
+
+  def set_ingredient
+     @ingredient = Ingredient.find(params[:id])
+  end 
 
 
 end
