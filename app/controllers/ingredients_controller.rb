@@ -13,7 +13,13 @@ class IngredientsController < ApplicationController
   end
 
   def create
+    ingredient = Ingredient.new(ingredient_params)
 
+    if ingredient.save
+      redirect_to ingredients_path
+    else
+      render :new
+    end
   end
 
   private
