@@ -3,38 +3,41 @@ class RecipesController < ApplicationController
 
 	def index 
 		@recipes = Recipe.all
+		
 	end 
 
-	
 	def new
 		@recipe = Recipe.new
-		# @recipe.ingredients.build
-		# @recipe.ingredients.build
-		# ask TC about process - set up all of this, or do it  line by line? 
+		@ingredients = Ingredient.all
 	end 
-	 def create
+
+	def create
 	 	@recipe = Recipe.new(recipe_params)
 	 	if @recipe.save
-		 	redirect_to recipe_path(@recipe)
+	 		redirect_to recipes_path
+		 	# redirect_to recipe_path(@recipe)
 		else 
 			render :new
 		end 
-	 end 
-
-	def show 
-		@recipe = Recipe.find(params[:id])
 	end 
 
+	# def show 
+	# 	# @recipe = Recipe.find(params[:id])
+	# 	  # @recipe.ingredients = Ingredients.all
+	# end 
+
 	def edit 
-		@recipe = Recipe.find(params[:id])
+		# @recipe = Recipe.find(params[:id])
+		@ingredients = Ingredient.all
+	
 	end 
 
 	def update
-		@recipe = Recipe.find(params[:id])
+		# @recipe = Recipe.find(params[:id])
 		@recipe.update(recipe_params)
 
 		if @recipe.save 
-			redirect_to recipes_path
+			redirect_to recipe_path(@recipe)
 		else
 			render :edit
 		end 
@@ -46,16 +49,17 @@ class RecipesController < ApplicationController
 	private
 
 	def recipe_params
-		params.require(:recipe).permit(:name) 
+		params.require(:recipe).permit(:name, ingredients_ids:[])
+	end
 			# ingredients_attributes: [
 			# 	:name,
-			# 	:quantity
+			# 	:quantity (need to add this to migration? )
 			# 	]
-			
-	end 
+			# or simpler: ingredients_ids
+	
 
 	def set_recipe
-		@recipes = Recipe.find(params[:id])
+		@recipe = Recipe.find(params[:id])
 	end 
 
 end

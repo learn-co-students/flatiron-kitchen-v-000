@@ -1,21 +1,18 @@
 
 <h2> Enter new recipe </h2>
 
-
 <%= form_for @recipe do |f| %>
 
 	<%= f.label :name %>
 	<%= f.text_field :name %>
 
+
+	<h3> Ingredients:</h3>
+	
+	<%= f.collection_check_boxes :ingredient_ids, @ingredients, :id, :name %>
+		<br />
 	<%= f.submit  %>
 
 <% end %>
 
-add fields_for 
-and checkbox for ingredients 
-
-show: how many ingredients.count
-
-
-<% fields_for :ingredients, @recipe.ingredients do |ff| %>
-f.check_box,
+<%= link_to "Add new ingredient", new_ingredient_path %>

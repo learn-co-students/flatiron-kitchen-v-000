@@ -1,3 +1,14 @@
+<h2> Recipe with Ingredients </h2>
+
 <%= @recipe.name %>
 <br/>
+ <%= @recipe.ingredients.each do |ingredient| %>
+ <%= ingredient.name %>
+
+<%= @recipe.ingredients.count %>
+ <% end %>
+
+
+
+
 <%= link_to 'Edit', edit_recipe_path %>

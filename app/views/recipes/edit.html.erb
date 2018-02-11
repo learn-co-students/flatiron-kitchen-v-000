@@ -1,11 +1,30 @@
 <h2> Edit recipe </h2>
 
 
+
+
+
 <%= form_for @recipe do |f| %>
 
 	<%= f.label :name %>
 	<%= f.text_field :name %>
 
+<h2>Current ingredients: </h2>
+WHY WON"T THIS PRINT? 
+ 
+ <%= @recipe.ingredients.each do |ingredient| %>
+ <%= ingredient.name %>
+
+<%= @recipe.ingredients.count %>
+ <% end %>
+
+
+
+	<h3> Change Ingredients:</h3>
+	<%= f.label :ingredients, 'Ingredients:' %>
+	<br />
+	<%= f.collection_check_boxes :ingredient_ids, @ingredients, :id, :name %>
+		<br />
 	<%= f.submit  %>
 
 <% end %>
