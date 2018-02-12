@@ -1,0 +1,192 @@
+video 
+
+<fieldset>
+<legend> Home Address </legend>
+
+writing to different models/dbs
+
+also: checkboxes new and old 
+f.class -- it knows the instance of AR it's atached to. 
+f.object
+f.text_field
+f.text_field(:email)
+
+formbuilders attach to the underlying object, that's why they're so smart. 
+
+one at a time
+create part of form, create the part of controller you need
+
+<%= form_for @user do |f| %>
+ <%= f.label :email %>
+ <%= f. 
+
+
+Push everyhing into this => This is all that a create action ever has. 
+def create
+	raise params.inspect
+	@user = User.new(user_params) -- then write strong params
+	if @user.save
+	redirect_to @user  users/#{user.id)}
+	else
+	render: new
+end 
+
+** user_path(@user)
+** @user
+**link_to @user.name, @user
+** link_to @user.name user_path(@user)
+ALL THE SAME 
+
+Make sure that new and create are working, then you can build more complex stuff in your form. 
+
+
+To figure stuff out: write out the requirements
+Think about how to strucutre the params. All we get to do is say uer and pass in a hash 
+User.new(params) -- every key in this hash has to correspond to a writer. 
+
+params - {
+	:user => {
+		:email => "the@email.com",
+		:addresses => 
+			{:street 1 => "address 1 street", }
+	}
+}
+
+
+if there's a column, you get a writer, for free, 
+if it's nested, there's no rails-free writer
+
+def addresses_attributes=(addresses_attributes)
+	addresses_attributes.each do |address_attributes|
+	#create an address for this user with these attributes. 
+	self.addresses.build(address_attributes)
+end 
+
+def addresses=(array_of_address_hashes) == why don't we want to write it this way? Because it's already provided by ActiveRecord. Address is an object, so the conventoin is to call it addresses_attributes
+
+So you build a method called addresses_attributes=(array_of_address_hashes) -- build a def in the model. 
+
+test addresses_attributes=
+ The heart of testing is redoing what the user would do 
+
+user = User.new(params[user[)
+user.save
+How would we know if it worked? 
+assert_equal user.addresses.size, 2 (you can test whether the addresses object size grew) 
+assert_equal user.addresses.first.street_1, "Address 1 Street" 
+
+
+
+
+<%= f.fields_for :addresses do | index, address_builder | %>
+
+<fieldset>
+<legend> Home Address (and see below to automate this </legend>
+  <%= address_builder.label :street_1 %>
+  <%= address_builder.text_field :street 1 %>
+
+  <%= address.builder.hidden_field :address_type %>
+
+  YOU HAVE TO ADD: into def new: after @user = User.new
+  @user.addresses.build(:address_type => "home")
+  @user.addresses.build(:address_type => "bizness")
+
+  Second level -- change  
+  <legend><%=   address_builder.object.address_type %>
+     this is from f.object -- try it in console! 
+     @user.addresses.build(:address_type => "home in space")
+
+
+addresses_attributes = {
+	0 => {:street 1 => "address street 1, etc, 
+"}
+
+}
+
+or addresses_attribues.values.each do 
+Lots of ways around this -- but rails does it as a hash. 
+
+User.last.addresses.last.address_type 
+
+Now for team: 
+
+which has both pick and create a team 
+
+1. Design: 
+   :user => {
+   	:email
+   	:addresses_attributes
+   	:team_name = > "Existing Team Name"
+   	:new_team_attributes = {
+   		:name = "New team name",
+   		:hometown => "NYC"
+	   	}
+   	  }
+   	}
+
+
+****
+  What will I need to build? 
+  def team_name=(name)
+	self.team = Team.find_by(name: name)  	
+	find team by name
+  end 
+  This will be a custom writer, not a hash 
+
+
+#create a team by name
+def new_team_attributes=(team_attributes)
+	self.team.build(team_attributes) 
+end to use => {
+	0 => {   }
+	1 => {  }
+
+}
+
+Once the writers work, the form will work 
+make sure 
+
+merge together now: 
+def team_attributes=(team_attributes)
+	self.team = Team.where(:name => team.attributes[:name]).first_or_create do 
+		t.hometown = team_attributes[:hometown]
+	end 
+end 
+
+
+NEXT-- copy the code and go to user model 
+
+build is like new -- inside the model, we're programming in the user model. self.team, self.addresses. 
+
+The form will implicitly calll build through 
+forms interact with models through the controller -- forms don't interact with the models, they go through the controller/the waiter. 
+
+new(user_params) -- this passes in a giant hash that includes all the attributes 
+
+build instantiates an instance of the address that is tied to that user. 
+address.new int the controller
+user.addresses.build   -- in the model 
+
+The form describes the structure of params, through the complex builders. Passes it to controller, which calls the builder method in the model. Pushes the data to the model so the model can do the associations. 
+
+first_or_create method -- if there's a new team, it will run the block and assign the attribute. 
+
+All about custom attributes
+
+
+it can look like this: 
+def new
+@user = User.new
+has_many adds collection.build 
+@user.addresses.build(:address_type => "home")
+@user.addresses.build(:address_type => "bizness") 
+@user.team_build -- belongs_to -- it's an underscore 
+
+Last: add to strong_params: :team_attributes => {:name, :hometown}
+
+end 
+
+in console, to check Team.last 
+Team.last.users
+Team.last.users.size
+
