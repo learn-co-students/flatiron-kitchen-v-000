@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h2> Recipe </h2>
+      <%= @recipe.name %>
+    <h3> Ingredients </h3>
+      <ul>
+        <% @recipe.ingredients.each do |i| %>
+          <li><%= link_to i.name, ingredient_path(i) %> </li>
+        <% end %>
+      </ul>
+  </body>
+</html>
