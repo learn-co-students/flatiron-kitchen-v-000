@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Recipe</title>
+  </head>
+  <body>
+    <%= form_for recipe do |f|%>
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </p>
+      <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
+      <%= f.submit %>
+    <% end %>
+  </body>
+</html>

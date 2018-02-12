@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>New Ingredient</title>
+  </head>
+  <body>
+    <%= form_for ingredient do |f|%>
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </p>
+      <%= f.submit %>
+    <% end %>
+  </body>
+</html>

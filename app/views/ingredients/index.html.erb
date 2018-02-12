@@ -1,0 +1,15 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ingredients</title>
+  </head>
+  <body>
+    <ul>
+      <% @ingredients.all.each do |i| %>
+        <li> <%= i.name %> </li>
+      <% end %>
+    </ul>
+  </body>
+</html>
