@@ -1,22 +1,23 @@
 <h2> Edit recipe </h2>
 
 
-
-
-
 <%= form_for @recipe do |f| %>
 
 	<%= f.label :name %>
 	<%= f.text_field :name %>
 
-<h2>Current ingredients: </h2>
-WHY WON"T THIS PRINT? 
+<h3>Current ingredients: </h3>
+WHY WON"T THIS PRINT? Because ingredients are not currently bound to recipe object. 
  
- <%= @recipe.ingredients.each do |ingredient| %>
- <%= ingredient.name %>
+ <% @recipe.ingredients.each do |ingredient| %>
+	 <%= ingredient.name %>
 
-<%= @recipe.ingredients.count %>
+	<%= @recipe.ingredients.count %>
  <% end %>
+
+
+
+
 
 
 
@@ -25,6 +26,8 @@ WHY WON"T THIS PRINT?
 	<br />
 	<%= f.collection_check_boxes :ingredient_ids, @ingredients, :id, :name %>
 		<br />
+
+		
 	<%= f.submit  %>
 
 <% end %>
