@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'launchy'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.2'
 
