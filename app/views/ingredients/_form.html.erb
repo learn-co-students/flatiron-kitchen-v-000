@@ -1,0 +1,9 @@
+<%= form_for ingredient do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <% if ingredient.id %>
+    <%= f.submit "Update Ingredient"  %>
+  <% else %>
+    <%= f.submit "Create Ingredient"  %>
+  <% end %>
+<% end %>
