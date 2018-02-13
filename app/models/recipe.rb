@@ -6,4 +6,14 @@ class Recipe < ActiveRecord::Base
 
   def new_recipe_path
   end
+
+  def self.search(ingredient_name)
+    if ingredient_name.present?
+      Recipe.where('name LIKE ?', "%#{ingredient_name}%")
+    else
+      self.all
+    end
+  end
+
+  #Recipe.where("ingredient_id = ?", @ingredient.id)
 end
