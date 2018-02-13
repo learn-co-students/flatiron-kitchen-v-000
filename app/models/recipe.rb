@@ -14,6 +14,4 @@ class Recipe < ActiveRecord::Base
       self.all
     end
   end
-
-  #Recipe.where("ingredient_id = ?", @ingredient.id)
 end
