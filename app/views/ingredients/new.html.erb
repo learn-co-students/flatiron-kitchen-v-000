@@ -1,0 +1,12 @@
+<h1>New ingredient</h1>
+<%= form_for @ingredient do |f| %>
+  <p>
+    <b id="new_ingredient"> Ingredient name</b><br>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%#= render partial: "form", locals: {ingredient: @ingredient} %>
