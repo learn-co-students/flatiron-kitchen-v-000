@@ -1,0 +1,13 @@
+<p>
+  <%= form_tag ingredients_path, method: :get do %>
+    <label>Ingredient name:</label><br>
+    <%= text_field_tag :name, params[:name]%>
+</p>
+ <%= submit_tag "Search" %>
+<% end %>
+<p>
+<%= form_tag ingredients_path %>
+<% @ingredients.each do |ingredient| %>
+  <%= render partial: "ingredient", locals: {ingredient: ingredient} %>
+<% end %>
+</p>
