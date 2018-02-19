@@ -1,0 +1,8 @@
+<h1>Update Recipe</h1>
+
+<id="form#edit_recipe">
+  <%= form_for @recipe do |f| %>
+    <%= render partial: 'form', locals: {f: f, recipe: @recipe} %>
+    <%= f.submit 'Update Recipe' %>
+  <% end %>
+</id>
