@@ -1,14 +1,15 @@
 <h2> Recipe with Ingredients </h2>
 
 <%= @recipe.name %>
-<br/>
- <%= @recipe.ingredients.each do |ingredient| %>
- <%= ingredient.name %>
+<br />
 
-<%= @recipe.ingredients.count %>
- <% end %>
+<% @recipe.ingredients.each do |ingredient| %>
+	<ul>
+	<li><%= ingredient.name %> </li>
+	</ul> 
 
+	<% end %>
 
-
-
+<%=@recipe.ingredients.count %>
 <%= link_to 'Edit', edit_recipe_path %>
+

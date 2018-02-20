@@ -1,52 +1,16 @@
 
 <h2> Enter new recipe </h2>
 
-<%= form_for @recipe do |f| %>
 
+<%= form_for @recipe do |f| %>
 	<%= f.label :name %>
 	<%= f.text_field :name %>
+	<br />
+	<%= f.label :ingredients, "Ingredients:" %><br />
+	<%= f.collection_check_boxes :ingredient_ids, @ingredients, :id, :name  %>
+	<br />
 
-
-Center: where thebinding should go: 
-
-
-
-<% f.fields_for :ingredients do | ingredients_builder| %>
- <fieldset>
- 	ingredients_builder.each do |ingredient|
-
-
-
-
-
-	<h3> Ingredients:</h3>
-	
-	This will collect ingredients, but won't bind it to the recipe. 
-	<%= f.collection_check_boxes :ingredient_ids, @ingredients, :id, :name %>
-		<br />
-	<h3> add new: </h3>	
-		<%= f.label :name %>
-		<%= f.text_field :name %>
-		<% end %>
-
-		<br />
 	<%= f.submit  %>
 
 <% end %>
-<br />
-
-<%= link_to "Add new ingredient", new_ingredient_path %>
-
-
-<input type="text" name="recipe[ingredients_attributes][][name] "
-
- </fieldset>
-
-in recipes model
-def ingredients_attributes=(ingredients_attributes)
-	self.ingredients.build(ingredients_attributes)
-end
-
-name
-quantity 
 
