@@ -1,5 +1,6 @@
-<%= f.label :name %>
-<%= f.text_field :name %>
-<br>
-<%= f.submit %>
+<%= form_for ingredient do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.submit %>
 <% end %>
