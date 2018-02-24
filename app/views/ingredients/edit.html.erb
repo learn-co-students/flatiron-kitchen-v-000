@@ -1,0 +1,7 @@
+<h3>Edit Ingredient</h3>
+<%= form_for @ingredient, html: { id: "edit_ingredient_#{@ingredient.id}" } do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br>
+  <%= f.submit %>
+<% end %>
