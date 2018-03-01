@@ -7,7 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<h1>Flatiron Kitchen</h1>
+<p><%= link_to("All Recipes", recipes_path) %> | <%= link_to("All Ingredients", ingredients_path) %> | <%= link_to("Add a Recipe", new_recipe_path) %> | <%= link_to("Add Ingredient", new_ingredient_path) %></p>
 <%= yield %>
 
 </body>
