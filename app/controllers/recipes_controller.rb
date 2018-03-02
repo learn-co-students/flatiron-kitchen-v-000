@@ -1,3 +1,5 @@
+require "pry"
+
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update]
 
@@ -6,9 +8,8 @@ class RecipesController < ApplicationController
   end
 
   def create
-    #raise params.inspect
-    @recipe = Recipe.new(recipe_params)
-    
+    @recipe = Recipe.create(recipe_params)
+
     if @recipe.valid?
       @recipe.save
       redirect_to recipe_path(@recipe)
@@ -26,6 +27,6 @@ class RecipesController < ApplicationController
     end
 
     def recipe_params
-      params.require(:recipe).permit(:name, :ingredient_ids => [], :ingredients_attributes => [:name])
+      params.require(:recipe).permit(:name, :ingredient_ids => [])#, :ingredients_attributes => [:name])
     end
 end
