@@ -1,0 +1,22 @@
+<%= form_for recipe do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <br>
+  <div>
+    <h4>Select Ingredients:</h4>
+    <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name do |ing| %>
+      <p><%= ing.check_box id: ing.object.name %><%= ing.object.name %></p>
+    <% end %>
+  </div>
+  <!-- <div>
+    <h4>Or create new ingredients below:</h4>
+    <%= f.fields_for :ingredients, 3.times.map{recipe.ingredients.build} do |ing| %>
+      <%= ing.label :name %>
+      <%= ing.text_field :name %>
+    <% end %>
+  </div> -->
+  <br> 
+  <%= f.submit %>
+<% end %>
