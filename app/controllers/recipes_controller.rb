@@ -21,6 +21,18 @@ class RecipesController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    if @recipe.valid?
+      @recipe.update(recipe_params)
+      redirect_to recipe_path(@recipe)
+    else
+      render :edit
+    end
+  end
+
   private
     def set_recipe
       @recipe = Recipe.find_by(:id => params[:id])  
