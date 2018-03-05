@@ -8,7 +8,16 @@
 </head>
 <body>
 
-<%= yield %>
+  <div class="nav">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><%= link_to "Add recipe", new_recipe_path %></li>
+      <li><%= link_to "Ingredients list", ingredients_path %></li>
+      <li><%= link_to "Add ingredients", new_ingredient_path %></li>
+    </ul>
+  </div>
+
+  <%= yield %>
 
 </body>
 </html>
