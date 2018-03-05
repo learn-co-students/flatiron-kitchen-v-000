@@ -11,3 +11,16 @@
  *= require_self
  *= require_tree .
  */
+
+a {
+    text-decoration: none;
+}
+.nav ul {
+    padding: 0;
+}
+.nav ul li {
+    list-style-type: none;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 5px 30px
+}
