@@ -1,7 +1,6 @@
 class IngredientsController < ApplicationController
   def new
         @ingredient = Ingredient.new
-
   end
   def create
         @ingredient = Ingredient.new(ingredient_params)
@@ -14,13 +13,13 @@ class IngredientsController < ApplicationController
         end
   def show
 #binding.pry
-    @ingredient = Ingredient.find_by(params[:id])
+    @ingredient = Ingredient.find_by(id: params[:id])
 #binding.pry
   end
   def edit
       #partials and locals used in views
       #binding.pry
-      @ingredient = Ingredient.find_by(params[:id])
+      @ingredient = Ingredient.find_by(id: params[:id])
   end
   def update
 #binding.pry
