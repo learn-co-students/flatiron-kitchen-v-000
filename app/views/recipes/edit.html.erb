@@ -7,6 +7,20 @@
 	<%= f.label :name %>
 	<%= f.text_field :name %>
 
+	<% Ingredient.all.each do |ingredient| %>
+	
+	<%= f.fields_for :recipe_ingredients, @recipe.new_or_find_recipe_ingredient do |ri_field| %>
+		<div>
+		<label>ingredient.name</label>
+		<div>
+		<%= ri_fields.number_field :quantity, min: 0 %>
+		<%= ri_field.check_box :ingredient_id, {}, ingredient.id %> 
+	<% end %>
+<% end %>
+
+
+new or find by -- 
+
 	<%= f.label :ingredients, 'Ingredients:' %>
 	<br />
 	<%= f.collection_check_boxes :ingredient_ids, @ingredients, :id, :name %>

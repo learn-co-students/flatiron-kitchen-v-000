@@ -51,7 +51,8 @@ class RecipesController < ApplicationController
 	private
 
 	def recipe_params
-		params.require(:recipe).permit(:name, ingredient_ids:[])
+		params.require(:recipe).permit(:name, recipe_ingredients_attributes: [:quantity, :ingredient_id])
+
 	end
 			# ingredients_attributes: [
 			# 	:name,
@@ -59,6 +60,7 @@ class RecipesController < ApplicationController
 			# 	]
 			# or simpler: ingredients_ids
 	
+# was ingredient_ids:[])
 
 	def set_recipe
 		@recipe = Recipe.find(params[:id])

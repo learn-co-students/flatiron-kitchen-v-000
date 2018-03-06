@@ -1,3 +1,12 @@
+
+
+
+	<%= f.label :ingredients, "Add an ingredient:" %>
+	<%= f.fields_for :ingredients, @recipe.ingredients.build do |ingredients_attributes| %>
+		<%= ingredients_attributes.text_field :name %>
+		<% end %>
+
+
 <h2> Edit recipe </h2>
 
 

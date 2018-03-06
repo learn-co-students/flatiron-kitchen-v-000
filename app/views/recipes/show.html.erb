@@ -1,15 +1,17 @@
-<h2> Recipe with Ingredients </h2>
 
-<%= @recipe.name %>
+<h1><%= @recipe.name %></h1>
 <br />
 
+<h3>Ingredients</h3>
+<ul>
 <% @recipe.ingredients.each do |ingredient| %>
-	<ul>
-	<li><%= ingredient.name %> </li>
-	</ul> 
+	
+	<li><%= ingredient.name %> <%= ingredient.quantity(@recipe_id) %></li>
 
 	<% end %>
+</ul> 
 
 <%=@recipe.ingredients.count %>
 <%= link_to 'Edit', edit_recipe_path %>
 
+based on ingredient, we know the quantity that exists 

@@ -1,3 +1,16 @@
+
+ <%=@ingredients.each do |ingredient| %> DO the build @recipe.ingredients.build  do 
+
+ 
+ <%= ingredient.name %>
+ <% end %>
+
+<%= @recipe.ingredients.count %>
+
+
+
+
+
 video 
 
 <fieldset>
