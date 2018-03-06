@@ -4,6 +4,10 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
   end
 
+   def index
+    @recipes = Recipe.all
+  end
+
   def create
     @recipe = Recipe.new(recipe_params)
     if @recipe.save
@@ -35,6 +39,6 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, ingredient_ids: [])
+    params.require(:recipe).permit(:name, recipe_ingredients_attributes:[:ingredient_id, :quantity])
   end
 end

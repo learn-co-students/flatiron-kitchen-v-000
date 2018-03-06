@@ -1,12 +1,20 @@
-<h1>New Recipe</h1>
+<h1>New Recipes!!</h1>
 
 <%= form_for @recipe do |f|%>
 
   <%= f.label :name %>
   <%= f.text_field :name %><br></br>
 
-  <%= f.label :ingredients%><br>
-  <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name%><br></br>
+  <% Ingredient.all.each do |ingredient|%>
+    <div>
+      <%= f.fields_for :recipe_ingredients, RecipeIngredient.new do |ri_fields|%>
+        <%= ri_fields.label :name, ingredient.name, for: "ingredient_#{ingredient.id}"%>
+        <%= ri_fields.number_field :quantity, min: 0%>
+        <%= ri_fields.check_box :ingredient_id, {id: "ingredient_#{ingredient.id}"}, ingredient.id%>
+      <% end %>
+    </div>
+  <% end %>
+  <br></br>
 
 
   <%= f.submit "Create Recipe" %>

@@ -4,6 +4,10 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.new
   end
 
+  def index
+    @ingredients = Ingredient.all
+  end
+
   def show
      @ingredient = Ingredient.find(params[:id])
   end
@@ -11,7 +15,7 @@ class IngredientsController < ApplicationController
   def create
     @ingredient = Ingredient.new(ingredients_params)
     if @ingredient.save
-      redirect_to ingredient_path(@ingredient)
+      redirect_to ingredients_path
     else
       render 'new'
     end
@@ -25,7 +29,7 @@ class IngredientsController < ApplicationController
     @ingredient = Ingredient.find(params[:id])
     @ingredient.update(ingredients_params)
     if @ingredient.save
-      redirect_to ingredient_path(@ingredient)
+      redirect_to ingredients_path
     else
       render 'edit'
     end
