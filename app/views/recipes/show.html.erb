@@ -4,14 +4,14 @@
 
 <h3>Ingredients</h3>
 <ul>
+
 <% @recipe.ingredients.each do |ingredient| %>
 	
-	<li><%= ingredient.name %> <%= ingredient.quantity(@recipe_id) %></li>
+	<li><%= ingredient.name %> --<%= ingredient.quantity(@recipe_id, ingredient.id) %></li>
 
 	<% end %>
-</ul> 
 
 <%=@recipe.ingredients.count %>
-<%= link_to 'Edit', edit_recipe_path %>
+<p><%= link_to 'Edit', edit_recipe_path %></p>
 
-based on ingredient, we know the quantity that exists 
+

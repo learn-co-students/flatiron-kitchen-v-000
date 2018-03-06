@@ -4,7 +4,7 @@ class Ingredient < ActiveRecord::Base
 	validates :name, presence: true
 	 
 	def quantity(rec_id, ing_id)
-		RecipeIngredient.find_by(recipe_id: rec_id, ingredient_id: ing_id).quantity
+		RecipeIngredient.find_by(recipe_id: rec_id, ingredient_id: ing_id)
 	end	
 end
 

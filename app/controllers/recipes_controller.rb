@@ -13,7 +13,9 @@ class RecipesController < ApplicationController
 	end 
 
 	def create
+
 	 	@recipe = Recipe.new(recipe_params)
+	 	@ingredients = @recipe.ingredients.build
 	 	if @recipe.save
 		 	redirect_to recipe_path(@recipe)
 		else 
@@ -27,6 +29,7 @@ class RecipesController < ApplicationController
 	 end 
 
 	def edit 
+		binding.pry
 		# @recipe = Recipe.find(params[:id])
 		@ingredients = Ingredient.all
 	
@@ -60,7 +63,7 @@ class RecipesController < ApplicationController
 			# 	]
 			# or simpler: ingredients_ids
 	
-# was ingredient_ids:[])
+# was ingredient_ids:[]) correct one will depend on what the browser tools show 
 
 	def set_recipe
 		@recipe = Recipe.find(params[:id])

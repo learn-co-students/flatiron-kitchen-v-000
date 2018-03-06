@@ -1,5 +1,14 @@
 
 
+First version recipes#show had: 
+
+	<%= f.label :ingredients, "Ingredients:" %><br />
+	<%= f.collection_check_boxes :ingredient_ids, @ingredients, :id, :name  %>
+	<br />
+
+
+changed to do bonus 
+
 
 	<%= f.label :ingredients, "Add an ingredient:" %>
 	<%= f.fields_for :ingredients, @recipe.ingredients.build do |ingredients_attributes| %>

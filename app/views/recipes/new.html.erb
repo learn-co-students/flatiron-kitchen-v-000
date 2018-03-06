@@ -8,26 +8,19 @@
 	<br />
 
  
-<% Ingredient.all.each do |ingredient| %>
-<div>
-	<%= f.fields_for :recipe_ingredients, RecipeIngredient.new do |ri_field| %>
-		
-		<label>ingredient.name</label>
-		
-		<%= ri_field.number_field :quantity, min: 0 %>
-		<%= ri_field.check_box :ingredient_id, {}, ingredient.id %> 
-		<% end %>
-	</div>
-<% end %>
-
-for every ingred -- we want there to be a possibility of connecting it to a recipe and adding an attribute. We need a space on the join table for every ingredient that exists 
+	<% Ingredient.all.each do |ingredient| %>
+	<div>
+		<%= f.fields_for :recipe_ingredients, RecipeIngredient.new do |ri_field| %>
+			
+			<label><%= ingredient.name %></label>
+			
+			<%= ri_field.number_field :quantity, min: 0 %>
+			<%= ri_field.check_box :ingredient_id, {}, ingredient.id %> 
+			<% end %>
+		</div>
+	<% end %>
 
 
-
-
-	<%= f.label :ingredients, "Ingredients:" %><br />
-	<%= f.collection_check_boxes :ingredient_ids, @ingredients, :id, :name  %>
-	<br />
 
 	<%= f.submit  %>
 
