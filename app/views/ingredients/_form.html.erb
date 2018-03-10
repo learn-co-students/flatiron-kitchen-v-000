@@ -1,0 +1,17 @@
+<% if ingredient.errors.any? %>
+    <div id="error_explanation">
+      <h2>There were <%= pluralize(ingredient.errors.count, "error") %> errors with your entry:</h2>
+      <ul>
+        <% ingredient.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= form_for ingredient do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit %>
+<% end %>
