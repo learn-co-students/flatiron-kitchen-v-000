@@ -3,6 +3,7 @@ class IngredientsController < ApplicationController
   end
 
   def show
+    @ingredient = Ingredient.find(params[:id])
   end
 
   def new
@@ -10,6 +11,12 @@ class IngredientsController < ApplicationController
   end
 
   def create
+    @ingredient = Ingredient.new(ingredient_params)
+    if @ingredient.save
+      redirect_to ingredient_path(@ingredient)
+    else
+      render "new"
+    end
   end
 
   def edit
