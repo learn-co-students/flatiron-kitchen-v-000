@@ -1,0 +1,16 @@
+<div class="container">
+    <h2><%=@ingredient.name.capitalize%></h2>
+
+    <div class="container">
+        <%if @ingredient.recipes.size > 0%>
+            <h3><%=@ingredient.name%> has been used in:</h3>
+            <ul>
+                <%@ingredient.recipes.each do |recipe|%>
+                    <li><%= link_to  "#{recipe.name}", recipe_path(recipe) %></li>
+                <%end%>
+            </ul>
+        <%else%>
+            <h2><%=@ingredient.name%> has not been used in any recipes yet</h2>
+        <%end%>
+    </div>
+</div>

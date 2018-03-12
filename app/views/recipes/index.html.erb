@@ -1,0 +1,10 @@
+<div class="container">
+    <h1>All Recipes</h1>
+    <div class="container">
+        <ul>
+            <%@recipes.each do |recipe|%>
+                <li><%= link_to  "#{recipe.name}", recipe_path(recipe) %> - <%=recipe.ingredients.size%> ingredients</li>
+            <%end%>
+        </ul>
+    </div>
+</div>
