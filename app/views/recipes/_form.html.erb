@@ -2,7 +2,15 @@
 <%= f.label :name %>
 <%= f.text_field :name %>
 
-<%= collection_check_boxes :recipe, :ingredient_ids, Ingredient.all, :id, :name %>
+<br><br>
+
+<% Ingredient.all.each do |ingredient| %>
+	<%= f.fields_for :recipe_ingredients, RecipeIngredient.new do |r| %>
+		<%= ingredient.name %>
+		<%= r.number_field :quantity, min: 0 %>
+		<%= r.check_box :ingredient_id, {}, ingredient.id %> <br>
+	<%end%>
+<%end%>
 
 <%= f.submit %>
 <%end%>

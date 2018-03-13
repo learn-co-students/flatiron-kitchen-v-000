@@ -1,7 +1,11 @@
-
+New Ingredient: <br><br>
 <%= form_for ingredient do |f| %>
+
 <%= f.label :name %>
-<%= f.text_field :name %>
+<%= f.text_field :name %> <br><br>
+
+<%= f.label :amount %>
+<%= f.number_field :amount, min: 0 %> <br><br>
 
 <%= f.submit %>
 <%end%>

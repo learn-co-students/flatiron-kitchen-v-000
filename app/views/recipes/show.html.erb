@@ -1,7 +1,8 @@
-Recipe:
-<%= render partial: 'recipe', locals: {:recipe => @recipe} %>
+Recipe: <br>
 
-Ingredients:
+<%= render partial: 'recipe', locals: {:recipe => @recipe} %> <br> <br>
+
+Ingredients: <br>
 <% @recipe.ingredients.each do |ingredient| %>
 <%= render partial: 'ingredients/ingredient', locals: { :ingredient => ingredient } %>
 <% end %>

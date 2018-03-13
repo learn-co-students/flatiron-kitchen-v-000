@@ -1,0 +1,4 @@
+All Ingredients: <br><br>
+<% @ingredients.each do |ingredient| %>
+<%= render partial: 'ingredient', locals: {:ingredient => ingredient} %>
+<% end %>
