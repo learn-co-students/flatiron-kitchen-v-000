@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :find_recipe, only: %i[show edit]
+  before_action :find_recipe, only: %i[show edit update]
 
   def index
     @recipes = Recipe.all
@@ -9,15 +9,15 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
   end
 
-
   def create
-    recipe = Recipe.new(strong_params)
-    return render :new unless recipe.save
-    redirect_to recipe
+    @recipe = Recipe.new(strong_params)
+    return render :new unless @recipe.save
+    redirect_to @recipe
   end
 
   def update
-
+    return render :edit unless @recipe.update(strong_params)
+    redirect_to @recipe
   end
 
   private
