@@ -1,0 +1,8 @@
+<h2><%= recipe.name %></h2>
+
+<% recipe.ingredients.each do |ingredient| %>
+
+  <div class="chip blue lighten-5">
+    <%= link_to ingredient.name, ingredient %>
+  </div>
+<% end %>
