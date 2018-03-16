@@ -1,0 +1,30 @@
+
+<h2> Enter new recipe </h2>
+
+
+<%= form_for @recipe do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+	<br />
+
+ 
+	<% Ingredient.all.each do |ingredient| %>
+	<div>
+		<%= f.fields_for :recipe_ingredients, RecipeIngredient.new do |ri_field| %>
+			
+			<label><%= ingredient.name %></label>
+			
+			<%= ri_field.number_field :quantity, min: 0 %>
+			<%= ri_field.check_box :ingredient_id, {}, ingredient.id %> 
+			<% end %>
+		</div>
+	<% end %>
+
+
+
+	<%= f.submit  %>
+
+<% end %>
+
+
+

@@ -1,0 +1,17 @@
+
+<h1><%= @recipe.name %></h1>
+<br />
+
+<h3>Ingredients</h3>
+<ul>
+
+<% @recipe.ingredients.each do |ingredient| %>
+	
+	<li><%= ingredient.name %> --<%= ingredient.quantity(@recipe_id, ingredient.id) %></li>
+
+	<% end %>
+
+<%=@recipe.ingredients.count %>
+<p><%= link_to 'Edit', edit_recipe_path %></p>
+
+
