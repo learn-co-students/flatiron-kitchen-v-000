@@ -1,4 +1,8 @@
 FlatironKitchen::Application.routes.draw do
+  #resources below not required as it will not have its own view pages
+  #resources :recipe_ingredients
+  resources :recipes
+  resources :ingredients
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -39,7 +43,7 @@ FlatironKitchen::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
