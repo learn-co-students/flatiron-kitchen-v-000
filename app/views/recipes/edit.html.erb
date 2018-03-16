@@ -1,0 +1,21 @@
+<h1>Edit Recipe</h1>
+
+<%= form_for @recipe do |f|%>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <% Ingredient.all.each do |ingredient|%>
+    <div>
+      <%= f.fields_for :recipe_ingredients, @recipe.new_or_existing_recipe_ingredient(ingredient) do |ri_fields|%>
+        <%= ri_fields.label :name, ingredient.name, for: "ingredient_#{ingredient.id}"%>
+        <%= ri_fields.number_field :quantity, min: 0%>
+        <%= ri_fields.check_box :ingredient_id, {id: "ingredient_#{ingredient.id}"}, ingredient.id, nil%>
+      <% end %>
+    </div>
+  <% end %>
+
+
+
+  <%= f.submit "Update Recipe" %>
+<% end %>
