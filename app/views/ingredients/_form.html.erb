@@ -1,0 +1,15 @@
+<%= form_for @ingredient do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    
+    <br><br>
+
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity %>
+    
+    <%= f.collection_select :recipes, :quantity_type_id, Ingredient.all, :id, :name { include_blank: false } %>
+
+    <br><br>
+
+    <%= f.submit %>
+<% end %>
