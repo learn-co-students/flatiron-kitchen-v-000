@@ -1,0 +1,8 @@
+<h1>The Ingredients That Make Us... Us!</h1>
+
+
+    <div class="ingredient-list">
+        <% @ingredients.each do |ingredient| %>
+            | <%= link_to ingredient.name, ingredient_path(ingredient) %> |
+        <% end %>
+    </div>

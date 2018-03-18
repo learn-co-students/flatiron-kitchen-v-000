@@ -1,6 +1,7 @@
 class IngredientsController < ApplicationController
     
     def index
+        @ingredients = Ingredient.all
     end
     
     def new
@@ -18,12 +19,18 @@ class IngredientsController < ApplicationController
     end
     
     def show
-        set_ingredients
+        set_ingredients  
     end
     
     def edit
         set_ingredients
     end
+    
+    def update
+        set_ingredients.update(post_params)
+        redirect_to @ingredient
+    end
+        
     
     def destroy
         set_ingredients.destroy
@@ -37,6 +44,6 @@ class IngredientsController < ApplicationController
     end
     
     def post_params
-        params.require(:ingredient).permit(:name)
+        params.require(:ingredient).permit(:name, :quantity, :quantity_type)
     end
 end
