@@ -1,0 +1,19 @@
+<%= form_for @ingredient do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    
+    <br><br>
+
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity %>
+
+    <select name="ingredient[quantity_type]">
+        <option name="teaspoon(s)" value="teaspoon(s)">Teaspoon(s)</option>
+        <option name="cup(s)" value="cup(s)">Cup(s)</option>
+        <option name="ounce(s)" value="ounce(s)">Ounce(s)</option>
+    </select>
+    
+    <br><br>
+
+    <%= f.submit %>
+<% end %>

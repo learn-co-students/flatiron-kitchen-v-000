@@ -13,3 +13,7 @@ bacon_pancakes = Recipe.new(name: 'Bacon Pancakes')
 bacon_pancakes_ingredients = ['Some bacon', 'Pancake']
 bacon_pancakes_ingredients.each{|i| bacon_pancakes.ingredients.build(name: i)}
 bacon_pancakes.save
+
+cups = Ingredient.create(quantity_type: "cups")
+teaspoons = Ingredient.create(quantity_type: "teaspoons")
+ounces = Ingredient.create(quantity_type: "ounces")

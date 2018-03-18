@@ -7,8 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+    <nav>
+        <a href="/recipes">Home</a> |
+        <a href="/ingredients">Ingredients</a> | 
+        <a href="/recipes/new">Create A Recipe</a> |
+        <a href="/ingredients/new">Create An Ingredient</a>
+    </nav>
+    
+    <div class="container">
+        
+        <%= yield %>
 
-<%= yield %>
+    </div>
 
 </body>
 </html>

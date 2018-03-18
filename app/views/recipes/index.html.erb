@@ -1,0 +1,7 @@
+<h1>Flatiron Specials</h1>
+
+<div class="ingredient-list">
+    <% @recipes.each do |recipe| %>
+       | <%= link_to recipe.name, recipe_path(recipe) %> | 
+    <% end %>
+</div>

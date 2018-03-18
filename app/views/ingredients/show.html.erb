@@ -1,0 +1,16 @@
+<h1>Your Ingredient!</h1>
+
+<div>
+    <em>Name: </em><%= @ingredient.name %>
+</div>
+
+<div>
+    <em>Quantity Available: </em><%= "#{@ingredient.quantity}" + " " + "#{@ingredient.quantity_type}" %>
+</div>
+
+<br><br>
+
+<div>
+    <%= link_to "Edit", edit_ingredient_path(@ingredient) %> | 
+    <%= link_to "Delete", @ingredient, method: :delete, data: { confirm: "Are you sure you want to delete this ingredient?" } %>
+</div>
