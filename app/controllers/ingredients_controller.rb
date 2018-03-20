@@ -13,12 +13,19 @@ before_action :set_ingredient, only: [:show, :edit, :destory, :update]
   end
 
   def create
+    @ingredient = Ingredient.new(ingredient_params)
+    if @ingredient.save
+      redirect_to @ingredient
+    else
+      render 'new'
+    end
   end
 
   def edit
   end
 
   def update
+    @ingredient.update(ingredient_params)
   end
 
   def destroy
@@ -29,4 +36,7 @@ before_action :set_ingredient, only: [:show, :edit, :destory, :update]
     @ingredient = Ingredient.find(params[:id])
   end
 
+  def ingredient_params
+    params.require(:ingredient).permit(:name)
+  end
 end
