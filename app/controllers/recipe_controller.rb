@@ -1,2 +1,2 @@
-class RecipeController < ApplicationController
+class RecipesController < ApplicationController
 end
