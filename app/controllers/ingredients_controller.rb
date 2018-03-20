@@ -26,6 +26,12 @@ before_action :set_ingredient, only: [:show, :edit, :destory, :update]
 
   def update
     @ingredient.update(ingredient_params)
+
+    if @ingredient.save
+      redirect_to ingredients_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
