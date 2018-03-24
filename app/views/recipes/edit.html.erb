@@ -1,0 +1,18 @@
+<h1>Editing <%= @recipe.name %></h1>
+
+<%= form_for @recipe do |f| %>
+  <p>Name: <%= f.text_field :name %></p>
+  
+<%= f.fields_for :ingredients do |ingredient| %>
+<%= check_box_tag(:name) %>
+<%= ingredient.label :name %>
+
+ <%= check_box_tag(:quantity) %>
+<%= ingredient.label :quantity %>
+
+
+  <% end %>
+
+ <%= f.submit %>
+  
+<% end %>
