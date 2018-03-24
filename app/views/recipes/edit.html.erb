@@ -2,16 +2,18 @@
 
 <%= form_for @recipe do |f| %>
   <p>Name: <%= f.text_field :name %></p>
+  <% end %>
   
-<%= f.fields_for :ingredients do |ingredient| %>
-<%= check_box_tag(:name) %>
+<%= form_for @recipeingredients do |ingredient| %>
+ <%= f.label :ingredient_id, 'Recipe Ingredient:' %><br>
+<%= f.collection_check_boxes(:ingredient_ids, Ingredient.all, :name) %>
 <%= ingredient.label :name %>
 
- <%= check_box_tag(:quantity) %>
+<%= f.collection_check_boxes(:quantity) %>
 <%= ingredient.label :quantity %>
 
 
-  <% end %>
+ 
 
  <%= f.submit %>
   

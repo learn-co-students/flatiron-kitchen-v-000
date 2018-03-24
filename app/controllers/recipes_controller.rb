@@ -5,20 +5,23 @@ class RecipesController < ApplicationController
 
   def index
     @recipes = Recipe.all
+    @recipeingredients = RecipeIngredient.all
   end
 
   def new
     @recipe = Recipe.new
-    @recipe.ingredients.build(name: params[:name])
-    @recipe.ingredients.build(quantity: params[:quantity])
-    @recipeingredient = RecipeIngredient.new
+   
   end
 
-  def create
-    @recipe = Recipe.create(recipe_params)
-    @recipeingredient = RecipeIngredient.create(recipe_params)
-    redirect_to recipes_path
-  end
+   def create
+    recipe = Recipe.new(recipe_params)
+
+    if recipe.save
+      redirect_to recipes_path
+    else
+      render :new
+    end
+   end
   
   def edit
     @recipe = Recipe.find(params[:id])
@@ -30,7 +33,7 @@ class RecipesController < ApplicationController
     @recipe.update(recipe_params)
 
     if @recipe.save
-      redirect_to @recipe
+      redirect_to recipes path
     else
       render :edit
     end

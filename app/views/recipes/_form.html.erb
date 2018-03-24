@@ -2,6 +2,7 @@
   <p>Name: <%= f.text_field :name %></p>
   
 <%= f.fields_for :ingredients do |ingredient| %>
+<%= f.collection_check_boxes :ingredient_ids, ingredients, :id, :name %>
 <%= ingredient.label :name %>
 <%= ingredient.text_field :name %><br>
  

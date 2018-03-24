@@ -3,7 +3,7 @@
 <h3>Ingredients</h2>
 
 <ul>
-<% @recipe.ingredients.each do |ingredient| %>
+<% @ingredients.each do |ingredient| %>
   <li><%= "#{ingredient.name} X #{ingredient.quantity}" %></li>
 <% end %>
 </ul>
