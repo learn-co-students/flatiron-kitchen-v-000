@@ -1,9 +1,13 @@
+New Ingredient <br>
+
 <%= form_for @ingredient do |f| %>
   
-<%= f.check_box :ingredients do |ingredient| %>
-<%= f.label :name %>
+<%= f.label :name %><br>
 <%= f.text_field :name %><br>
 
+<%= f.label :quantity %><br>
+<%= f.text_field :quantity %><br>
+
  <%= f.submit %>
-  
+
 <% end %>
