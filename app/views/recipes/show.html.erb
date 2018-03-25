@@ -3,6 +3,7 @@
 <h3>Ingredients</h2>
 
 <ul>
+   
 <% Ingredient.all.each do |ingredient| %>
   <li><%= "#{ingredient.name} X #{ingredient.quantity}" %></li>
 <% end %>

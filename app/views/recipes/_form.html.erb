@@ -2,11 +2,13 @@
   <p>Recipe Name: <%= f.text_field :name %></p>
   
   
-<%= f.label :ingredients %><br>
+<%= f.label :ingredients, 'Ingredients:' %><br>
 <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %> <br>
-<%= f.fields_for :ingredients do |ingredient| %>
-<%= ingredient.label :name %>
-<%= ingredient.text_field :name %><br>
+ <%= f.fields_for :ingredients, recipe.ingredients.build do |ingredient_fields| %>
+<%= f.label "Create new Ingredient" %>
+<%= ingredient_fields.text_field :name %><br>
+<%= ingredient_fields.label :quantity %>
+<%= ingredient_fields.text_field :quantity %><br>
  <% end %>
 
 

@@ -3,6 +3,7 @@ class IngredientsController < ApplicationController
   def show
     @ingredient = Ingredient.find(params[:id])
     @ingredients = Ingredient.all
+    
   end
 
   def index
@@ -33,7 +34,7 @@ class IngredientsController < ApplicationController
     ingredient.update(ingredient_params)
 
     if ingredient.save
-      redirect_to ingredient_path
+      redirect_to ingredients_path
     else
       render :edit
     end
@@ -42,6 +43,6 @@ class IngredientsController < ApplicationController
 
 private
   def ingredient_params
-    params.require(:ingredient).permit(:name)
+    params.require(:ingredient).permit(:name, :quantity)
   end
 end
