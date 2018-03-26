@@ -1,0 +1,13 @@
+Edit Ingredient <br>
+
+<%= form_for @ingredient do |f| %>
+  
+<%= f.label :name %><br>
+<%= f.text_field :name %><br>
+
+<%= f.label :quantity %><br>
+<%= f.text_field :quantity %><br>
+
+ <%= f.submit %>
+
+<% end %>
