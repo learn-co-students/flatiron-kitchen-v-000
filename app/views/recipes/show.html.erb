@@ -4,7 +4,10 @@
 
 <ul>
    
-<% Ingredient.all.each do |ingredient| %>
+<% @recipe.ingredients.each do |ingredient| %>
   <li><%= "#{ingredient.name} X #{ingredient.quantity}" %></li>
-<% end %>
+<% end %><br>
+
+<%= link_to 'Edit', edit_recipe_path %> |
+<%= link_to 'New', new_recipe_path %> |
 </ul>

@@ -32,17 +32,15 @@ class RecipesController < ApplicationController
 
     @recipe.update(recipe_params)
 
-    if @recipe.save
+     @recipe.save
       redirect_to recipes_path
-    else
-      render :edit
-    end
+ 
   end
 
   
   private
   
   def recipe_params
-    params.require(:recipe).permit(:name, ingredients_attributes: [:id, :name, :quantity])
+    params.require(:recipe).permit(:name, ingredient_ids:[], ingredients_attributes: [:id, :name, :quantity])
   end
 end
