@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only:[:edit, :update, :show]
+  before_action :set_recipe, only:[:edit, :update]
   before_action :get_ingredients, only:[:new, :edit]
 
 
@@ -20,8 +20,6 @@ class RecipesController < ApplicationController
     end
   end
 
-  def show
-  end
 
   def edit
   end
