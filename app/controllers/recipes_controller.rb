@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only:[:edit, :update, :show]
-  before_action :get_ingredients, only:[:create, :update]
+  before_action :get_ingredients, only:[:new, :edit]
 
 
   def index
