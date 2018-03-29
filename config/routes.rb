@@ -53,6 +53,6 @@ FlatironKitchen::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  resources :recipes, only: [:index, :new, :create, :show]
-  resources :ingredients, only: [:index, :new, :create, :show]
+  resources :recipes, only: [:index, :new, :create, :show, :edit, :update]
+  resources :ingredients, only: [:index, :new, :create, :show, :edit, :update]
 end
