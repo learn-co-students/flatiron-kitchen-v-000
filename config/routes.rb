@@ -39,7 +39,7 @@ FlatironKitchen::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
@@ -53,4 +53,6 @@ FlatironKitchen::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  resources :recipes, only: [:index, :new, :create, :show, :edit, :update]
+  resources :ingredients, only: [:index, :new, :create, :show, :edit, :update]
 end
