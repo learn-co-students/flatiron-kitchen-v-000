@@ -16,10 +16,8 @@ class IngredientsController < ApplicationController
   end
   def show
   end
-
   def edit
   end
-
   def update
     @ingredient.update(ingredient_params)
     redirect_to ingredient_path(@ingredient)
