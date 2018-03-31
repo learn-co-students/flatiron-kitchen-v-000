@@ -1,0 +1,27 @@
+<%= form_for(recipe) do |f| %>
+  <% if recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% recipe.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
+      <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %><br>
+      <%= f.fields_for :ingredients, recipe.ingredients.build do |ingredients_fields|  %>
+      <%= ingredients_fields.label :name %><br>
+      <%= ingredients_fields.text_field :name %>
+    <% end %>
+  </div>
+  <div class="actions">
+  <%= f.submit %>
+</div>
+
+<% end %>
