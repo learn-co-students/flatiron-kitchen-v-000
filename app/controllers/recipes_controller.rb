@@ -7,14 +7,19 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    4.times {
+        @recipe.ingredients.build
+    }
+
   end
 
   def create
-    binding.pry
+
+
     @recipe = Recipe.new(recipe_params)
+
     if @recipe.save
-    
-      redirect_to ingredients_path
+      redirect_to recipes_path
     else
       redirect_to new_ingredient_path
     end
@@ -24,6 +29,12 @@ class RecipesController < ApplicationController
   end
 
   def update
+    
+    if @recipe.update(recipe_params)
+      redirect_to recipe_path(@recipe)
+    else
+      redirect_to edit_recipe_path(@recipe)
+    end
   end
 
   def show
@@ -36,6 +47,6 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:name, ingredient_ids: [])
+    params.require(:recipe).permit(:name, ingredient_ids: [], ingredients_attributes: [:name])
   end
 end

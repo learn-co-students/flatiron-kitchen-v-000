@@ -8,6 +8,13 @@
     <%= f.collection_check_boxes :ingredient_ids, Ingredient.all, :id, :name %>
   </p>
 
+  <!-- <p>
+    <%= f.fields_for :ingredients do |ingredient_builder| %>
+      <%= ingredient_builder.label :name %>
+      <%= ingredient_builder.text_field :name %>
+    <% end %>
+  </p> -->
+
 
   <%= f.submit %>
 <% end %>
