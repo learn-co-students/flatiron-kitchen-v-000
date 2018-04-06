@@ -1,0 +1,7 @@
+<h1><%= @recipe.name %></h1>
+<h2>Ingredients:</h2>
+<% @recipe.ingredients.each do |ingredient| %>
+  <%= ingredient.name %><br>
+<% end %>
+
+You can make <%= pluralize(@number_of_recipes, "#{@recipe.name}") %> with the ingredients on hand.
